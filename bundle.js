@@ -1,2 +1,1860 @@
-!function(n,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports["dootah-bundle"]=t():n["dootah-bundle"]=t()}(globalThis,()=>{return n={180:(n,t)=>{var r,i;"object"!=typeof globalThis&&(Object.defineProperty(Object.prototype,"__magic__",{get:function(){return this},configurable:!0}),__magic__.globalThis=__magic__,delete Object.prototype.__magic__),void 0===Math.imul&&(Math.imul=function(n,t){return(4294901760&n)*(65535&t)+(65535&n)*(0|t)|0}),void 0===ArrayBuffer.isView&&(ArrayBuffer.isView=function(n){return null!=n&&null!=n.__proto__&&n.__proto__.__proto__===Int8Array.prototype.__proto__}),void 0===(i="function"==typeof(r=function(n){"use strict";var t,r,i,e,u,o,f,c,a,s,l,h,_,v,p,g,d,w,y=Math.imul,b=ArrayBuffer.isView;function m(){}function x(){}function S(n,t,r,i,e,u,o){return t=t===s?", ":t,r=r===s?"":r,i=i===s?"":i,e=e===s?-1:e,u=u===s?"...":u,o=o===s?null:o,function(n,t,r,i,e,u,o,f){r=r===s?", ":r,i=i===s?"":i,e=e===s?"":e,u=u===s?-1:u,o=o===s?"...":o,f=f===s?null:f,t.d(i);var c=0,a=0,l=n.length;n:for(;a<l;){var h=n[a];if(a=a+1|0,(c=c+1|0)>1&&t.d(r),!(u<0||c<=u))break n;Et(t,h,f)}return u>=0&&c>u&&t.d(o),t.d(e),t}(n,gt(),t,r,i,e,u,o).toString()}function k(n,t,r,i,e,u,o){return t=t===s?", ":t,r=r===s?"":r,i=i===s?"":i,e=e===s?-1:e,u=u===s?"...":u,o=o===s?null:o,C(n,gt(),t,r,i,e,u,o).toString()}function C(n,t,r,i,e,u,o,f){r=r===s?", ":r,i=i===s?"":i,e=e===s?"":e,u=u===s?-1:u,o=o===s?"...":o,f=f===s?null:f,t.d(i);var c=0,a=n.e();n:for(;a.f();){var l=a.g();if((c=c+1|0)>1&&t.d(r),!(u<0||c<=u))break n;Et(t,l,f)}return u>=0&&c>u&&t.d(o),t.d(e),t}function A(n){var t=n.e();if(!t.f())return null==p&&new jt,p;var r=t.g();if(!t.f())return function(n){return new Vn([n])}(r);var i=Un();for(i.k(r);t.f();)i.k(t.g());return i}function j(n,t){if(!(t>=0))throw Qn(wn("Requested character count "+t+" is less than zero."));return function(n,t){return kt(),n.substring(t)}(n,function(n,t){return n>t?t:n}(t,n.length))}function O(n){return n}function E(n,t){return n-t|0}function N(n){return n}function M(n){return String.fromCharCode(n)}function z(){}function I(){}function B(n){return(null==n?null:wn(n))??"null"}function L(){t=this,this.n_1=new T(0,-2147483648),this.o_1=new T(-1,2147483647),this.p_1=8,this.q_1=64}function T(n,r){null==t&&new L,x.call(this),this.r_1=n,this.s_1=r}function R(){return cn(),r}function $(){return cn(),i}function q(){return cn(),e}function P(){return cn(),o}function U(){return cn(),f}function K(n,t){if(cn(),J(n,t))return 0;var r=F(n),i=F(t);return r&&!i?-1:!r&&i?1:F(G(n,t))?-1:1}function V(n){return cn(),n.r_1}function D(n){return cn(),4294967296*n.s_1+function(n){return cn(),n.r_1>=0?n.r_1:4294967296+n.r_1}(n)}function W(n,t){if(cn(),H(n))return"0";if(F(n)){if(J(n,P())){var r=Q(t),i=en(n,r),e=V(G(X(i,r),n));return W(i,t)+e.toString(t)}return"-"+W(Y(n),t)}for(var u=2===t?31:t<=10?9:t<=21?7:t<=35?6:5,o=Z(Math.pow(t,u)),f=n,c="";;){var a=en(f,o),s=V(G(f,X(a,o))).toString(t);if(H(f=a))return s+c;for(;s.length<u;)s="0"+s;c=s+c}}function J(n,t){return cn(),n.s_1===t.s_1&&n.r_1===t.r_1}function Q(n){return cn(),new T(n,n<0?-1:0)}function F(n){return cn(),n.s_1<0}function G(n,t){return cn(),nn(n,Y(t))}function H(n){return cn(),0===n.s_1&&0===n.r_1}function X(n,t){if(cn(),H(n))return R();if(H(t))return R();if(J(n,P()))return tn(t)?P():R();if(J(t,P()))return tn(n)?P():R();if(F(n))return F(t)?X(Y(n),Y(t)):Y(X(Y(n),t));if(F(t))return Y(X(n,Y(t)));if(rn(n,U())&&rn(t,U()))return Z(D(n)*D(t));var r=n.s_1>>>16|0,i=65535&n.s_1,e=n.r_1>>>16|0,u=65535&n.r_1,o=t.s_1>>>16|0,f=65535&t.s_1,c=t.r_1>>>16|0,a=65535&t.r_1,s=0,l=0,h=0,_=0;return h=h+((_=_+y(u,a)|0)>>>16|0)|0,_&=65535,l=(l=l+((h=h+y(e,a)|0)>>>16|0)|0)+((h=(h&=65535)+y(u,c)|0)>>>16|0)|0,h&=65535,s=(s=(s=s+((l=l+y(i,a)|0)>>>16|0)|0)+((l=(l&=65535)+y(e,c)|0)>>>16|0)|0)+((l=(l&=65535)+y(u,f)|0)>>>16|0)|0,l&=65535,s=s+(((y(r,a)+y(i,c)|0)+y(e,f)|0)+y(u,o)|0)|0,new T(h<<16|_,(s&=65535)<<16|l)}function Y(n){return cn(),nn(function(n){return cn(),new T(~n.r_1,~n.s_1)}(n),new T(1,0))}function Z(n){if(cn(),(t=n)!=t)return R();var t;if(n<=-0x8000000000000000)return P();if(n+1>=0x8000000000000000)return cn(),u;if(n<0)return Y(Z(-n));var r=4294967296;return new T(n%r|0,n/r|0)}function nn(n,t){cn();var r=n.s_1>>>16|0,i=65535&n.s_1,e=n.r_1>>>16|0,u=65535&n.r_1,o=t.s_1>>>16|0,f=65535&t.s_1,c=t.r_1>>>16|0,a=0,s=0,l=0,h=0;return a=(a=a+((s=(s=s+((l=(l=l+((h=h+(u+(65535&t.r_1)|0)|0)>>>16|0)|0)+(e+c|0)|0)>>>16|0)|0)+(i+f|0)|0)>>>16|0)|0)+(r+o|0)|0,new T((l&=65535)<<16|(h&=65535),(a&=65535)<<16|(s&=65535))}function tn(n){return cn(),!(1&~n.r_1)}function rn(n,t){return cn(),K(n,t)<0}function en(n,t){if(cn(),H(t))throw nt("division by zero");if(H(n))return R();if(J(n,P())){if(J(t,$())||J(t,q()))return P();if(J(t,P()))return $();var r=function(n,t){cn();var r=63&t;return 0===r?n:r<32?new T(n.r_1<<r,n.s_1<<r|n.r_1>>>(32-r|0)):new T(0,n.r_1<<(r-32|0))}(en(function(n,t){cn();var r=63&t;return 0===r?n:r<32?new T(n.r_1>>>r|n.s_1<<(32-r|0),n.s_1>>r):new T(n.s_1>>(r-32|0),n.s_1>=0?0:-1)}(n,1),t),1);return J(r,R())?F(t)?$():q():nn(r,en(G(n,X(t,r)),t))}if(J(t,P()))return R();if(F(n))return F(t)?en(Y(n),Y(t)):Y(en(Y(n),t));if(F(t))return Y(en(n,Y(t)));for(var i=R(),e=n;on(e,t);){for(var u=D(e)/D(t),o=Math.max(1,Math.floor(u)),f=Math.ceil(Math.log(o)/Math.LN2),c=f<=48?1:Math.pow(2,f-48),a=Z(o),s=X(a,t);F(s)||un(s,e);)s=X(a=Z(o-=c),t);H(a)&&(a=$()),i=nn(i,a),e=G(e,s)}return i}function un(n,t){return cn(),K(n,t)>0}function on(n,t){return cn(),K(n,t)>=0}function fn(n){return cn(),null!=n&&(t=n,cn(),Mn(t)&&"LongArray"===t.$type$);var t}function cn(){c||(c=!0,r=Q(0),i=Q(1),e=Q(-1),u=new T(-1,2147483647),o=new T(0,-2147483648),f=Q(16777216),new ht(Array,"LongArray",fn))}function an(n,t){return sn(n)?ln(n,t):n.b(t)}function sn(n){return"string"==typeof n}function ln(n,t){return n.charCodeAt(t)}function hn(n){return sn(n)?n.length:n.a()}function _n(n,t,r){return sn(n)?mt(n,t,r):n.c(t,r)}function vn(n){return wn(n)}function pn(n,t){var r;switch(typeof n){case"number":r="number"==typeof t?gn(n,t):t instanceof T?gn(n,D(t)):dn(n,t);break;case"string":case"boolean":case"bigint":r=dn(n,t);break;default:r=function(n,t){return n.u(t)}(n,t)}return r}function gn(n,t){var r;if(n<t)r=-1;else if(n>t)r=1;else if(n===t){var i;if(0!==n)i=0;else{var e=1/n;i=e===1/t?0:e<0?-1:1}r=i}else r=n!=n?t!=t?0:1:-1;return r}function dn(n,t){return n<t?-1:n>t?1:0}function wn(n){return null==n?"null":function(n){return Mn(n)||b(n)}(n)?"[...]":"function"!=typeof n.toString?function(n){return Object.prototype.toString.call(n)}(n):n.toString()}function yn(n){return n=n===s?null:n,Object.create(n)}function bn(n,t){null!=Error.captureStackTrace?Error.captureStackTrace(n,t):n.stack=(new Error).stack}function mn(n){return n.prototype}function xn(n){return n===s}function Sn(n,t,r){kn(n,"message",function(n,t){var r;if(xn(n)){r=xn(t)?n:(null==t?null:t.toString())??s}else r=n??s;return r}(t,r)),kn(n,"cause",r),kn(n,"name",Object.getPrototypeOf(n).constructor.name)}function kn(n,t,r){Object.defineProperty(n,t,{configurable:!0,writable:!0,value:r})}function Cn(){throw st()}function An(n,t,r,i,e,u,o,f){jn("class",n,t,r,i,e,u,o,f)}function jn(n,t,r,i,e,u,o,f,c){null!=e&&(t.prototype=Object.create(e.prototype),t.prototype.constructor=t);var l=function(n,t,r,i,e,u){return{kind:n,simpleName:t,associatedObjectKey:i,associatedObjects:e,suspendArity:u,$kClass$:s,defaultConstructor:r}}(n,r,i,f,c,o);t.$metadata$=l;var h=t.prototype;if(null!=u)for(var _=0,v=u.length;_<v;){var p=u[_];_=_+1|0,Object.assign(h,p.prototype),h[p.Symbol]=!0}"interface"===n&&(t.Symbol="#__interface_"+(a===s&&(a=0),a=a+1|0))}function On(n,t,r,i,e,u,o,f){jn("object",n,t,r,i,e,u,o,f)}function En(n,t,r,i,e,u,o,f){jn("interface",n,t,r,i,e,u,o,f)}function Nn(n,t,r,i){On(n,"Companion",s,t,r,i,s,s)}function Mn(n){return Array.isArray(n)}function zn(n,t){return!0===n[t.Symbol]}function In(n){return"string"==typeof n||zn(n,m)}function Bn(){}function Ln(n){return function(n){if(n.m())return[];for(var t=n.l(),r=Array(t),i=n.e(),e=0;i.f();){var u=e;e=u+1|0,r[u]=i.g()}return r}(n)}function Tn(n){return n<0&&function(){throw ot("Index overflow has happened.")}(),n}function Rn(){Ct.call(this)}function $n(n){this.y_1=n,this.w_1=0,this.x_1=-1}function qn(){Rn.call(this),this.a1_1=0}function Pn(){h=this;var n=Kn(0);n.j_1=!0,this.c1_1=n}function Un(){return n=yn(mn(Vn)),Vn.call(n,[]),n;var n}function Kn(n){return function(n,t){if(Vn.call(t,[]),!(n>=0))throw Qn(wn("Negative initial capacity: "+n));return t}(n,yn(mn(Vn)))}function Vn(n){null==h&&new Pn,qn.call(this),this.i_1=n,this.j_1=!1}function Dn(){var n,t=(Gn(n=yn(mn(Wn))),Wn.call(n),n);return bn(t,Dn),t}function Wn(){bn(this,Wn)}function Jn(){bn(this,Jn)}function Qn(n){var t=function(n,t){return Hn(n,t),Fn.call(t),t}(n,yn(mn(Fn)));return bn(t,Qn),t}function Fn(){bn(this,Fn)}function Gn(n){return Yn(n),Xn.call(n),n}function Hn(n,t){return Zn(n,t),Xn.call(t),t}function Xn(){bn(this,Xn)}function Yn(n){return Sn(n),tt.call(n),n}function Zn(n,t){return Sn(t,n),tt.call(t),t}function nt(n){var t=Zn(n,yn(mn(tt)));return bn(t,nt),t}function tt(){bn(this,tt)}function rt(){var n,t=(Gn(n=yn(mn(it))),it.call(n),n);return bn(t,rt),t}function it(){bn(this,it)}function et(n){var t=function(n,t){return Hn(n,t),ut.call(t),t}(n,yn(mn(ut)));return bn(t,et),t}function ut(){bn(this,ut)}function ot(n){var t=function(n,t){return Hn(n,t),ft.call(t),t}(n,yn(mn(ft)));return bn(t,ot),t}function ft(){bn(this,ft)}function ct(){var n,t=(Gn(n=yn(mn(at))),at.call(n),n);return bn(t,ct),t}function at(){bn(this,at)}function st(){var n,t=(Gn(n=yn(mn(lt))),lt.call(n),n);return bn(t,st),t}function lt(){bn(this,lt)}function ht(n,t,r){_t.call(this),this.j1_1=n,this.k1_1=t,this.l1_1=r}function _t(){}function vt(n){return pt(t=yn(mn(dt))),t;var t}function pt(n){return dt.call(n,""),n}function gt(){return pt(yn(mn(dt)))}function dt(n){this.n1_1=n}function wt(n){var t=M(n).toUpperCase();return t.length>1?n:ln(t,0)}function yt(n){return function(n){return 9<=n&&n<=13||28<=n&&n<=32||160===n||n>4096&&(5760===n||8192<=n&&n<=8202||8232===n||8233===n||8239===n||8287===n||12288===n)}(n)}function bt(n,t){return n.toString(function(n){if(!(2<=n&&n<=36))throw Qn("radix "+n+" was not in valid range 2..36");return n}(t))}function mt(n,t,r){return kt(),n.substring(t,r)}function xt(n){this.q1_1=n}function St(n,t){return kt(),function(n,t,r){if(r=r!==s&&r,kt(),r){var i=n.length,e=t.length,u=Math.min(i,e);if(0===u)return i-e|0;var o=0;if(o<u)do{var f=o;o=o+1|0;var c=ln(n,f),a=ln(t,f);if(c!==a&&(c=wt(c))!==(a=wt(a))&&(c=ln(M(c).toLowerCase(),0))!==(a=ln(M(a).toLowerCase(),0)))return E(c,a)}while(o<u);return i-e|0}return pn(n,t)}(n,t,!0)}function kt(){_||(_=!0,new xt(St))}function Ct(){}function At(){this.d1_1=2147483639}function jt(){p=this,this.s1_1=new T(-1478467534,-1720727600)}function Ot(){}function Et(n,t,r){null!=r?n.d(r(t)):null==t||In(t)?n.d(t):t instanceof z?n.o1(t.t1_1):n.d(wn(t))}function Nt(n){return function(n,t){t=t===s?"":t;for(var r=function(n){return A(function(n){return new Rt(n)}(n))}(n),i=Un(),e=r.e();e.f();){var u=e.g();Bt(u)||i.k(u)}for(var o=Kn(function(n,t){return zn(n,I)?n.l():t}(i,10)),f=i.e();f.f();){var c=Mt(f.g());o.k(c)}for(var a=function(n){var t=n.e();if(!t.f())return null;for(var r=t.g();t.f();){var i=t.g();pn(r,i)>0&&(r=i)}return r}(o)??0,l=(n.length,y(t.length,r.l()),function(n){return 0===hn(n)?zt:(t=n,function(n){return t+n});var t}(t)),h=function(n){return n.l()-1|0}(r),_=Un(),v=0,p=r.e();p.f();){var g=p.g(),d=v;v=d+1|0;var w,b=Tn(d);if(0!==b&&b!==h||!Bt(g)){var m=j(g,a);w=(null==m?null:l(m))??g}else w=null;var x=w;null==x||_.k(x)}return C(_,vt(),"\n").toString()}(n,"")}function Mt(n){var t;n:{var r=0,i=hn(n)-1|0;if(r<=i)do{var e=r;if(r=r+1|0,!yt(an(n,e))){t=e;break n}}while(r<=i);t=-1}var u=t;return-1===u?n.length:u}function zt(n){return n}function It(n,t,r){return r=r===s?32:r,wn(function(n,t,r){if(r=r===s?32:r,t<0)throw Qn("Desired length "+t+" is less than zero.");if(t<=hn(n))return _n(n,0,hn(n));var i=vt(),e=1,u=t-hn(n)|0;if(e<=u)do{var o=e;e=e+1|0,i.o1(r)}while(o!==u);return i.d(n),i}(In(n)?n:Cn(),t,r))}function Bt(n){var t;n:{for(var r=0;r<hn(n);){var i=an(n,r);if(r=r+1|0,!yt(i)){t=!1;break n}}t=!0}return t}function Lt(){this.u1_1=0,this.v1_1=1,this.w1_1=2}function Tt(n){this.x1_1=n,this.y1_1=0,this.z1_1=0,this.a2_1=0,this.b2_1=0}function Rt(n){this.c2_1=n}function $t(){return Ft((n=Ut,t=new Ht,n(t),new Wt(t.f2_1)));var n,t}function qt(n){switch(n){case"increment":d=d+1|0;break;case"decrement":d>1&&(d=d-1|0);break;case"buy":w.d2("Checkout started for Rs "+Pt()),w.e2("Paying Rs "+Pt())}return $t()}function Pt(){var n=y(d,899);return d>=3?n-(y(n,10)/100|0)|0:n}function Ut(n){return n.g2("🚀 Cahier OTA Works"),n.g2("Served by Dootah bundle v1"),n.g2("Unit price: Rs 899"),n.g2("Quantity: "+d),n.g2("Total: Rs "+Pt()),d>=3?n.g2("Bulk discount applied: 10% off"):n.g2("Add 3 or more for a bulk discount"),n.h2("Add item","increment"),n.h2("Remove item","decrement"),n.h2("Buy for Rs "+Pt(),"buy"),l}function Kt(){}function Vt(n){for(var t=vt(n.length),r=0,i=n.length;r<i;){var e=ln(n,r);r=r+1|0,e===O(92)?t.p1("\\\\"):e===O(34)?t.p1('\\"'):e===O(10)?t.p1("\\n"):e===O(13)?t.p1("\\r"):e===O(9)?t.p1("\\t"):e===O(8)?t.p1("\\b"):N(e)<32?Dt(t,e):8232===N(e)?t.p1("\\u2028"):8233===N(e)?t.p1("\\u2029"):t.o1(e)}return t.toString()}function Dt(n,t){n.p1("\\u");var r=t;n.p1(It(bt(r,16),4,48))}function Wt(n){this.i2_1=n}function Jt(n){this.j2_1=n}function Qt(n,t){this.k2_1=n,this.l2_1=t}function Ft(n){var t;return n instanceof Wt?t=Nt('\n            {\n                "type":"column",\n                "children":[\n                    '+k(n.i2_1,",",s,s,s,s,Gt)+"\n                ]\n            }\n            "):n instanceof Jt?t=Nt('\n            {\n                "type":"text",\n                "text":"'+Vt(n.j2_1)+'"\n            }\n            '):n instanceof Qt?t=Nt('\n            {\n                "type":"button",\n                "text":"'+Vt(n.k2_1)+'",\n                "action":"'+Vt(n.l2_1)+'"\n            }\n            '):function(){throw ct()}(),t}function Gt(n){return Ft(n)}function Ht(){this.f2_1=Un()}return En(m,"CharSequence"),An(x,"Number"),An(z,"Char"),En(I,"Collection"),Nn(L),An(T,"Long",s,x),On(Bn,"Unit"),An(Ct,"AbstractCollection",s,s,[I]),An(Rn,"AbstractMutableCollection",s,Ct,[I]),An($n,"IteratorImpl"),An(qn,"AbstractMutableList",s,Rn,[I]),Nn(Pn),An(Vn,"ArrayList",Un,qn,[I]),An(tt,"Exception",function n(){var t=Yn(yn(mn(tt)));return bn(t,n),t},Error),An(Xn,"RuntimeException",function n(){var t=Gn(yn(mn(Xn)));return bn(t,n),t},tt),An(Wn,"UnsupportedOperationException",Dn,Xn),An(Jn,"IllegalStateException",function n(){var t,r=(Gn(t=yn(mn(Jn))),Jn.call(t),t);return bn(r,n),r},Xn),An(Fn,"IllegalArgumentException",function n(){var t,r=(Gn(t=yn(mn(Fn))),Fn.call(t),t);return bn(r,n),r},Xn),An(it,"NoSuchElementException",rt,Xn),An(ut,"IndexOutOfBoundsException",function n(){var t,r=(Gn(t=yn(mn(ut))),ut.call(t),t);return bn(r,n),r},Xn),An(ft,"ArithmeticException",function n(){var t,r=(Gn(t=yn(mn(ft))),ft.call(t),t);return bn(r,n),r},Xn),An(at,"NoWhenBranchMatchedException",ct,Xn),An(lt,"ClassCastException",st,Xn),An(_t,"KClassImpl"),An(ht,"PrimitiveKClassImpl",s,_t),An(dt,"StringBuilder",gt,s,[m]),An(xt,"sam$kotlin_Comparator$0"),Nn(At),On(jt,"EmptyList",s,s,[I]),On(Ot,"EmptyIterator"),On(Lt,"State"),An(Tt,"LinesIterator"),An(Rt),On(Kt,"Native"),An(Wt,"ColumnNode"),An(Jt,"TextNode"),An(Qt,"ButtonNode"),An(Ht,"ColumnScope",Ht),mn(T).t=function(n){return K(this,n)},mn(T).u=function(n){return this.t(n instanceof T?n:Cn())},mn(T).toString=function(){return W(this,10)},mn(T).valueOf=function(){return D(this)},mn(Bn).toString=function(){return"kotlin.Unit"},mn(Rn).toJSON=function(){return this.toArray()},mn(Rn).v=function(){},mn($n).f=function(){return this.w_1<this.y_1.l()},mn($n).g=function(){if(!this.f())throw rt();var n=this.w_1;return this.w_1=n+1|0,this.x_1=n,this.y_1.z(this.x_1)},mn(qn).k=function(n){return this.v(),this.b1(this.l(),n),!0},mn(qn).e=function(){return new $n(this)},mn(Vn).l=function(){return this.i_1.length},mn(Vn).z=function(n){return this.i_1[function(n,t){return v.e1(t,n.l()),t}(this,n)]},mn(Vn).k=function(n){return this.v(),this.i_1.push(n),this.a1_1=this.a1_1+1|0,!0},mn(Vn).b1=function(n,t){this.v(),this.i_1.splice(function(n,t){return v.f1(t,n.l()),t}(this,n),0,t),this.a1_1=this.a1_1+1|0},mn(Vn).toString=function(){return S(this.i_1,", ","[","]",s,s,vn)},mn(Vn).g1=function(){return[].slice.call(this.i_1)},mn(Vn).toArray=function(){return this.g1()},mn(Vn).v=function(){if(this.j_1)throw Dn()},mn(ht).m1=function(){return this.k1_1},mn(_t).toString=function(){return"class "+this.m1()},mn(dt).a=function(){return this.n1_1.length},mn(dt).b=function(n){var t=this.n1_1;if(!(0<=n&&n<=(hn(t)-1|0)))throw et("index: "+n+", length: "+this.a()+"}");return an(t,n)},mn(dt).c=function(n,t){return mt(this.n1_1,n,t)},mn(dt).o1=function(n){return this.n1_1=this.n1_1+M(n),this},mn(dt).d=function(n){return this.n1_1=this.n1_1+B(n),this},mn(dt).p1=function(n){var t=this.n1_1;return this.n1_1=t+(n??"null"),this},mn(dt).toString=function(){return this.n1_1},mn(xt).r1=function(n,t){return this.q1_1(n,t)},mn(xt).compare=function(n,t){return this.r1(n,t)},mn(Ct).m=function(){return 0===this.l()},mn(Ct).toString=function(){return k(this,", ","[","]",s,s,(n=this,function(t){return t===n?"(this Collection)":B(t)}));var n},mn(Ct).toArray=function(){return Ln(this)},mn(At).e1=function(n,t){if(n<0||n>=t)throw et("index: "+n+", size: "+t)},mn(At).f1=function(n,t){if(n<0||n>t)throw et("index: "+n+", size: "+t)},mn(jt).toString=function(){return"[]"},mn(jt).l=function(){return 0},mn(jt).m=function(){return!0},mn(jt).e=function(){return g},mn(Ot).f=function(){return!1},mn(Ot).g=function(){throw rt()},mn(Tt).f=function(){if(0!==this.y1_1)return 1===this.y1_1;if(this.b2_1<0)return this.y1_1=2,!1;var n=-1,t=hn(this.x1_1),r=this.z1_1,i=hn(this.x1_1);if(r<i)n:do{var e=r;r=r+1|0;var u=an(this.x1_1,e);if(u===O(10)||u===O(13)){n=u===O(13)&&(e+1|0)<hn(this.x1_1)&&an(this.x1_1,e+1|0)===O(10)?2:1,t=e;break n}}while(r<i);return this.y1_1=1,this.b2_1=n,this.a2_1=t,!0},mn(Tt).g=function(){if(!this.f())throw rt();this.y1_1=0;var n=this.a2_1,t=this.z1_1;return this.z1_1=this.a2_1+this.b2_1|0,wn(_n(this.x1_1,t,n))},mn(Rt).e=function(){return new Tt(this.c2_1)},mn(Kt).e2=function(n){__dootahNativeCall(Nt('\n            {\n                "type":"toast",\n                "message":"'+Vt(n)+'"\n            }\n            '))},mn(Kt).d2=function(n){__dootahNativeCall(Nt('\n            {\n                "type":"log",\n                "message":"'+Vt(n)+'"\n            }\n            '))},mn(Wt).toString=function(){return"ColumnNode(children="+wn(this.i2_1)+")"},mn(Jt).toString=function(){return"TextNode(text="+this.j2_1+")"},mn(Qt).toString=function(){return"ButtonNode(text="+this.k2_1+", action="+this.l2_1+")"},mn(Ht).g2=function(n){this.f2_1.k(new Jt(n))},mn(Ht).h2=function(n,t){this.f2_1.k(new Qt(n,t))},l=new Bn,v=new At,g=new Ot,new Lt,d=1,w=new Kt,function(n){n.renderScreen=$t,n.handleAction=qt}(n),n})?r.apply(t,[t]):r)||(n.exports=i)}},t={},function r(i){var e=t[i];if(void 0!==e)return e.exports;var u=t[i]={exports:{}};return n[i](u,u.exports,r),u.exports}(180);var n,t});
-//# sourceMappingURL=dootah-bundle.js.map
+//region block: polyfills
+(function () {
+  if (typeof globalThis === 'object')
+    return;
+  Object.defineProperty(Object.prototype, '__magic__', {get: function () {
+    return this;
+  }, configurable: true});
+  __magic__.globalThis = __magic__;
+  delete Object.prototype.__magic__;
+}());
+if (typeof Math.imul === 'undefined') {
+  Math.imul = function imul(a, b) {
+    return (a & 4.29490176E9) * (b & 65535) + (a & 65535) * (b | 0) | 0;
+  };
+}
+if (typeof ArrayBuffer.isView === 'undefined') {
+  ArrayBuffer.isView = function (a) {
+    return a != null && a.__proto__ != null && a.__proto__.__proto__ === Int8Array.prototype.__proto__;
+  };
+}
+//endregion
+(function (factory) {
+  if (typeof define === 'function' && define.amd)
+    define(['exports'], factory);
+  else if (typeof exports === 'object')
+    factory(module.exports);
+  else
+    globalThis['dootah-bundle'] = factory(typeof globalThis['dootah-bundle'] === 'undefined' ? {} : globalThis['dootah-bundle']);
+}(function (_) {
+  'use strict';
+  //region block: imports
+  var imul = Math.imul;
+  var isView = ArrayBuffer.isView;
+  //endregion
+  //region block: pre-declaration
+  initMetadataForInterface(CharSequence, 'CharSequence');
+  initMetadataForClass(Number_0, 'Number');
+  initMetadataForClass(Char, 'Char');
+  initMetadataForInterface(Collection, 'Collection');
+  initMetadataForCompanion(Companion);
+  initMetadataForClass(Long, 'Long', VOID, Number_0);
+  initMetadataForObject(Unit, 'Unit');
+  initMetadataForClass(AbstractCollection, 'AbstractCollection', VOID, VOID, [Collection]);
+  initMetadataForClass(AbstractMutableCollection, 'AbstractMutableCollection', VOID, AbstractCollection, [Collection]);
+  initMetadataForClass(IteratorImpl, 'IteratorImpl');
+  initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [Collection]);
+  initMetadataForCompanion(Companion_0);
+  initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [Collection]);
+  initMetadataForClass(Exception, 'Exception', Exception_init_$Create$, Error);
+  initMetadataForClass(RuntimeException, 'RuntimeException', RuntimeException_init_$Create$, Exception);
+  initMetadataForClass(UnsupportedOperationException, 'UnsupportedOperationException', UnsupportedOperationException_init_$Create$, RuntimeException);
+  initMetadataForClass(IllegalStateException, 'IllegalStateException', IllegalStateException_init_$Create$, RuntimeException);
+  initMetadataForClass(IllegalArgumentException, 'IllegalArgumentException', IllegalArgumentException_init_$Create$, RuntimeException);
+  initMetadataForClass(NoSuchElementException, 'NoSuchElementException', NoSuchElementException_init_$Create$, RuntimeException);
+  initMetadataForClass(IndexOutOfBoundsException, 'IndexOutOfBoundsException', IndexOutOfBoundsException_init_$Create$, RuntimeException);
+  initMetadataForClass(ArithmeticException, 'ArithmeticException', ArithmeticException_init_$Create$, RuntimeException);
+  initMetadataForClass(NoWhenBranchMatchedException, 'NoWhenBranchMatchedException', NoWhenBranchMatchedException_init_$Create$, RuntimeException);
+  initMetadataForClass(ClassCastException, 'ClassCastException', ClassCastException_init_$Create$, RuntimeException);
+  initMetadataForClass(KClassImpl, 'KClassImpl');
+  initMetadataForClass(PrimitiveKClassImpl, 'PrimitiveKClassImpl', VOID, KClassImpl);
+  initMetadataForClass(StringBuilder, 'StringBuilder', StringBuilder_init_$Create$_0, VOID, [CharSequence]);
+  initMetadataForClass(sam$kotlin_Comparator$0, 'sam$kotlin_Comparator$0');
+  initMetadataForCompanion(Companion_1);
+  initMetadataForObject(EmptyList, 'EmptyList', VOID, VOID, [Collection]);
+  initMetadataForObject(EmptyIterator, 'EmptyIterator');
+  initMetadataForObject(State, 'State');
+  initMetadataForClass(LinesIterator, 'LinesIterator');
+  initMetadataForClass(lineSequence$$inlined$Sequence$1);
+  initMetadataForClass(ColumnNode, 'ColumnNode');
+  initMetadataForClass(TextNode, 'TextNode');
+  initMetadataForClass(ButtonNode, 'ButtonNode');
+  initMetadataForClass(ColumnScope, 'ColumnScope', ColumnScope);
+  initMetadataForObject(DootahScreen_com_example_cahier_OfferScreen, 'DootahScreen_com_example_cahier_OfferScreen');
+  //endregion
+  function CharSequence() {
+  }
+  function Number_0() {
+  }
+  function joinToString(_this__u8e3s4, separator, prefix, postfix, limit, truncated, transform) {
+    separator = separator === VOID ? ', ' : separator;
+    prefix = prefix === VOID ? '' : prefix;
+    postfix = postfix === VOID ? '' : postfix;
+    limit = limit === VOID ? -1 : limit;
+    truncated = truncated === VOID ? '...' : truncated;
+    transform = transform === VOID ? null : transform;
+    return joinTo(_this__u8e3s4, StringBuilder_init_$Create$_0(), separator, prefix, postfix, limit, truncated, transform).toString();
+  }
+  function joinTo(_this__u8e3s4, buffer, separator, prefix, postfix, limit, truncated, transform) {
+    separator = separator === VOID ? ', ' : separator;
+    prefix = prefix === VOID ? '' : prefix;
+    postfix = postfix === VOID ? '' : postfix;
+    limit = limit === VOID ? -1 : limit;
+    truncated = truncated === VOID ? '...' : truncated;
+    transform = transform === VOID ? null : transform;
+    buffer.d(prefix);
+    var count = 0;
+    var inductionVariable = 0;
+    var last = _this__u8e3s4.length;
+    $l$loop: while (inductionVariable < last) {
+      var element = _this__u8e3s4[inductionVariable];
+      inductionVariable = inductionVariable + 1 | 0;
+      count = count + 1 | 0;
+      if (count > 1) {
+        buffer.d(separator);
+      }
+      if (limit < 0 || count <= limit) {
+        appendElement(buffer, element, transform);
+      } else
+        break $l$loop;
+    }
+    if (limit >= 0 && count > limit) {
+      buffer.d(truncated);
+    }
+    buffer.d(postfix);
+    return buffer;
+  }
+  function joinToString_0(_this__u8e3s4, separator, prefix, postfix, limit, truncated, transform) {
+    separator = separator === VOID ? ', ' : separator;
+    prefix = prefix === VOID ? '' : prefix;
+    postfix = postfix === VOID ? '' : postfix;
+    limit = limit === VOID ? -1 : limit;
+    truncated = truncated === VOID ? '...' : truncated;
+    transform = transform === VOID ? null : transform;
+    return joinTo_0(_this__u8e3s4, StringBuilder_init_$Create$_0(), separator, prefix, postfix, limit, truncated, transform).toString();
+  }
+  function joinTo_0(_this__u8e3s4, buffer, separator, prefix, postfix, limit, truncated, transform) {
+    separator = separator === VOID ? ', ' : separator;
+    prefix = prefix === VOID ? '' : prefix;
+    postfix = postfix === VOID ? '' : postfix;
+    limit = limit === VOID ? -1 : limit;
+    truncated = truncated === VOID ? '...' : truncated;
+    transform = transform === VOID ? null : transform;
+    buffer.d(prefix);
+    var count = 0;
+    var _iterator__ex2g4s = _this__u8e3s4.e();
+    $l$loop: while (_iterator__ex2g4s.f()) {
+      var element = _iterator__ex2g4s.g();
+      count = count + 1 | 0;
+      if (count > 1) {
+        buffer.d(separator);
+      }
+      if (limit < 0 || count <= limit) {
+        appendElement(buffer, element, transform);
+      } else
+        break $l$loop;
+    }
+    if (limit >= 0 && count > limit) {
+      buffer.d(truncated);
+    }
+    buffer.d(postfix);
+    return buffer;
+  }
+  function minOrNull(_this__u8e3s4) {
+    var iterator = _this__u8e3s4.e();
+    if (!iterator.f())
+      return null;
+    var min = iterator.g();
+    while (iterator.f()) {
+      var e = iterator.g();
+      if (compareTo(min, e) > 0)
+        min = e;
+    }
+    return min;
+  }
+  function coerceAtMost(_this__u8e3s4, maximumValue) {
+    return _this__u8e3s4 > maximumValue ? maximumValue : _this__u8e3s4;
+  }
+  function toList(_this__u8e3s4) {
+    var it = _this__u8e3s4.e();
+    if (!it.f())
+      return emptyList();
+    var element = it.g();
+    if (!it.f())
+      return listOf(element);
+    var dst = ArrayList_init_$Create$();
+    dst.k(element);
+    while (it.f()) {
+      dst.k(it.g());
+    }
+    return dst;
+  }
+  function drop(_this__u8e3s4, n) {
+    // Inline function 'kotlin.require' call
+    if (!(n >= 0)) {
+      var message = 'Requested character count ' + n + ' is less than zero.';
+      throw IllegalArgumentException_init_$Create$_0(toString_1(message));
+    }
+    return substring_0(_this__u8e3s4, coerceAtMost(n, _this__u8e3s4.length));
+  }
+  function _Char___init__impl__6a9atx(value) {
+    return value;
+  }
+  function _get_value__a43j40($this) {
+    return $this;
+  }
+  function Char__compareTo_impl_ypi4mb($this, other) {
+    return _get_value__a43j40($this) - _get_value__a43j40(other) | 0;
+  }
+  function Char__toInt_impl_vasixd($this) {
+    return _get_value__a43j40($this);
+  }
+  function toString($this) {
+    // Inline function 'kotlin.js.unsafeCast' call
+    return String.fromCharCode(_get_value__a43j40($this));
+  }
+  function Char() {
+  }
+  function Collection() {
+  }
+  function toString_0(_this__u8e3s4) {
+    var tmp1_elvis_lhs = _this__u8e3s4 == null ? null : toString_1(_this__u8e3s4);
+    return tmp1_elvis_lhs == null ? 'null' : tmp1_elvis_lhs;
+  }
+  function Companion() {
+    Companion_instance = this;
+    this.n_1 = new Long(0, -2147483648);
+    this.o_1 = new Long(-1, 2147483647);
+    this.p_1 = 8;
+    this.q_1 = 64;
+  }
+  var Companion_instance;
+  function Companion_getInstance() {
+    if (Companion_instance == null)
+      new Companion();
+    return Companion_instance;
+  }
+  function Long(low, high) {
+    Companion_getInstance();
+    Number_0.call(this);
+    this.r_1 = low;
+    this.s_1 = high;
+  }
+  protoOf(Long).t = function (other) {
+    return compare(this, other);
+  };
+  protoOf(Long).u = function (other) {
+    return this.t(other instanceof Long ? other : THROW_CCE());
+  };
+  protoOf(Long).toString = function () {
+    return toStringImpl(this, 10);
+  };
+  protoOf(Long).valueOf = function () {
+    return toNumber(this);
+  };
+  function get_ZERO() {
+    _init_properties_boxedLong_kt__v24qrw();
+    return ZERO;
+  }
+  var ZERO;
+  function get_ONE() {
+    _init_properties_boxedLong_kt__v24qrw();
+    return ONE;
+  }
+  var ONE;
+  function get_NEG_ONE() {
+    _init_properties_boxedLong_kt__v24qrw();
+    return NEG_ONE;
+  }
+  var NEG_ONE;
+  function get_MAX_VALUE() {
+    _init_properties_boxedLong_kt__v24qrw();
+    return MAX_VALUE;
+  }
+  var MAX_VALUE;
+  function get_MIN_VALUE() {
+    _init_properties_boxedLong_kt__v24qrw();
+    return MIN_VALUE;
+  }
+  var MIN_VALUE;
+  function get_TWO_PWR_24_() {
+    _init_properties_boxedLong_kt__v24qrw();
+    return TWO_PWR_24_;
+  }
+  var TWO_PWR_24_;
+  var longArrayClass;
+  function compare(_this__u8e3s4, other) {
+    _init_properties_boxedLong_kt__v24qrw();
+    if (equalsLong(_this__u8e3s4, other)) {
+      return 0;
+    }
+    var thisNeg = isNegative(_this__u8e3s4);
+    var otherNeg = isNegative(other);
+    return thisNeg && !otherNeg ? -1 : !thisNeg && otherNeg ? 1 : isNegative(subtract(_this__u8e3s4, other)) ? -1 : 1;
+  }
+  function convertToInt(_this__u8e3s4) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return _this__u8e3s4.r_1;
+  }
+  function toNumber(_this__u8e3s4) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return _this__u8e3s4.s_1 * 4.294967296E9 + getLowBitsUnsigned(_this__u8e3s4);
+  }
+  function toStringImpl(_this__u8e3s4, radix) {
+    _init_properties_boxedLong_kt__v24qrw();
+    if (isZero(_this__u8e3s4)) {
+      return '0';
+    }
+    if (isNegative(_this__u8e3s4)) {
+      if (equalsLong(_this__u8e3s4, get_MIN_VALUE())) {
+        var radixLong = fromInt(radix);
+        var div = divide(_this__u8e3s4, radixLong);
+        var rem = convertToInt(subtract(multiply(div, radixLong), _this__u8e3s4));
+        var tmp = toStringImpl(div, radix);
+        // Inline function 'kotlin.js.asDynamic' call
+        // Inline function 'kotlin.js.unsafeCast' call
+        return tmp + rem.toString(radix);
+      } else {
+        return '-' + toStringImpl(negate(_this__u8e3s4), radix);
+      }
+    }
+    var digitsPerTime = radix === 2 ? 31 : radix <= 10 ? 9 : radix <= 21 ? 7 : radix <= 35 ? 6 : 5;
+    var radixToPower = fromNumber(Math.pow(radix, digitsPerTime));
+    var rem_0 = _this__u8e3s4;
+    var result = '';
+    while (true) {
+      var remDiv = divide(rem_0, radixToPower);
+      var intval = convertToInt(subtract(rem_0, multiply(remDiv, radixToPower)));
+      // Inline function 'kotlin.js.asDynamic' call
+      // Inline function 'kotlin.js.unsafeCast' call
+      var digits = intval.toString(radix);
+      rem_0 = remDiv;
+      if (isZero(rem_0)) {
+        return digits + result;
+      } else {
+        while (digits.length < digitsPerTime) {
+          digits = '0' + digits;
+        }
+        result = digits + result;
+      }
+    }
+  }
+  function equalsLong(_this__u8e3s4, other) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return _this__u8e3s4.s_1 === other.s_1 && _this__u8e3s4.r_1 === other.r_1;
+  }
+  function fromInt(value) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return new Long(value, value < 0 ? -1 : 0);
+  }
+  function isNegative(_this__u8e3s4) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return _this__u8e3s4.s_1 < 0;
+  }
+  function subtract(_this__u8e3s4, other) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return add(_this__u8e3s4, negate(other));
+  }
+  function getLowBitsUnsigned(_this__u8e3s4) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return _this__u8e3s4.r_1 >= 0 ? _this__u8e3s4.r_1 : 4.294967296E9 + _this__u8e3s4.r_1;
+  }
+  function isZero(_this__u8e3s4) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return _this__u8e3s4.s_1 === 0 && _this__u8e3s4.r_1 === 0;
+  }
+  function multiply(_this__u8e3s4, other) {
+    _init_properties_boxedLong_kt__v24qrw();
+    if (isZero(_this__u8e3s4)) {
+      return get_ZERO();
+    } else if (isZero(other)) {
+      return get_ZERO();
+    }
+    if (equalsLong(_this__u8e3s4, get_MIN_VALUE())) {
+      return isOdd(other) ? get_MIN_VALUE() : get_ZERO();
+    } else if (equalsLong(other, get_MIN_VALUE())) {
+      return isOdd(_this__u8e3s4) ? get_MIN_VALUE() : get_ZERO();
+    }
+    if (isNegative(_this__u8e3s4)) {
+      var tmp;
+      if (isNegative(other)) {
+        tmp = multiply(negate(_this__u8e3s4), negate(other));
+      } else {
+        tmp = negate(multiply(negate(_this__u8e3s4), other));
+      }
+      return tmp;
+    } else if (isNegative(other)) {
+      return negate(multiply(_this__u8e3s4, negate(other)));
+    }
+    if (lessThan(_this__u8e3s4, get_TWO_PWR_24_()) && lessThan(other, get_TWO_PWR_24_())) {
+      return fromNumber(toNumber(_this__u8e3s4) * toNumber(other));
+    }
+    var a48 = _this__u8e3s4.s_1 >>> 16 | 0;
+    var a32 = _this__u8e3s4.s_1 & 65535;
+    var a16 = _this__u8e3s4.r_1 >>> 16 | 0;
+    var a00 = _this__u8e3s4.r_1 & 65535;
+    var b48 = other.s_1 >>> 16 | 0;
+    var b32 = other.s_1 & 65535;
+    var b16 = other.r_1 >>> 16 | 0;
+    var b00 = other.r_1 & 65535;
+    var c48 = 0;
+    var c32 = 0;
+    var c16 = 0;
+    var c00 = 0;
+    c00 = c00 + imul(a00, b00) | 0;
+    c16 = c16 + (c00 >>> 16 | 0) | 0;
+    c00 = c00 & 65535;
+    c16 = c16 + imul(a16, b00) | 0;
+    c32 = c32 + (c16 >>> 16 | 0) | 0;
+    c16 = c16 & 65535;
+    c16 = c16 + imul(a00, b16) | 0;
+    c32 = c32 + (c16 >>> 16 | 0) | 0;
+    c16 = c16 & 65535;
+    c32 = c32 + imul(a32, b00) | 0;
+    c48 = c48 + (c32 >>> 16 | 0) | 0;
+    c32 = c32 & 65535;
+    c32 = c32 + imul(a16, b16) | 0;
+    c48 = c48 + (c32 >>> 16 | 0) | 0;
+    c32 = c32 & 65535;
+    c32 = c32 + imul(a00, b32) | 0;
+    c48 = c48 + (c32 >>> 16 | 0) | 0;
+    c32 = c32 & 65535;
+    c48 = c48 + (((imul(a48, b00) + imul(a32, b16) | 0) + imul(a16, b32) | 0) + imul(a00, b48) | 0) | 0;
+    c48 = c48 & 65535;
+    return new Long(c16 << 16 | c00, c48 << 16 | c32);
+  }
+  function negate(_this__u8e3s4) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return add(invert(_this__u8e3s4), new Long(1, 0));
+  }
+  function fromNumber(value) {
+    _init_properties_boxedLong_kt__v24qrw();
+    if (isNaN_0(value)) {
+      return get_ZERO();
+    } else if (value <= -9.223372036854776E18) {
+      return get_MIN_VALUE();
+    } else if (value + 1 >= 9.223372036854776E18) {
+      return get_MAX_VALUE();
+    } else if (value < 0) {
+      return negate(fromNumber(-value));
+    } else {
+      var twoPwr32 = 4.294967296E9;
+      // Inline function 'kotlin.js.jsBitwiseOr' call
+      var tmp = value % twoPwr32 | 0;
+      // Inline function 'kotlin.js.jsBitwiseOr' call
+      var tmp$ret$1 = value / twoPwr32 | 0;
+      return new Long(tmp, tmp$ret$1);
+    }
+  }
+  function add(_this__u8e3s4, other) {
+    _init_properties_boxedLong_kt__v24qrw();
+    var a48 = _this__u8e3s4.s_1 >>> 16 | 0;
+    var a32 = _this__u8e3s4.s_1 & 65535;
+    var a16 = _this__u8e3s4.r_1 >>> 16 | 0;
+    var a00 = _this__u8e3s4.r_1 & 65535;
+    var b48 = other.s_1 >>> 16 | 0;
+    var b32 = other.s_1 & 65535;
+    var b16 = other.r_1 >>> 16 | 0;
+    var b00 = other.r_1 & 65535;
+    var c48 = 0;
+    var c32 = 0;
+    var c16 = 0;
+    var c00 = 0;
+    c00 = c00 + (a00 + b00 | 0) | 0;
+    c16 = c16 + (c00 >>> 16 | 0) | 0;
+    c00 = c00 & 65535;
+    c16 = c16 + (a16 + b16 | 0) | 0;
+    c32 = c32 + (c16 >>> 16 | 0) | 0;
+    c16 = c16 & 65535;
+    c32 = c32 + (a32 + b32 | 0) | 0;
+    c48 = c48 + (c32 >>> 16 | 0) | 0;
+    c32 = c32 & 65535;
+    c48 = c48 + (a48 + b48 | 0) | 0;
+    c48 = c48 & 65535;
+    return new Long(c16 << 16 | c00, c48 << 16 | c32);
+  }
+  function isOdd(_this__u8e3s4) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return (_this__u8e3s4.r_1 & 1) === 1;
+  }
+  function lessThan(_this__u8e3s4, other) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return compare(_this__u8e3s4, other) < 0;
+  }
+  function invert(_this__u8e3s4) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return new Long(~_this__u8e3s4.r_1, ~_this__u8e3s4.s_1);
+  }
+  function divide(_this__u8e3s4, other) {
+    _init_properties_boxedLong_kt__v24qrw();
+    if (isZero(other)) {
+      throw Exception_init_$Create$_0('division by zero');
+    } else if (isZero(_this__u8e3s4)) {
+      return get_ZERO();
+    }
+    if (equalsLong(_this__u8e3s4, get_MIN_VALUE())) {
+      if (equalsLong(other, get_ONE()) || equalsLong(other, get_NEG_ONE())) {
+        return get_MIN_VALUE();
+      } else if (equalsLong(other, get_MIN_VALUE())) {
+        return get_ONE();
+      } else {
+        var halfThis = shiftRight(_this__u8e3s4, 1);
+        var approx = shiftLeft(divide(halfThis, other), 1);
+        if (equalsLong(approx, get_ZERO())) {
+          return isNegative(other) ? get_ONE() : get_NEG_ONE();
+        } else {
+          var rem = subtract(_this__u8e3s4, multiply(other, approx));
+          return add(approx, divide(rem, other));
+        }
+      }
+    } else if (equalsLong(other, get_MIN_VALUE())) {
+      return get_ZERO();
+    }
+    if (isNegative(_this__u8e3s4)) {
+      var tmp;
+      if (isNegative(other)) {
+        tmp = divide(negate(_this__u8e3s4), negate(other));
+      } else {
+        tmp = negate(divide(negate(_this__u8e3s4), other));
+      }
+      return tmp;
+    } else if (isNegative(other)) {
+      return negate(divide(_this__u8e3s4, negate(other)));
+    }
+    var res = get_ZERO();
+    var rem_0 = _this__u8e3s4;
+    while (greaterThanOrEqual(rem_0, other)) {
+      var approxDouble = toNumber(rem_0) / toNumber(other);
+      var approx2 = Math.max(1.0, Math.floor(approxDouble));
+      var log2 = Math.ceil(Math.log(approx2) / Math.LN2);
+      var delta = log2 <= 48 ? 1.0 : Math.pow(2.0, log2 - 48);
+      var approxRes = fromNumber(approx2);
+      var approxRem = multiply(approxRes, other);
+      while (isNegative(approxRem) || greaterThan(approxRem, rem_0)) {
+        approx2 = approx2 - delta;
+        approxRes = fromNumber(approx2);
+        approxRem = multiply(approxRes, other);
+      }
+      if (isZero(approxRes)) {
+        approxRes = get_ONE();
+      }
+      res = add(res, approxRes);
+      rem_0 = subtract(rem_0, approxRem);
+    }
+    return res;
+  }
+  function shiftRight(_this__u8e3s4, numBits) {
+    _init_properties_boxedLong_kt__v24qrw();
+    var numBits_0 = numBits & 63;
+    if (numBits_0 === 0) {
+      return _this__u8e3s4;
+    } else {
+      if (numBits_0 < 32) {
+        return new Long(_this__u8e3s4.r_1 >>> numBits_0 | 0 | _this__u8e3s4.s_1 << (32 - numBits_0 | 0), _this__u8e3s4.s_1 >> numBits_0);
+      } else {
+        return new Long(_this__u8e3s4.s_1 >> (numBits_0 - 32 | 0), _this__u8e3s4.s_1 >= 0 ? 0 : -1);
+      }
+    }
+  }
+  function shiftLeft(_this__u8e3s4, numBits) {
+    _init_properties_boxedLong_kt__v24qrw();
+    var numBits_0 = numBits & 63;
+    if (numBits_0 === 0) {
+      return _this__u8e3s4;
+    } else {
+      if (numBits_0 < 32) {
+        return new Long(_this__u8e3s4.r_1 << numBits_0, _this__u8e3s4.s_1 << numBits_0 | (_this__u8e3s4.r_1 >>> (32 - numBits_0 | 0) | 0));
+      } else {
+        return new Long(0, _this__u8e3s4.r_1 << (numBits_0 - 32 | 0));
+      }
+    }
+  }
+  function greaterThan(_this__u8e3s4, other) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return compare(_this__u8e3s4, other) > 0;
+  }
+  function greaterThanOrEqual(_this__u8e3s4, other) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return compare(_this__u8e3s4, other) >= 0;
+  }
+  function isLongArray(a) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return isJsArray(a) && a.$type$ === 'LongArray';
+  }
+  function longArrayClass$lambda(it) {
+    _init_properties_boxedLong_kt__v24qrw();
+    return !(it == null) ? isLongArray(it) : false;
+  }
+  var properties_initialized_boxedLong_kt_lfwt2;
+  function _init_properties_boxedLong_kt__v24qrw() {
+    if (!properties_initialized_boxedLong_kt_lfwt2) {
+      properties_initialized_boxedLong_kt_lfwt2 = true;
+      ZERO = fromInt(0);
+      ONE = fromInt(1);
+      NEG_ONE = fromInt(-1);
+      MAX_VALUE = new Long(-1, 2147483647);
+      MIN_VALUE = new Long(0, -2147483648);
+      TWO_PWR_24_ = fromInt(16777216);
+      // Inline function 'kotlin.js.unsafeCast' call
+      var tmp = Array;
+      longArrayClass = new PrimitiveKClassImpl(tmp, 'LongArray', longArrayClass$lambda);
+    }
+  }
+  function charSequenceGet(a, index) {
+    var tmp;
+    if (isString(a)) {
+      tmp = charCodeAt(a, index);
+    } else {
+      tmp = a.b(index);
+    }
+    return tmp;
+  }
+  function isString(a) {
+    return typeof a === 'string';
+  }
+  function charCodeAt(_this__u8e3s4, index) {
+    // Inline function 'kotlin.js.asDynamic' call
+    return _this__u8e3s4.charCodeAt(index);
+  }
+  function charSequenceLength(a) {
+    var tmp;
+    if (isString(a)) {
+      // Inline function 'kotlin.js.asDynamic' call
+      // Inline function 'kotlin.js.unsafeCast' call
+      tmp = a.length;
+    } else {
+      tmp = a.a();
+    }
+    return tmp;
+  }
+  function charSequenceSubSequence(a, startIndex, endIndex) {
+    var tmp;
+    if (isString(a)) {
+      tmp = substring(a, startIndex, endIndex);
+    } else {
+      tmp = a.c(startIndex, endIndex);
+    }
+    return tmp;
+  }
+  function arrayToString(array) {
+    return joinToString(array, ', ', '[', ']', VOID, VOID, arrayToString$lambda);
+  }
+  function arrayToString$lambda(it) {
+    return toString_1(it);
+  }
+  function compareTo(a, b) {
+    var tmp;
+    switch (typeof a) {
+      case 'number':
+        var tmp_0;
+        if (typeof b === 'number') {
+          tmp_0 = doubleCompareTo(a, b);
+        } else {
+          if (b instanceof Long) {
+            tmp_0 = doubleCompareTo(a, toNumber(b));
+          } else {
+            tmp_0 = primitiveCompareTo(a, b);
+          }
+        }
+
+        tmp = tmp_0;
+        break;
+      case 'string':
+      case 'boolean':
+      case 'bigint':
+        tmp = primitiveCompareTo(a, b);
+        break;
+      default:
+        tmp = compareToDoNotIntrinsicify(a, b);
+        break;
+    }
+    return tmp;
+  }
+  function doubleCompareTo(a, b) {
+    var tmp;
+    if (a < b) {
+      tmp = -1;
+    } else if (a > b) {
+      tmp = 1;
+    } else if (a === b) {
+      var tmp_0;
+      if (a !== 0) {
+        tmp_0 = 0;
+      } else {
+        // Inline function 'kotlin.js.asDynamic' call
+        var ia = 1 / a;
+        var tmp_1;
+        // Inline function 'kotlin.js.asDynamic' call
+        if (ia === 1 / b) {
+          tmp_1 = 0;
+        } else {
+          if (ia < 0) {
+            tmp_1 = -1;
+          } else {
+            tmp_1 = 1;
+          }
+        }
+        tmp_0 = tmp_1;
+      }
+      tmp = tmp_0;
+    } else if (a !== a) {
+      tmp = b !== b ? 0 : 1;
+    } else {
+      tmp = -1;
+    }
+    return tmp;
+  }
+  function primitiveCompareTo(a, b) {
+    return a < b ? -1 : a > b ? 1 : 0;
+  }
+  function compareToDoNotIntrinsicify(a, b) {
+    return a.u(b);
+  }
+  function toString_1(o) {
+    var tmp;
+    if (o == null) {
+      tmp = 'null';
+    } else if (isArrayish(o)) {
+      tmp = '[...]';
+    } else if (!(typeof o.toString === 'function')) {
+      tmp = anyToString(o);
+    } else {
+      // Inline function 'kotlin.js.unsafeCast' call
+      tmp = o.toString();
+    }
+    return tmp;
+  }
+  function anyToString(o) {
+    return Object.prototype.toString.call(o);
+  }
+  function objectCreate(proto) {
+    proto = proto === VOID ? null : proto;
+    return Object.create(proto);
+  }
+  function defineProp(obj, name, getter, setter, enumerable) {
+    return Object.defineProperty(obj, name, {configurable: true, get: getter, set: setter, enumerable: enumerable});
+  }
+  function unboxIntrinsic(x) {
+    // Inline function 'kotlin.error' call
+    var message = 'Should be lowered';
+    throw IllegalStateException_init_$Create$_0(toString_1(message));
+  }
+  function captureStack(instance, constructorFunction) {
+    if (Error.captureStackTrace != null) {
+      Error.captureStackTrace(instance, constructorFunction);
+    } else {
+      // Inline function 'kotlin.js.asDynamic' call
+      instance.stack = (new Error()).stack;
+    }
+  }
+  function protoOf(constructor) {
+    return constructor.prototype;
+  }
+  function defineMessage(message, cause) {
+    var tmp;
+    if (isUndefined(message)) {
+      var tmp_0;
+      if (isUndefined(cause)) {
+        tmp_0 = message;
+      } else {
+        var tmp1_elvis_lhs = cause == null ? null : cause.toString();
+        tmp_0 = tmp1_elvis_lhs == null ? VOID : tmp1_elvis_lhs;
+      }
+      tmp = tmp_0;
+    } else {
+      tmp = message == null ? VOID : message;
+    }
+    return tmp;
+  }
+  function isUndefined(value) {
+    return value === VOID;
+  }
+  function extendThrowable(this_, message, cause) {
+    defineFieldOnInstance(this_, 'message', defineMessage(message, cause));
+    defineFieldOnInstance(this_, 'cause', cause);
+    defineFieldOnInstance(this_, 'name', Object.getPrototypeOf(this_).constructor.name);
+  }
+  function defineFieldOnInstance(this_, name, value) {
+    Object.defineProperty(this_, name, {configurable: true, writable: true, value: value});
+  }
+  function noWhenBranchMatchedException() {
+    throw NoWhenBranchMatchedException_init_$Create$();
+  }
+  function THROW_CCE() {
+    throw ClassCastException_init_$Create$();
+  }
+  function jsGenerateInterfaceSymbol() {
+    return generateInterfaceSymbolById();
+  }
+  function createMetadata(kind, name, defaultConstructor, associatedObjectKey, associatedObjects, suspendArity) {
+    var undef = VOID;
+    return {kind: kind, simpleName: name, associatedObjectKey: associatedObjectKey, associatedObjects: associatedObjects, suspendArity: suspendArity, $kClass$: undef, defaultConstructor: defaultConstructor};
+  }
+  function initMetadataForClass(ctor, name, defaultConstructor, parent, interfaces, suspendArity, associatedObjectKey, associatedObjects) {
+    var kind = 'class';
+    initMetadataFor(kind, ctor, name, defaultConstructor, parent, interfaces, suspendArity, associatedObjectKey, associatedObjects);
+  }
+  function initMetadataFor(kind, ctor, name, defaultConstructor, parent, interfaces, suspendArity, associatedObjectKey, associatedObjects) {
+    if (!(parent == null)) {
+      ctor.prototype = Object.create(parent.prototype);
+      ctor.prototype.constructor = ctor;
+    }
+    var metadata = createMetadata(kind, name, defaultConstructor, associatedObjectKey, associatedObjects, suspendArity);
+    ctor.$metadata$ = metadata;
+    var prototype = ctor.prototype;
+    if (!(interfaces == null)) {
+      var inductionVariable = 0;
+      var last = interfaces.length;
+      while (inductionVariable < last) {
+        var i = interfaces[inductionVariable];
+        inductionVariable = inductionVariable + 1 | 0;
+        Object.assign(prototype, i.prototype);
+        prototype[i.Symbol] = true;
+      }
+    }
+    if (kind === 'interface') {
+      ctor.Symbol = generateInterfaceSymbolById();
+    }
+  }
+  function generateInterfaceSymbolById() {
+    return '#__interface_' + generateInterfaceId();
+  }
+  function generateInterfaceId() {
+    if (globalInterfaceId === VOID) {
+      globalInterfaceId = 0;
+    }
+    // Inline function 'kotlin.js.unsafeCast' call
+    globalInterfaceId = globalInterfaceId + 1 | 0;
+    return globalInterfaceId;
+  }
+  var globalInterfaceId;
+  function initMetadataForObject(ctor, name, defaultConstructor, parent, interfaces, suspendArity, associatedObjectKey, associatedObjects) {
+    var kind = 'object';
+    initMetadataFor(kind, ctor, name, defaultConstructor, parent, interfaces, suspendArity, associatedObjectKey, associatedObjects);
+  }
+  function initMetadataForInterface(ctor, name, defaultConstructor, parent, interfaces, suspendArity, associatedObjectKey, associatedObjects) {
+    var kind = 'interface';
+    initMetadataFor(kind, ctor, name, defaultConstructor, parent, interfaces, suspendArity, associatedObjectKey, associatedObjects);
+  }
+  function initMetadataForLambda(ctor, parent, interfaces, suspendArity) {
+    initMetadataForClass(ctor, 'Lambda', VOID, parent, interfaces, suspendArity, VOID, VOID);
+  }
+  function initMetadataForCoroutine(ctor, parent, interfaces, suspendArity) {
+    initMetadataForClass(ctor, 'Coroutine', VOID, parent, interfaces, suspendArity, VOID, VOID);
+  }
+  function initMetadataForFunctionReference(ctor, parent, interfaces, suspendArity) {
+    initMetadataForClass(ctor, 'FunctionReference', VOID, parent, interfaces, suspendArity, VOID, VOID);
+  }
+  function initMetadataForCompanion(ctor, parent, interfaces, suspendArity) {
+    initMetadataForObject(ctor, 'Companion', VOID, parent, interfaces, suspendArity, VOID, VOID);
+  }
+  function isArrayish(o) {
+    return isJsArray(o) || isView(o);
+  }
+  function isJsArray(obj) {
+    // Inline function 'kotlin.js.unsafeCast' call
+    return Array.isArray(obj);
+  }
+  function isInterface(obj, iface) {
+    return obj[iface.Symbol] === true;
+  }
+  function isCharSequence(value) {
+    return typeof value === 'string' || isInterface(value, CharSequence);
+  }
+  function get_VOID() {
+    _init_properties_void_kt__3zg9as();
+    return VOID;
+  }
+  var VOID;
+  var properties_initialized_void_kt_e4ret2;
+  function _init_properties_void_kt__3zg9as() {
+    if (!properties_initialized_void_kt_e4ret2) {
+      properties_initialized_void_kt_e4ret2 = true;
+      VOID = void 0;
+    }
+  }
+  function isWhitespaceImpl(_this__u8e3s4) {
+    // Inline function 'kotlin.code' call
+    var ch = Char__toInt_impl_vasixd(_this__u8e3s4);
+    return (9 <= ch ? ch <= 13 : false) || (28 <= ch ? ch <= 32 : false) || ch === 160 || (ch > 4096 && (ch === 5760 || (8192 <= ch ? ch <= 8202 : false) || ch === 8232 || ch === 8233 || ch === 8239 || ch === 8287 || ch === 12288));
+  }
+  function isNaN_0(_this__u8e3s4) {
+    return !(_this__u8e3s4 === _this__u8e3s4);
+  }
+  function Unit() {
+  }
+  protoOf(Unit).toString = function () {
+    return 'kotlin.Unit';
+  };
+  var Unit_instance;
+  function Unit_getInstance() {
+    return Unit_instance;
+  }
+  function collectionToArray(collection) {
+    return collectionToArrayCommonImpl(collection);
+  }
+  function checkIndexOverflow(index) {
+    if (index < 0) {
+      throwIndexOverflow();
+    }
+    return index;
+  }
+  function listOf(element) {
+    // Inline function 'kotlin.arrayOf' call
+    // Inline function 'kotlin.js.unsafeCast' call
+    // Inline function 'kotlin.js.asDynamic' call
+    var tmp$ret$0 = [element];
+    return new ArrayList(tmp$ret$0);
+  }
+  function AbstractMutableCollection() {
+    AbstractCollection.call(this);
+  }
+  protoOf(AbstractMutableCollection).toJSON = function () {
+    return this.toArray();
+  };
+  protoOf(AbstractMutableCollection).v = function () {
+  };
+  function IteratorImpl($outer) {
+    this.y_1 = $outer;
+    this.w_1 = 0;
+    this.x_1 = -1;
+  }
+  protoOf(IteratorImpl).f = function () {
+    return this.w_1 < this.y_1.l();
+  };
+  protoOf(IteratorImpl).g = function () {
+    if (!this.f())
+      throw NoSuchElementException_init_$Create$();
+    var tmp = this;
+    var _unary__edvuaz = this.w_1;
+    this.w_1 = _unary__edvuaz + 1 | 0;
+    tmp.x_1 = _unary__edvuaz;
+    return this.y_1.z(this.x_1);
+  };
+  function AbstractMutableList() {
+    AbstractMutableCollection.call(this);
+    this.a1_1 = 0;
+  }
+  protoOf(AbstractMutableList).k = function (element) {
+    this.v();
+    this.b1(this.l(), element);
+    return true;
+  };
+  protoOf(AbstractMutableList).e = function () {
+    return new IteratorImpl(this);
+  };
+  function Companion_0() {
+    Companion_instance_0 = this;
+    var tmp = this;
+    // Inline function 'kotlin.also' call
+    var this_0 = ArrayList_init_$Create$_0(0);
+    this_0.j_1 = true;
+    tmp.c1_1 = this_0;
+  }
+  var Companion_instance_0;
+  function Companion_getInstance_0() {
+    if (Companion_instance_0 == null)
+      new Companion_0();
+    return Companion_instance_0;
+  }
+  function ArrayList_init_$Init$($this) {
+    // Inline function 'kotlin.emptyArray' call
+    var tmp$ret$0 = [];
+    ArrayList.call($this, tmp$ret$0);
+    return $this;
+  }
+  function ArrayList_init_$Create$() {
+    return ArrayList_init_$Init$(objectCreate(protoOf(ArrayList)));
+  }
+  function ArrayList_init_$Init$_0(initialCapacity, $this) {
+    // Inline function 'kotlin.emptyArray' call
+    var tmp$ret$0 = [];
+    ArrayList.call($this, tmp$ret$0);
+    // Inline function 'kotlin.require' call
+    if (!(initialCapacity >= 0)) {
+      var message = 'Negative initial capacity: ' + initialCapacity;
+      throw IllegalArgumentException_init_$Create$_0(toString_1(message));
+    }
+    return $this;
+  }
+  function ArrayList_init_$Create$_0(initialCapacity) {
+    return ArrayList_init_$Init$_0(initialCapacity, objectCreate(protoOf(ArrayList)));
+  }
+  function rangeCheck($this, index) {
+    // Inline function 'kotlin.apply' call
+    Companion_instance_1.e1(index, $this.l());
+    return index;
+  }
+  function insertionRangeCheck($this, index) {
+    // Inline function 'kotlin.apply' call
+    Companion_instance_1.f1(index, $this.l());
+    return index;
+  }
+  function ArrayList(array) {
+    Companion_getInstance_0();
+    AbstractMutableList.call(this);
+    this.i_1 = array;
+    this.j_1 = false;
+  }
+  protoOf(ArrayList).l = function () {
+    return this.i_1.length;
+  };
+  protoOf(ArrayList).z = function (index) {
+    return this.i_1[rangeCheck(this, index)];
+  };
+  protoOf(ArrayList).k = function (element) {
+    this.v();
+    // Inline function 'kotlin.js.asDynamic' call
+    this.i_1.push(element);
+    this.a1_1 = this.a1_1 + 1 | 0;
+    return true;
+  };
+  protoOf(ArrayList).b1 = function (index, element) {
+    this.v();
+    // Inline function 'kotlin.js.asDynamic' call
+    this.i_1.splice(insertionRangeCheck(this, index), 0, element);
+    this.a1_1 = this.a1_1 + 1 | 0;
+  };
+  protoOf(ArrayList).toString = function () {
+    return arrayToString(this.i_1);
+  };
+  protoOf(ArrayList).g1 = function () {
+    return [].slice.call(this.i_1);
+  };
+  protoOf(ArrayList).toArray = function () {
+    return this.g1();
+  };
+  protoOf(ArrayList).v = function () {
+    if (this.j_1)
+      throw UnsupportedOperationException_init_$Create$();
+  };
+  function UnsupportedOperationException_init_$Init$($this) {
+    RuntimeException_init_$Init$($this);
+    UnsupportedOperationException.call($this);
+    return $this;
+  }
+  function UnsupportedOperationException_init_$Create$() {
+    var tmp = UnsupportedOperationException_init_$Init$(objectCreate(protoOf(UnsupportedOperationException)));
+    captureStack(tmp, UnsupportedOperationException_init_$Create$);
+    return tmp;
+  }
+  function UnsupportedOperationException() {
+    captureStack(this, UnsupportedOperationException);
+  }
+  function IllegalStateException_init_$Init$($this) {
+    RuntimeException_init_$Init$($this);
+    IllegalStateException.call($this);
+    return $this;
+  }
+  function IllegalStateException_init_$Create$() {
+    var tmp = IllegalStateException_init_$Init$(objectCreate(protoOf(IllegalStateException)));
+    captureStack(tmp, IllegalStateException_init_$Create$);
+    return tmp;
+  }
+  function IllegalStateException_init_$Init$_0(message, $this) {
+    RuntimeException_init_$Init$_0(message, $this);
+    IllegalStateException.call($this);
+    return $this;
+  }
+  function IllegalStateException_init_$Create$_0(message) {
+    var tmp = IllegalStateException_init_$Init$_0(message, objectCreate(protoOf(IllegalStateException)));
+    captureStack(tmp, IllegalStateException_init_$Create$_0);
+    return tmp;
+  }
+  function IllegalStateException() {
+    captureStack(this, IllegalStateException);
+  }
+  function IllegalArgumentException_init_$Init$($this) {
+    RuntimeException_init_$Init$($this);
+    IllegalArgumentException.call($this);
+    return $this;
+  }
+  function IllegalArgumentException_init_$Create$() {
+    var tmp = IllegalArgumentException_init_$Init$(objectCreate(protoOf(IllegalArgumentException)));
+    captureStack(tmp, IllegalArgumentException_init_$Create$);
+    return tmp;
+  }
+  function IllegalArgumentException_init_$Init$_0(message, $this) {
+    RuntimeException_init_$Init$_0(message, $this);
+    IllegalArgumentException.call($this);
+    return $this;
+  }
+  function IllegalArgumentException_init_$Create$_0(message) {
+    var tmp = IllegalArgumentException_init_$Init$_0(message, objectCreate(protoOf(IllegalArgumentException)));
+    captureStack(tmp, IllegalArgumentException_init_$Create$_0);
+    return tmp;
+  }
+  function IllegalArgumentException() {
+    captureStack(this, IllegalArgumentException);
+  }
+  function RuntimeException_init_$Init$($this) {
+    Exception_init_$Init$($this);
+    RuntimeException.call($this);
+    return $this;
+  }
+  function RuntimeException_init_$Create$() {
+    var tmp = RuntimeException_init_$Init$(objectCreate(protoOf(RuntimeException)));
+    captureStack(tmp, RuntimeException_init_$Create$);
+    return tmp;
+  }
+  function RuntimeException_init_$Init$_0(message, $this) {
+    Exception_init_$Init$_0(message, $this);
+    RuntimeException.call($this);
+    return $this;
+  }
+  function RuntimeException() {
+    captureStack(this, RuntimeException);
+  }
+  function Exception_init_$Init$($this) {
+    extendThrowable($this);
+    Exception.call($this);
+    return $this;
+  }
+  function Exception_init_$Create$() {
+    var tmp = Exception_init_$Init$(objectCreate(protoOf(Exception)));
+    captureStack(tmp, Exception_init_$Create$);
+    return tmp;
+  }
+  function Exception_init_$Init$_0(message, $this) {
+    extendThrowable($this, message);
+    Exception.call($this);
+    return $this;
+  }
+  function Exception_init_$Create$_0(message) {
+    var tmp = Exception_init_$Init$_0(message, objectCreate(protoOf(Exception)));
+    captureStack(tmp, Exception_init_$Create$_0);
+    return tmp;
+  }
+  function Exception() {
+    captureStack(this, Exception);
+  }
+  function NoSuchElementException_init_$Init$($this) {
+    RuntimeException_init_$Init$($this);
+    NoSuchElementException.call($this);
+    return $this;
+  }
+  function NoSuchElementException_init_$Create$() {
+    var tmp = NoSuchElementException_init_$Init$(objectCreate(protoOf(NoSuchElementException)));
+    captureStack(tmp, NoSuchElementException_init_$Create$);
+    return tmp;
+  }
+  function NoSuchElementException() {
+    captureStack(this, NoSuchElementException);
+  }
+  function IndexOutOfBoundsException_init_$Init$($this) {
+    RuntimeException_init_$Init$($this);
+    IndexOutOfBoundsException.call($this);
+    return $this;
+  }
+  function IndexOutOfBoundsException_init_$Create$() {
+    var tmp = IndexOutOfBoundsException_init_$Init$(objectCreate(protoOf(IndexOutOfBoundsException)));
+    captureStack(tmp, IndexOutOfBoundsException_init_$Create$);
+    return tmp;
+  }
+  function IndexOutOfBoundsException_init_$Init$_0(message, $this) {
+    RuntimeException_init_$Init$_0(message, $this);
+    IndexOutOfBoundsException.call($this);
+    return $this;
+  }
+  function IndexOutOfBoundsException_init_$Create$_0(message) {
+    var tmp = IndexOutOfBoundsException_init_$Init$_0(message, objectCreate(protoOf(IndexOutOfBoundsException)));
+    captureStack(tmp, IndexOutOfBoundsException_init_$Create$_0);
+    return tmp;
+  }
+  function IndexOutOfBoundsException() {
+    captureStack(this, IndexOutOfBoundsException);
+  }
+  function ArithmeticException_init_$Init$($this) {
+    RuntimeException_init_$Init$($this);
+    ArithmeticException.call($this);
+    return $this;
+  }
+  function ArithmeticException_init_$Create$() {
+    var tmp = ArithmeticException_init_$Init$(objectCreate(protoOf(ArithmeticException)));
+    captureStack(tmp, ArithmeticException_init_$Create$);
+    return tmp;
+  }
+  function ArithmeticException_init_$Init$_0(message, $this) {
+    RuntimeException_init_$Init$_0(message, $this);
+    ArithmeticException.call($this);
+    return $this;
+  }
+  function ArithmeticException_init_$Create$_0(message) {
+    var tmp = ArithmeticException_init_$Init$_0(message, objectCreate(protoOf(ArithmeticException)));
+    captureStack(tmp, ArithmeticException_init_$Create$_0);
+    return tmp;
+  }
+  function ArithmeticException() {
+    captureStack(this, ArithmeticException);
+  }
+  function NoWhenBranchMatchedException_init_$Init$($this) {
+    RuntimeException_init_$Init$($this);
+    NoWhenBranchMatchedException.call($this);
+    return $this;
+  }
+  function NoWhenBranchMatchedException_init_$Create$() {
+    var tmp = NoWhenBranchMatchedException_init_$Init$(objectCreate(protoOf(NoWhenBranchMatchedException)));
+    captureStack(tmp, NoWhenBranchMatchedException_init_$Create$);
+    return tmp;
+  }
+  function NoWhenBranchMatchedException() {
+    captureStack(this, NoWhenBranchMatchedException);
+  }
+  function ClassCastException_init_$Init$($this) {
+    RuntimeException_init_$Init$($this);
+    ClassCastException.call($this);
+    return $this;
+  }
+  function ClassCastException_init_$Create$() {
+    var tmp = ClassCastException_init_$Init$(objectCreate(protoOf(ClassCastException)));
+    captureStack(tmp, ClassCastException_init_$Create$);
+    return tmp;
+  }
+  function ClassCastException() {
+    captureStack(this, ClassCastException);
+  }
+  function PrimitiveKClassImpl(jClass, givenSimpleName, isInstanceFunction) {
+    KClassImpl.call(this);
+    this.j1_1 = jClass;
+    this.k1_1 = givenSimpleName;
+    this.l1_1 = isInstanceFunction;
+  }
+  protoOf(PrimitiveKClassImpl).m1 = function () {
+    return this.k1_1;
+  };
+  function KClassImpl() {
+  }
+  protoOf(KClassImpl).toString = function () {
+    return 'class ' + this.m1();
+  };
+  function StringBuilder_init_$Init$(capacity, $this) {
+    StringBuilder_init_$Init$_0($this);
+    return $this;
+  }
+  function StringBuilder_init_$Create$(capacity) {
+    return StringBuilder_init_$Init$(capacity, objectCreate(protoOf(StringBuilder)));
+  }
+  function StringBuilder_init_$Init$_0($this) {
+    StringBuilder.call($this, '');
+    return $this;
+  }
+  function StringBuilder_init_$Create$_0() {
+    return StringBuilder_init_$Init$_0(objectCreate(protoOf(StringBuilder)));
+  }
+  function StringBuilder(content) {
+    this.n1_1 = content;
+  }
+  protoOf(StringBuilder).a = function () {
+    // Inline function 'kotlin.js.asDynamic' call
+    return this.n1_1.length;
+  };
+  protoOf(StringBuilder).b = function (index) {
+    // Inline function 'kotlin.text.getOrElse' call
+    var this_0 = this.n1_1;
+    var tmp;
+    if (0 <= index ? index <= (charSequenceLength(this_0) - 1 | 0) : false) {
+      tmp = charSequenceGet(this_0, index);
+    } else {
+      throw IndexOutOfBoundsException_init_$Create$_0('index: ' + index + ', length: ' + this.a() + '}');
+    }
+    return tmp;
+  };
+  protoOf(StringBuilder).c = function (startIndex, endIndex) {
+    return substring(this.n1_1, startIndex, endIndex);
+  };
+  protoOf(StringBuilder).o1 = function (value) {
+    this.n1_1 = this.n1_1 + toString(value);
+    return this;
+  };
+  protoOf(StringBuilder).d = function (value) {
+    this.n1_1 = this.n1_1 + toString_0(value);
+    return this;
+  };
+  protoOf(StringBuilder).p1 = function (value) {
+    var tmp = this;
+    var tmp_0 = this.n1_1;
+    tmp.n1_1 = tmp_0 + (value == null ? 'null' : value);
+    return this;
+  };
+  protoOf(StringBuilder).toString = function () {
+    return this.n1_1;
+  };
+  function uppercaseChar(_this__u8e3s4) {
+    // Inline function 'kotlin.text.uppercase' call
+    // Inline function 'kotlin.js.asDynamic' call
+    // Inline function 'kotlin.js.unsafeCast' call
+    var uppercase = toString(_this__u8e3s4).toUpperCase();
+    return uppercase.length > 1 ? _this__u8e3s4 : charCodeAt(uppercase, 0);
+  }
+  function isWhitespace(_this__u8e3s4) {
+    return isWhitespaceImpl(_this__u8e3s4);
+  }
+  function checkRadix(radix) {
+    if (!(2 <= radix ? radix <= 36 : false)) {
+      throw IllegalArgumentException_init_$Create$_0('radix ' + radix + ' was not in valid range 2..36');
+    }
+    return radix;
+  }
+  function toString_2(_this__u8e3s4, radix) {
+    // Inline function 'kotlin.js.asDynamic' call
+    return _this__u8e3s4.toString(checkRadix(radix));
+  }
+  var STRING_CASE_INSENSITIVE_ORDER;
+  function substring(_this__u8e3s4, startIndex, endIndex) {
+    _init_properties_stringJs_kt__bg7zye();
+    // Inline function 'kotlin.js.asDynamic' call
+    return _this__u8e3s4.substring(startIndex, endIndex);
+  }
+  function substring_0(_this__u8e3s4, startIndex) {
+    _init_properties_stringJs_kt__bg7zye();
+    // Inline function 'kotlin.js.asDynamic' call
+    return _this__u8e3s4.substring(startIndex);
+  }
+  function compareTo_0(_this__u8e3s4, other, ignoreCase) {
+    ignoreCase = ignoreCase === VOID ? false : ignoreCase;
+    _init_properties_stringJs_kt__bg7zye();
+    if (ignoreCase) {
+      var n1 = _this__u8e3s4.length;
+      var n2 = other.length;
+      // Inline function 'kotlin.comparisons.minOf' call
+      var min = Math.min(n1, n2);
+      if (min === 0)
+        return n1 - n2 | 0;
+      var inductionVariable = 0;
+      if (inductionVariable < min)
+        do {
+          var index = inductionVariable;
+          inductionVariable = inductionVariable + 1 | 0;
+          var thisChar = charCodeAt(_this__u8e3s4, index);
+          var otherChar = charCodeAt(other, index);
+          if (!(thisChar === otherChar)) {
+            thisChar = uppercaseChar(thisChar);
+            otherChar = uppercaseChar(otherChar);
+            if (!(thisChar === otherChar)) {
+              // Inline function 'kotlin.text.lowercaseChar' call
+              // Inline function 'kotlin.text.lowercase' call
+              var this_0 = thisChar;
+              // Inline function 'kotlin.js.asDynamic' call
+              // Inline function 'kotlin.js.unsafeCast' call
+              var tmp$ret$2 = toString(this_0).toLowerCase();
+              thisChar = charCodeAt(tmp$ret$2, 0);
+              // Inline function 'kotlin.text.lowercaseChar' call
+              // Inline function 'kotlin.text.lowercase' call
+              var this_1 = otherChar;
+              // Inline function 'kotlin.js.asDynamic' call
+              // Inline function 'kotlin.js.unsafeCast' call
+              var tmp$ret$6 = toString(this_1).toLowerCase();
+              otherChar = charCodeAt(tmp$ret$6, 0);
+              if (!(thisChar === otherChar)) {
+                return Char__compareTo_impl_ypi4mb(thisChar, otherChar);
+              }
+            }
+          }
+        }
+         while (inductionVariable < min);
+      return n1 - n2 | 0;
+    } else {
+      return compareTo(_this__u8e3s4, other);
+    }
+  }
+  function sam$kotlin_Comparator$0(function_0) {
+    this.q1_1 = function_0;
+  }
+  protoOf(sam$kotlin_Comparator$0).r1 = function (a, b) {
+    return this.q1_1(a, b);
+  };
+  protoOf(sam$kotlin_Comparator$0).compare = function (a, b) {
+    return this.r1(a, b);
+  };
+  function STRING_CASE_INSENSITIVE_ORDER$lambda(a, b) {
+    _init_properties_stringJs_kt__bg7zye();
+    return compareTo_0(a, b, true);
+  }
+  var properties_initialized_stringJs_kt_nta8o4;
+  function _init_properties_stringJs_kt__bg7zye() {
+    if (!properties_initialized_stringJs_kt_nta8o4) {
+      properties_initialized_stringJs_kt_nta8o4 = true;
+      var tmp = STRING_CASE_INSENSITIVE_ORDER$lambda;
+      STRING_CASE_INSENSITIVE_ORDER = new sam$kotlin_Comparator$0(tmp);
+    }
+  }
+  function AbstractCollection$toString$lambda(this$0) {
+    return function (it) {
+      return it === this$0 ? '(this Collection)' : toString_0(it);
+    };
+  }
+  function AbstractCollection() {
+  }
+  protoOf(AbstractCollection).m = function () {
+    return this.l() === 0;
+  };
+  protoOf(AbstractCollection).toString = function () {
+    return joinToString_0(this, ', ', '[', ']', VOID, VOID, AbstractCollection$toString$lambda(this));
+  };
+  protoOf(AbstractCollection).toArray = function () {
+    return collectionToArray(this);
+  };
+  function Companion_1() {
+    this.d1_1 = 2147483639;
+  }
+  protoOf(Companion_1).e1 = function (index, size) {
+    if (index < 0 || index >= size) {
+      throw IndexOutOfBoundsException_init_$Create$_0('index: ' + index + ', size: ' + size);
+    }
+  };
+  protoOf(Companion_1).f1 = function (index, size) {
+    if (index < 0 || index > size) {
+      throw IndexOutOfBoundsException_init_$Create$_0('index: ' + index + ', size: ' + size);
+    }
+  };
+  var Companion_instance_1;
+  function Companion_getInstance_1() {
+    return Companion_instance_1;
+  }
+  function collectionToArrayCommonImpl(collection) {
+    if (collection.m()) {
+      // Inline function 'kotlin.emptyArray' call
+      return [];
+    }
+    // Inline function 'kotlin.arrayOfNulls' call
+    var size = collection.l();
+    var destination = Array(size);
+    var iterator = collection.e();
+    var index = 0;
+    while (iterator.f()) {
+      var _unary__edvuaz = index;
+      index = _unary__edvuaz + 1 | 0;
+      destination[_unary__edvuaz] = iterator.g();
+    }
+    return destination;
+  }
+  function get_lastIndex(_this__u8e3s4) {
+    return _this__u8e3s4.l() - 1 | 0;
+  }
+  function throwIndexOverflow() {
+    throw ArithmeticException_init_$Create$_0('Index overflow has happened.');
+  }
+  function emptyList() {
+    return EmptyList_getInstance();
+  }
+  function EmptyList() {
+    EmptyList_instance = this;
+    this.s1_1 = new Long(-1478467534, -1720727600);
+  }
+  protoOf(EmptyList).toString = function () {
+    return '[]';
+  };
+  protoOf(EmptyList).l = function () {
+    return 0;
+  };
+  protoOf(EmptyList).m = function () {
+    return true;
+  };
+  protoOf(EmptyList).e = function () {
+    return EmptyIterator_instance;
+  };
+  var EmptyList_instance;
+  function EmptyList_getInstance() {
+    if (EmptyList_instance == null)
+      new EmptyList();
+    return EmptyList_instance;
+  }
+  function EmptyIterator() {
+  }
+  protoOf(EmptyIterator).f = function () {
+    return false;
+  };
+  protoOf(EmptyIterator).g = function () {
+    throw NoSuchElementException_init_$Create$();
+  };
+  var EmptyIterator_instance;
+  function EmptyIterator_getInstance() {
+    return EmptyIterator_instance;
+  }
+  function collectionSizeOrDefault(_this__u8e3s4, default_0) {
+    var tmp;
+    if (isInterface(_this__u8e3s4, Collection)) {
+      tmp = _this__u8e3s4.l();
+    } else {
+      tmp = default_0;
+    }
+    return tmp;
+  }
+  function appendElement(_this__u8e3s4, element, transform) {
+    if (!(transform == null))
+      _this__u8e3s4.d(transform(element));
+    else {
+      if (element == null ? true : isCharSequence(element))
+        _this__u8e3s4.d(element);
+      else {
+        if (element instanceof Char)
+          _this__u8e3s4.o1(element.t1_1);
+        else {
+          _this__u8e3s4.d(toString_1(element));
+        }
+      }
+    }
+  }
+  function trimIndent(_this__u8e3s4) {
+    return replaceIndent(_this__u8e3s4, '');
+  }
+  function replaceIndent(_this__u8e3s4, newIndent) {
+    newIndent = newIndent === VOID ? '' : newIndent;
+    var lines_0 = lines(_this__u8e3s4);
+    // Inline function 'kotlin.collections.filter' call
+    // Inline function 'kotlin.collections.filterTo' call
+    var destination = ArrayList_init_$Create$();
+    var _iterator__ex2g4s = lines_0.e();
+    while (_iterator__ex2g4s.f()) {
+      var element = _iterator__ex2g4s.g();
+      // Inline function 'kotlin.text.isNotBlank' call
+      if (!isBlank(element)) {
+        destination.k(element);
+      }
+    }
+    // Inline function 'kotlin.collections.map' call
+    // Inline function 'kotlin.collections.mapTo' call
+    var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(destination, 10));
+    var _iterator__ex2g4s_0 = destination.e();
+    while (_iterator__ex2g4s_0.f()) {
+      var item = _iterator__ex2g4s_0.g();
+      var tmp$ret$6 = indentWidth(item);
+      destination_0.k(tmp$ret$6);
+    }
+    var tmp0_elvis_lhs = minOrNull(destination_0);
+    var minCommonIndent = tmp0_elvis_lhs == null ? 0 : tmp0_elvis_lhs;
+    var tmp2 = _this__u8e3s4.length + imul(newIndent.length, lines_0.l()) | 0;
+    // Inline function 'kotlin.text.reindent' call
+    var indentAddFunction = getIndentFunction(newIndent);
+    var lastIndex = get_lastIndex(lines_0);
+    // Inline function 'kotlin.collections.mapIndexedNotNull' call
+    // Inline function 'kotlin.collections.mapIndexedNotNullTo' call
+    var destination_1 = ArrayList_init_$Create$();
+    // Inline function 'kotlin.collections.forEachIndexed' call
+    var index = 0;
+    var _iterator__ex2g4s_1 = lines_0.e();
+    while (_iterator__ex2g4s_1.f()) {
+      var item_0 = _iterator__ex2g4s_1.g();
+      var _unary__edvuaz = index;
+      index = _unary__edvuaz + 1 | 0;
+      var index_0 = checkIndexOverflow(_unary__edvuaz);
+      var tmp;
+      if ((index_0 === 0 || index_0 === lastIndex) && isBlank(item_0)) {
+        tmp = null;
+      } else {
+        var tmp0_safe_receiver = drop(item_0, minCommonIndent);
+        var tmp_0;
+        if (tmp0_safe_receiver == null) {
+          tmp_0 = null;
+        } else {
+          // Inline function 'kotlin.let' call
+          tmp_0 = indentAddFunction(tmp0_safe_receiver);
+        }
+        var tmp1_elvis_lhs = tmp_0;
+        tmp = tmp1_elvis_lhs == null ? item_0 : tmp1_elvis_lhs;
+      }
+      var tmp0_safe_receiver_0 = tmp;
+      if (tmp0_safe_receiver_0 == null)
+        null;
+      else {
+        // Inline function 'kotlin.let' call
+        destination_1.k(tmp0_safe_receiver_0);
+      }
+    }
+    return joinTo_0(destination_1, StringBuilder_init_$Create$(tmp2), '\n').toString();
+  }
+  function indentWidth(_this__u8e3s4) {
+    var tmp$ret$0;
+    $l$block: {
+      // Inline function 'kotlin.text.indexOfFirst' call
+      var inductionVariable = 0;
+      var last = charSequenceLength(_this__u8e3s4) - 1 | 0;
+      if (inductionVariable <= last)
+        do {
+          var index = inductionVariable;
+          inductionVariable = inductionVariable + 1 | 0;
+          var it = charSequenceGet(_this__u8e3s4, index);
+          if (!isWhitespace(it)) {
+            tmp$ret$0 = index;
+            break $l$block;
+          }
+        }
+         while (inductionVariable <= last);
+      tmp$ret$0 = -1;
+    }
+    // Inline function 'kotlin.let' call
+    var it_0 = tmp$ret$0;
+    return it_0 === -1 ? _this__u8e3s4.length : it_0;
+  }
+  function getIndentFunction(indent) {
+    var tmp;
+    // Inline function 'kotlin.text.isEmpty' call
+    if (charSequenceLength(indent) === 0) {
+      tmp = getIndentFunction$lambda;
+    } else {
+      tmp = getIndentFunction$lambda_0(indent);
+    }
+    return tmp;
+  }
+  function getIndentFunction$lambda(line) {
+    return line;
+  }
+  function getIndentFunction$lambda_0($indent) {
+    return function (line) {
+      return $indent + line;
+    };
+  }
+  function padStart(_this__u8e3s4, length, padChar) {
+    padChar = padChar === VOID ? _Char___init__impl__6a9atx(32) : padChar;
+    return toString_1(padStart_0(isCharSequence(_this__u8e3s4) ? _this__u8e3s4 : THROW_CCE(), length, padChar));
+  }
+  function lines(_this__u8e3s4) {
+    return toList(lineSequence(_this__u8e3s4));
+  }
+  function isBlank(_this__u8e3s4) {
+    var tmp$ret$0;
+    $l$block: {
+      // Inline function 'kotlin.text.all' call
+      var inductionVariable = 0;
+      while (inductionVariable < charSequenceLength(_this__u8e3s4)) {
+        var element = charSequenceGet(_this__u8e3s4, inductionVariable);
+        inductionVariable = inductionVariable + 1 | 0;
+        if (!isWhitespace(element)) {
+          tmp$ret$0 = false;
+          break $l$block;
+        }
+      }
+      tmp$ret$0 = true;
+    }
+    return tmp$ret$0;
+  }
+  function padStart_0(_this__u8e3s4, length, padChar) {
+    padChar = padChar === VOID ? _Char___init__impl__6a9atx(32) : padChar;
+    if (length < 0)
+      throw IllegalArgumentException_init_$Create$_0('Desired length ' + length + ' is less than zero.');
+    if (length <= charSequenceLength(_this__u8e3s4))
+      return charSequenceSubSequence(_this__u8e3s4, 0, charSequenceLength(_this__u8e3s4));
+    var sb = StringBuilder_init_$Create$(length);
+    var inductionVariable = 1;
+    var last = length - charSequenceLength(_this__u8e3s4) | 0;
+    if (inductionVariable <= last)
+      do {
+        var i = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        sb.o1(padChar);
+      }
+       while (!(i === last));
+    sb.d(_this__u8e3s4);
+    return sb;
+  }
+  function lineSequence(_this__u8e3s4) {
+    // Inline function 'kotlin.sequences.Sequence' call
+    return new lineSequence$$inlined$Sequence$1(_this__u8e3s4);
+  }
+  function State() {
+    this.u1_1 = 0;
+    this.v1_1 = 1;
+    this.w1_1 = 2;
+  }
+  var State_instance;
+  function State_getInstance() {
+    return State_instance;
+  }
+  function LinesIterator(string) {
+    this.x1_1 = string;
+    this.y1_1 = 0;
+    this.z1_1 = 0;
+    this.a2_1 = 0;
+    this.b2_1 = 0;
+  }
+  protoOf(LinesIterator).f = function () {
+    if (!(this.y1_1 === 0)) {
+      return this.y1_1 === 1;
+    }
+    if (this.b2_1 < 0) {
+      this.y1_1 = 2;
+      return false;
+    }
+    var _delimiterLength = -1;
+    var _delimiterStartIndex = charSequenceLength(this.x1_1);
+    var inductionVariable = this.z1_1;
+    var last = charSequenceLength(this.x1_1);
+    if (inductionVariable < last)
+      $l$loop: do {
+        var idx = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        var c = charSequenceGet(this.x1_1, idx);
+        if (c === _Char___init__impl__6a9atx(10) || c === _Char___init__impl__6a9atx(13)) {
+          _delimiterLength = c === _Char___init__impl__6a9atx(13) && (idx + 1 | 0) < charSequenceLength(this.x1_1) && charSequenceGet(this.x1_1, idx + 1 | 0) === _Char___init__impl__6a9atx(10) ? 2 : 1;
+          _delimiterStartIndex = idx;
+          break $l$loop;
+        }
+      }
+       while (inductionVariable < last);
+    this.y1_1 = 1;
+    this.b2_1 = _delimiterLength;
+    this.a2_1 = _delimiterStartIndex;
+    return true;
+  };
+  protoOf(LinesIterator).g = function () {
+    if (!this.f()) {
+      throw NoSuchElementException_init_$Create$();
+    }
+    this.y1_1 = 0;
+    var lastIndex = this.a2_1;
+    var firstIndex = this.z1_1;
+    this.z1_1 = this.a2_1 + this.b2_1 | 0;
+    // Inline function 'kotlin.text.substring' call
+    var this_0 = this.x1_1;
+    return toString_1(charSequenceSubSequence(this_0, firstIndex, lastIndex));
+  };
+  function lineSequence$$inlined$Sequence$1($this_lineSequence) {
+    this.c2_1 = $this_lineSequence;
+  }
+  protoOf(lineSequence$$inlined$Sequence$1).e = function () {
+    return new LinesIterator(this.c2_1);
+  };
+  function escapeJson(_this__u8e3s4) {
+    var escaped = StringBuilder_init_$Create$(_this__u8e3s4.length);
+    var inductionVariable = 0;
+    var last = _this__u8e3s4.length;
+    while (inductionVariable < last) {
+      var character = charCodeAt(_this__u8e3s4, inductionVariable);
+      inductionVariable = inductionVariable + 1 | 0;
+      if (character === _Char___init__impl__6a9atx(92))
+        escaped.p1('\\\\');
+      else {
+        if (character === _Char___init__impl__6a9atx(34))
+          escaped.p1('\\"');
+        else {
+          if (character === _Char___init__impl__6a9atx(10))
+            escaped.p1('\\n');
+          else {
+            if (character === _Char___init__impl__6a9atx(13))
+              escaped.p1('\\r');
+            else {
+              if (character === _Char___init__impl__6a9atx(9))
+                escaped.p1('\\t');
+              else {
+                if (character === _Char___init__impl__6a9atx(8))
+                  escaped.p1('\\b');
+                else {
+                  // Inline function 'kotlin.code' call
+                  if (Char__toInt_impl_vasixd(character) < 32) {
+                    appendUnicodeEscape(escaped, character);
+                  } else {
+                    // Inline function 'kotlin.code' call
+                    if (Char__toInt_impl_vasixd(character) === 8232)
+                      escaped.p1('\\u2028');
+                    else {
+                      // Inline function 'kotlin.code' call
+                      if (Char__toInt_impl_vasixd(character) === 8233)
+                        escaped.p1('\\u2029');
+                      else {
+                        escaped.o1(character);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return escaped.toString();
+  }
+  function appendUnicodeEscape(_this__u8e3s4, character) {
+    _this__u8e3s4.p1('\\u');
+    // Inline function 'kotlin.code' call
+    var tmp$ret$0 = Char__toInt_impl_vasixd(character);
+    _this__u8e3s4.p1(padStart(toString_2(tmp$ret$0, 16), 4, _Char___init__impl__6a9atx(48)));
+  }
+  function ColumnNode(children) {
+    this.d2_1 = children;
+  }
+  protoOf(ColumnNode).toString = function () {
+    return 'ColumnNode(children=' + toString_1(this.d2_1) + ')';
+  };
+  function TextNode(text) {
+    this.e2_1 = text;
+  }
+  protoOf(TextNode).toString = function () {
+    return 'TextNode(text=' + this.e2_1 + ')';
+  };
+  function ButtonNode(text, action) {
+    this.f2_1 = text;
+    this.g2_1 = action;
+  }
+  protoOf(ButtonNode).toString = function () {
+    return 'ButtonNode(text=' + this.f2_1 + ', action=' + this.g2_1 + ')';
+  };
+  function toJson(_this__u8e3s4) {
+    var tmp;
+    if (_this__u8e3s4 instanceof ColumnNode) {
+      tmp = trimIndent('\n            {\n                "type":"column",\n                "children":[\n                    ' + joinToString_0(_this__u8e3s4.d2_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + '\n                ]\n            }\n            ');
+    } else {
+      if (_this__u8e3s4 instanceof TextNode) {
+        tmp = trimIndent('\n            {\n                "type":"text",\n                "text":"' + escapeJson(_this__u8e3s4.e2_1) + '"\n            }\n            ');
+      } else {
+        if (_this__u8e3s4 instanceof ButtonNode) {
+          tmp = trimIndent('\n            {\n                "type":"button",\n                "text":"' + escapeJson(_this__u8e3s4.f2_1) + '",\n                "action":"' + escapeJson(_this__u8e3s4.g2_1) + '"\n            }\n            ');
+        } else {
+          noWhenBranchMatchedException();
+        }
+      }
+    }
+    return tmp;
+  }
+  function toJson$lambda(it) {
+    return toJson(it);
+  }
+  function Column(content) {
+    var scope = new ColumnScope();
+    content(scope);
+    return new ColumnNode(scope.h2_1);
+  }
+  function ColumnScope() {
+    var tmp = this;
+    // Inline function 'kotlin.collections.mutableListOf' call
+    tmp.h2_1 = ArrayList_init_$Create$();
+  }
+  protoOf(ColumnScope).i2 = function (text) {
+    this.h2_1.k(new TextNode(text));
+  };
+  protoOf(ColumnScope).j2 = function (text, action) {
+    this.h2_1.k(new ButtonNode(text, action));
+  };
+  function renderScreen() {
+    return toJson(DootahScreen_com_example_cahier_OfferScreen_instance.l2());
+  }
+  function handleAction(action) {
+    return toJson(DootahScreen_com_example_cahier_OfferScreen_instance.l2());
+  }
+  function DootahScreen_com_example_cahier_OfferScreen$render$lambda($finalPrice) {
+    return function ($this$Column) {
+      $this$Column.i2('Dootah OTA Works');
+      $this$Column.i2('Price: Rs ' + $finalPrice);
+      $this$Column.j2('Buy', 'buy');
+      return Unit_instance;
+    };
+  }
+  function DootahScreen_com_example_cahier_OfferScreen() {
+    this.k2_1 = 'com.example.cahier.OfferScreen';
+  }
+  protoOf(DootahScreen_com_example_cahier_OfferScreen).l2 = function () {
+    var price = 999;
+    var discount = 100;
+    var finalPrice = price - discount | 0;
+    return Column(DootahScreen_com_example_cahier_OfferScreen$render$lambda(finalPrice));
+  };
+  var DootahScreen_com_example_cahier_OfferScreen_instance;
+  function DootahScreen_com_example_cahier_OfferScreen_getInstance() {
+    return DootahScreen_com_example_cahier_OfferScreen_instance;
+  }
+  //region block: init
+  Unit_instance = new Unit();
+  Companion_instance_1 = new Companion_1();
+  EmptyIterator_instance = new EmptyIterator();
+  State_instance = new State();
+  DootahScreen_com_example_cahier_OfferScreen_instance = new DootahScreen_com_example_cahier_OfferScreen();
+  //endregion
+  //region block: exports
+  function $jsExportAll$(_) {
+    _.renderScreen = renderScreen;
+    _.handleAction = handleAction;
+  }
+  $jsExportAll$(_);
+  //endregion
+  return _;
+}));
