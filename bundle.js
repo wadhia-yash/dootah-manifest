@@ -3347,7 +3347,7 @@ if (typeof Math.clz32 === 'undefined') {
       // Inline function 'kotlin.apply' call
       var this_0 = ArrayList_init_$Create$();
       this_0.f1(new TextNode('History'));
-      this_0.f1(new NativeSlotNode('ToolboxHistoryControlsContent(canRedo,canUndo,drawingCanvasViewModel,onClear,onRedo,onUndo)#0'));
+      this_0.f1(new NativeSlotNode('ToolboxHistoryControlsContent(canRedo|canUndo|drawingCanvasViewModel|onClear|onRedo|onUndo)#0'));
       this_0.f1(new TextNode('Taps: ' + state.s4('taps')));
       this_0.f1(new ButtonNode('Count', 'count'));
       this_0.f1(new ButtonNode('Clear all', 'clear-all'));
@@ -3359,7 +3359,7 @@ if (typeof Math.clz32 === 'undefined') {
       // Inline function 'kotlin.collections.buildListInternal' call
       // Inline function 'kotlin.apply' call
       var this_1 = ArrayList_init_$Create$();
-      this_1.f1(new NativeSlotNode('ToolboxHistoryControlsContent(canRedo,canUndo,drawingCanvasViewModel,onClear,onRedo,onUndo)#1'));
+      this_1.f1(new NativeSlotNode('ToolboxHistoryControlsContent(canRedo|canUndo|drawingCanvasViewModel|onClear|onRedo|onUndo)#1'));
       var tmp$ret$4 = this_1.a2();
       tmp = new RowNode(tmp_1, tmp$ret$4);
     }
@@ -3395,7 +3395,7 @@ if (typeof Math.clz32 === 'undefined') {
       // Inline function 'kotlin.collections.buildListInternal' call
       // Inline function 'kotlin.apply' call
       var this_0 = ArrayList_init_$Create$();
-      this_0.f1(new NativeSlotNode('ToolboxNoteActionsContent(drawingCanvasViewModel,imagePickerLauncher,onEditActiveBrush,onExit)#0'));
+      this_0.f1(new NativeSlotNode('ToolboxNoteActionsContent(drawingCanvasViewModel|imagePickerLauncher|onEditActiveBrush|onExit)#0'));
       var tmp$ret$0 = this_0.a2();
       tmp = new ColumnNode(tmp_0, tmp$ret$0);
     } else {
@@ -3404,7 +3404,7 @@ if (typeof Math.clz32 === 'undefined') {
       // Inline function 'kotlin.collections.buildListInternal' call
       // Inline function 'kotlin.apply' call
       var this_1 = ArrayList_init_$Create$();
-      this_1.f1(new NativeSlotNode('ToolboxNoteActionsContent(drawingCanvasViewModel,imagePickerLauncher,onEditActiveBrush,onExit)#1'));
+      this_1.f1(new NativeSlotNode('ToolboxNoteActionsContent(drawingCanvasViewModel|imagePickerLauncher|onEditActiveBrush|onExit)#1'));
       var tmp$ret$4 = this_1.a2();
       tmp = new RowNode(tmp_1, tmp$ret$4);
     }
