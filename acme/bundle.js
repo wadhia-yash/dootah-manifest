@@ -3412,7 +3412,7 @@ if (typeof Math.clz32 === 'undefined') {
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_0 = ArrayList_init_$Create$();
-    this_0.f1(new NativeSlotNode('slot@1388'));
+    this_0.f1(new NativeSlotNode('slot@1408'));
     this_0.f1(new TextNode('Quantity: ' + state.q4('quantity')));
     this_0.f1(new TextNode('Subtotal: Rs ' + imul(unitPrice, state.q4('quantity'))));
     var tmp_0 = listOf(new FillMaxWidth(1.0));
@@ -3457,17 +3457,17 @@ if (typeof Math.clz32 === 'undefined') {
     var name = arguments_0.p4('name');
     var price = arguments_0.q4('price');
     var premium = arguments_0.r4('premium');
-    var discount = premium ? 200 : 0;
+    var discount = premium ? 500 : 0;
     var payable = price - discount | 0;
     var tmp = listOf_0([Inherited_instance, new Padding(16.0, 16.0, 16.0, 16.0)]);
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_0 = ArrayList_init_$Create$();
-    this_0.f1(new TextNode(name));
+    this_0.f1(new TextNode('* ' + name + ' *'));
     this_0.f1(new TextNode('Price: Rs ' + payable));
     if (premium) {
-      this_0.f1(new TextNode('Premium pricing applied'));
+      this_0.f1(new TextNode('Premium pricing applied (OTA)'));
     } else {
       this_0.f1(new TextNode('Standard pricing'));
     }
@@ -3480,7 +3480,7 @@ if (typeof Math.clz32 === 'undefined') {
     var name = arguments_0.p4('name');
     var price = arguments_0.q4('price');
     var premium = arguments_0.r4('premium');
-    var discount = premium ? 200 : 0;
+    var discount = premium ? 500 : 0;
     var payable = price - discount | 0;
     return commands;
   };

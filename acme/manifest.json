@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "bundleVersion": 1,
+  "bundleVersion": 2,
   "runtimeVersion": "2",
   "enabled": true,
   "url": "https://wadhia-yash.github.io/dootah-manifest/acme/bundle.js",
-  "sha256": "72d7ff890bb1846772d3559cbd8837e5f24098379e37db51d4f270b165ae1e5f"
+  "sha256": "ddd2a30673946ff83049bd879acb4ccdcccb89cc2ee050ca4a2f5cfb5281ccc8"
 }
