@@ -3412,7 +3412,7 @@ if (typeof Math.clz32 === 'undefined') {
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_0 = ArrayList_init_$Create$();
-    this_0.f1(new NativeSlotNode('slot@1408'));
+    this_0.f1(new NativeSlotNode('Text(color|text)#0'));
     this_0.f1(new TextNode('Qty (remote): ' + state.q4('quantity')));
     this_0.f1(new TextNode('Subtotal: Rs ' + imul(unitPrice, state.q4('quantity'))));
     var tmp_0 = listOf(new FillMaxWidth(1.0));
