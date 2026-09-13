@@ -182,30 +182,34 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(Background, 'Background');
   initMetadataForClass(FragmentNode, 'FragmentNode', FragmentNode);
   initMetadataForClass(ComponentNode, 'ComponentNode');
-  initMetadataForClass(TextNode, 'TextNode');
   initMetadataForClass(ColumnNode, 'ColumnNode', ColumnNode);
   initMetadataForClass(RowNode, 'RowNode');
   initMetadataForClass(BoxNode, 'BoxNode');
+  initMetadataForClass(TextNode, 'TextNode');
   initMetadataForClass(ButtonNode, 'ButtonNode');
-  initMetadataForClass(StringResourceProp, 'StringResourceProp');
   initMetadataForClass(StringProp, 'StringProp');
+  initMetadataForClass(StringResourceProp, 'StringResourceProp');
   initMetadataForClass(HandleProp, 'HandleProp');
+  initMetadataForClass(ModifierProp, 'ModifierProp', ModifierProp);
+  initMetadataForClass(ModifierOpNode, 'ModifierOpNode');
+  initMetadataForClass(DpProp, 'DpProp');
   initMetadataForClass(NullProp, 'NullProp');
   initMetadataForClass(BoolProp, 'BoolProp');
   initMetadataForClass(IntProp, 'IntProp');
   initMetadataForClass(LongProp, 'LongProp');
   initMetadataForClass(FloatProp, 'FloatProp');
   initMetadataForClass(DoubleProp, 'DoubleProp');
-  initMetadataForClass(DpProp, 'DpProp');
   initMetadataForClass(ColorProp, 'ColorProp');
   initMetadataForClass(ThemeColorProp, 'ThemeColorProp');
   initMetadataForClass(ShapeProp, 'ShapeProp');
   initMetadataForClass(PainterResourceProp, 'PainterResourceProp');
-  initMetadataForClass(ModifierProp, 'ModifierProp');
   initMetadataForClass(ListProp, 'ListProp');
   initMetadataForClass(StateProp, 'StateProp');
   initMetadataForClass(CallbackProp, 'CallbackProp');
+  initMetadataForObject(DootahScreen_com_example_jetsnack_ui_home_FilterChipSection, 'DootahScreen_com_example_jetsnack_ui_home_FilterChipSection');
+  initMetadataForObject(DootahScreen_com_example_jetsnack_ui_home_MaxCalories, 'DootahScreen_com_example_jetsnack_ui_home_MaxCalories');
   initMetadataForObject(DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection, 'DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection');
+  initMetadataForObject(DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection, 'DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection');
   //endregion
   function CharSequence() {
   }
@@ -1284,6 +1288,11 @@ if (typeof Math.clz32 === 'undefined') {
       VOID = void 0;
     }
   }
+  function asList(_this__u8e3s4) {
+    // Inline function 'kotlin.js.unsafeCast' call
+    // Inline function 'kotlin.js.asDynamic' call
+    return new ArrayList(_this__u8e3s4);
+  }
   function copyOf(_this__u8e3s4, newSize) {
     // Inline function 'kotlin.require' call
     if (!(newSize >= 0)) {
@@ -1327,15 +1336,15 @@ if (typeof Math.clz32 === 'undefined') {
   function collectionToArray(collection) {
     return collectionToArrayCommonImpl(collection);
   }
+  function mapOf(pair) {
+    return hashMapOf([pair]);
+  }
   function listOf(element) {
     // Inline function 'kotlin.arrayOf' call
     // Inline function 'kotlin.js.unsafeCast' call
     // Inline function 'kotlin.js.asDynamic' call
     var tmp$ret$0 = [element];
     return new ArrayList(tmp$ret$0);
-  }
-  function mapOf(pair) {
-    return hashMapOf([pair]);
   }
   function mapCapacity(expectedSize) {
     return expectedSize;
@@ -2762,6 +2771,9 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return destination;
   }
+  function listOf_0(elements) {
+    return elements.length > 0 ? asList(elements) : emptyList();
+  }
   function emptyList() {
     return EmptyList_getInstance();
   }
@@ -2813,12 +2825,6 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function mapOf_0(pairs) {
     return pairs.length > 0 ? toMap(pairs, LinkedHashMap_init_$Create$_0(mapCapacity(pairs.length))) : emptyMap();
-  }
-  function hashMapOf(pairs) {
-    // Inline function 'kotlin.apply' call
-    var this_0 = HashMap_init_$Create$_0(mapCapacity(pairs.length));
-    putAll(this_0, pairs);
-    return this_0;
   }
   function toMap(_this__u8e3s4, destination) {
     // Inline function 'kotlin.apply' call
@@ -2889,6 +2895,12 @@ if (typeof Math.clz32 === 'undefined') {
     if (EmptyMap_instance == null)
       new EmptyMap();
     return EmptyMap_instance;
+  }
+  function hashMapOf(pairs) {
+    // Inline function 'kotlin.apply' call
+    var this_0 = HashMap_init_$Create$_0(mapCapacity(pairs.length));
+    putAll(this_0, pairs);
+    return this_0;
   }
   function EmptySet() {
     EmptySet_instance = this;
@@ -3140,6 +3152,34 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp_0;
   };
+  protoOf(ScreenArguments).z4 = function (name) {
+    var value = read(this, name, 'Int');
+    var tmp;
+    if (!(value == null) ? typeof value === 'number' : false) {
+      tmp = value;
+    } else {
+      if (!(value == null) ? typeof value === 'number' : false) {
+        tmp = numberToInt(value);
+      } else {
+        missing(this, name, 'Int');
+      }
+    }
+    return tmp;
+  };
+  protoOf(ScreenArguments).a5 = function (name) {
+    var value = read(this, name, 'Float');
+    var tmp;
+    if (!(value == null) ? typeof value === 'number' : false) {
+      tmp = value;
+    } else {
+      if (!(value == null) ? typeof value === 'number' : false) {
+        tmp = value;
+      } else {
+        missing(this, name, 'Float');
+      }
+    }
+    return tmp;
+  };
   function parseArguments(json) {
     // Inline function 'kotlin.text.isEmpty' call
     if (charSequenceLength(json) === 0)
@@ -3147,24 +3187,41 @@ if (typeof Math.clz32 === 'undefined') {
     return new ScreenArguments(JSON.parse(json));
   }
   function ScreenState() {
-    this.z4_1 = HashMap_init_$Create$();
+    this.b5_1 = HashMap_init_$Create$();
   }
   function Inherited() {
   }
+  protoOf(Inherited).toString = function () {
+    return 'Inherited';
+  };
+  protoOf(Inherited).hashCode = function () {
+    return 1711319743;
+  };
+  protoOf(Inherited).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof Inherited))
+      return false;
+    return true;
+  };
+  var Inherited_instance;
+  function Inherited_getInstance() {
+    return Inherited_instance;
+  }
   function Padding(start, top, end, bottom) {
-    this.a5_1 = start;
-    this.b5_1 = top;
-    this.c5_1 = end;
-    this.d5_1 = bottom;
+    this.c5_1 = start;
+    this.d5_1 = top;
+    this.e5_1 = end;
+    this.f5_1 = bottom;
   }
   protoOf(Padding).toString = function () {
-    return 'Padding(start=' + this.a5_1 + ', top=' + this.b5_1 + ', end=' + this.c5_1 + ', bottom=' + this.d5_1 + ')';
+    return 'Padding(start=' + this.c5_1 + ', top=' + this.d5_1 + ', end=' + this.e5_1 + ', bottom=' + this.f5_1 + ')';
   };
   protoOf(Padding).hashCode = function () {
-    var result = getNumberHashCode(this.a5_1);
-    result = imul(result, 31) + getNumberHashCode(this.b5_1) | 0;
-    result = imul(result, 31) + getNumberHashCode(this.c5_1) | 0;
+    var result = getNumberHashCode(this.c5_1);
     result = imul(result, 31) + getNumberHashCode(this.d5_1) | 0;
+    result = imul(result, 31) + getNumberHashCode(this.e5_1) | 0;
+    result = imul(result, 31) + getNumberHashCode(this.f5_1) | 0;
     return result;
   };
   protoOf(Padding).equals = function (other) {
@@ -3172,13 +3229,13 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof Padding))
       return false;
-    if (!equals(this.a5_1, other.a5_1))
-      return false;
-    if (!equals(this.b5_1, other.b5_1))
-      return false;
     if (!equals(this.c5_1, other.c5_1))
       return false;
     if (!equals(this.d5_1, other.d5_1))
+      return false;
+    if (!equals(this.e5_1, other.e5_1))
+      return false;
+    if (!equals(this.f5_1, other.f5_1))
       return false;
     return true;
   };
@@ -3200,37 +3257,37 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function FragmentNode(children) {
     children = children === VOID ? emptyList() : children;
-    this.e5_1 = children;
+    this.g5_1 = children;
   }
   protoOf(FragmentNode).toString = function () {
-    return 'FragmentNode(children=' + toString_1(this.e5_1) + ')';
+    return 'FragmentNode(children=' + toString_1(this.g5_1) + ')';
   };
   protoOf(FragmentNode).hashCode = function () {
-    return hashCode_0(this.e5_1);
+    return hashCode_0(this.g5_1);
   };
   protoOf(FragmentNode).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof FragmentNode))
       return false;
-    if (!equals(this.e5_1, other.e5_1))
+    if (!equals(this.g5_1, other.g5_1))
       return false;
     return true;
   };
   function ComponentNode(adapter, props, children) {
     props = props === VOID ? emptyMap() : props;
     children = children === VOID ? emptyMap() : children;
-    this.f5_1 = adapter;
-    this.g5_1 = props;
-    this.h5_1 = children;
+    this.h5_1 = adapter;
+    this.i5_1 = props;
+    this.j5_1 = children;
   }
   protoOf(ComponentNode).toString = function () {
-    return 'ComponentNode(adapter=' + this.f5_1 + ', props=' + toString_1(this.g5_1) + ', children=' + toString_1(this.h5_1) + ')';
+    return 'ComponentNode(adapter=' + this.h5_1 + ', props=' + toString_1(this.i5_1) + ', children=' + toString_1(this.j5_1) + ')';
   };
   protoOf(ComponentNode).hashCode = function () {
-    var result = getStringHashCode(this.f5_1);
-    result = imul(result, 31) + hashCode_0(this.g5_1) | 0;
-    result = imul(result, 31) + hashCode_0(this.h5_1) | 0;
+    var result = getStringHashCode(this.h5_1);
+    result = imul(result, 31) + hashCode_0(this.i5_1) | 0;
+    result = imul(result, 31) + hashCode_0(this.j5_1) | 0;
     return result;
   };
   protoOf(ComponentNode).equals = function (other) {
@@ -3238,33 +3295,9 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof ComponentNode))
       return false;
-    if (!(this.f5_1 === other.f5_1))
+    if (!(this.h5_1 === other.h5_1))
       return false;
-    if (!equals(this.g5_1, other.g5_1))
-      return false;
-    if (!equals(this.h5_1, other.h5_1))
-      return false;
-    return true;
-  };
-  function TextNode(text, modifiers) {
-    modifiers = modifiers === VOID ? emptyList() : modifiers;
-    this.i5_1 = text;
-    this.j5_1 = modifiers;
-  }
-  protoOf(TextNode).toString = function () {
-    return 'TextNode(text=' + this.i5_1 + ', modifiers=' + toString_1(this.j5_1) + ')';
-  };
-  protoOf(TextNode).hashCode = function () {
-    var result = getStringHashCode(this.i5_1);
-    result = imul(result, 31) + hashCode_0(this.j5_1) | 0;
-    return result;
-  };
-  protoOf(TextNode).equals = function (other) {
-    if (this === other)
-      return true;
-    if (!(other instanceof TextNode))
-      return false;
-    if (!(this.i5_1 === other.i5_1))
+    if (!equals(this.i5_1, other.i5_1))
       return false;
     if (!equals(this.j5_1, other.j5_1))
       return false;
@@ -3299,6 +3332,8 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function BoxNode() {
   }
+  function TextNode() {
+  }
   function ButtonNode() {
   }
   function toJson_0(_this__u8e3s4) {
@@ -3307,22 +3342,22 @@ if (typeof Math.clz32 === 'undefined') {
       tmp = container('column', _this__u8e3s4.k5_1, _this__u8e3s4.l5_1);
     } else {
       if (_this__u8e3s4 instanceof RowNode) {
-        tmp = container('row', _this__u8e3s4.r5_1, _this__u8e3s4.s5_1);
+        tmp = container('row', _this__u8e3s4.t5_1, _this__u8e3s4.u5_1);
       } else {
         if (_this__u8e3s4 instanceof BoxNode) {
-          tmp = container('box', _this__u8e3s4.p5_1, _this__u8e3s4.q5_1);
+          tmp = container('box', _this__u8e3s4.r5_1, _this__u8e3s4.s5_1);
         } else {
           if (_this__u8e3s4 instanceof TextNode) {
-            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.i5_1) + '"' + modifiersField(_this__u8e3s4.j5_1) + '}';
+            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.p5_1) + '"' + modifiersField(_this__u8e3s4.q5_1) + '}';
           } else {
             if (_this__u8e3s4 instanceof ButtonNode) {
               tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.m5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.n5_1) + '"') + modifiersField(_this__u8e3s4.o5_1) + '}';
             } else {
               if (_this__u8e3s4 instanceof ComponentNode) {
-                tmp = '{"type":"component","adapter":"' + escapeJson(_this__u8e3s4.f5_1) + '"' + propsField(_this__u8e3s4.g5_1) + slotsField(_this__u8e3s4.h5_1) + '}';
+                tmp = '{"type":"component","adapter":"' + escapeJson(_this__u8e3s4.h5_1) + '"' + propsField(_this__u8e3s4.i5_1) + slotsField(_this__u8e3s4.j5_1) + '}';
               } else {
                 if (_this__u8e3s4 instanceof FragmentNode) {
-                  tmp = '{"type":"fragment","children":[' + joinToString_0(_this__u8e3s4.e5_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + ']}';
+                  tmp = '{"type":"fragment","children":[' + joinToString_0(_this__u8e3s4.g5_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + ']}';
                 } else {
                   noWhenBranchMatchedException();
                 }
@@ -3373,31 +3408,31 @@ if (typeof Math.clz32 === 'undefined') {
       tmp = '{"type":"inherited"}';
     } else {
       if (_this__u8e3s4 instanceof Padding) {
-        tmp = '{"type":"padding","start":' + _this__u8e3s4.a5_1 + ',"top":' + _this__u8e3s4.b5_1 + ',' + ('"end":' + _this__u8e3s4.c5_1 + ',"bottom":' + _this__u8e3s4.d5_1 + '}');
+        tmp = '{"type":"padding","start":' + _this__u8e3s4.c5_1 + ',"top":' + _this__u8e3s4.d5_1 + ',' + ('"end":' + _this__u8e3s4.e5_1 + ',"bottom":' + _this__u8e3s4.f5_1 + '}');
       } else {
         if (_this__u8e3s4 instanceof FillMaxWidth) {
-          tmp = '{"type":"fillMaxWidth","fraction":' + _this__u8e3s4.b6_1 + '}';
+          tmp = '{"type":"fillMaxWidth","fraction":' + _this__u8e3s4.d6_1 + '}';
         } else {
           if (_this__u8e3s4 instanceof FillMaxHeight) {
-            tmp = '{"type":"fillMaxHeight","fraction":' + _this__u8e3s4.a6_1 + '}';
+            tmp = '{"type":"fillMaxHeight","fraction":' + _this__u8e3s4.c6_1 + '}';
           } else {
             if (_this__u8e3s4 instanceof FillMaxSize) {
-              tmp = '{"type":"fillMaxSize","fraction":' + _this__u8e3s4.z5_1 + '}';
+              tmp = '{"type":"fillMaxSize","fraction":' + _this__u8e3s4.b6_1 + '}';
             } else {
               if (_this__u8e3s4 instanceof Size) {
-                tmp = '{"type":"size","width":' + _this__u8e3s4.x5_1 + ',"height":' + _this__u8e3s4.y5_1 + '}';
+                tmp = '{"type":"size","width":' + _this__u8e3s4.z5_1 + ',"height":' + _this__u8e3s4.a6_1 + '}';
               } else {
                 if (_this__u8e3s4 instanceof Width) {
-                  tmp = '{"type":"width","value":' + _this__u8e3s4.w5_1 + '}';
+                  tmp = '{"type":"width","value":' + _this__u8e3s4.y5_1 + '}';
                 } else {
                   if (_this__u8e3s4 instanceof Height) {
-                    tmp = '{"type":"height","value":' + _this__u8e3s4.v5_1 + '}';
+                    tmp = '{"type":"height","value":' + _this__u8e3s4.x5_1 + '}';
                   } else {
                     if (_this__u8e3s4 instanceof Weight) {
-                      tmp = '{"type":"weight","value":' + _this__u8e3s4.u5_1 + '}';
+                      tmp = '{"type":"weight","value":' + _this__u8e3s4.w5_1 + '}';
                     } else {
                       if (_this__u8e3s4 instanceof Background) {
-                        tmp = '{"type":"background","color":' + _this__u8e3s4.t5_1.toString() + '}';
+                        tmp = '{"type":"background","color":' + _this__u8e3s4.v5_1.toString() + '}';
                       } else {
                         noWhenBranchMatchedException();
                       }
@@ -3418,55 +3453,55 @@ if (typeof Math.clz32 === 'undefined') {
       tmp = '{"k":"null"}';
     } else {
       if (_this__u8e3s4 instanceof BoolProp) {
-        tmp = '{"k":"bool","v":' + _this__u8e3s4.t6_1 + '}';
+        tmp = '{"k":"bool","v":' + _this__u8e3s4.v6_1 + '}';
       } else {
         if (_this__u8e3s4 instanceof IntProp) {
-          tmp = '{"k":"int","v":' + _this__u8e3s4.s6_1 + '}';
+          tmp = '{"k":"int","v":' + _this__u8e3s4.u6_1 + '}';
         } else {
           if (_this__u8e3s4 instanceof LongProp) {
-            tmp = '{"k":"long","v":"' + escapeJson(_this__u8e3s4.r6_1) + '"}';
+            tmp = '{"k":"long","v":"' + escapeJson(_this__u8e3s4.t6_1) + '"}';
           } else {
             if (_this__u8e3s4 instanceof FloatProp) {
-              tmp = '{"k":"float","v":' + _this__u8e3s4.q6_1 + '}';
+              tmp = '{"k":"float","v":' + _this__u8e3s4.s6_1 + '}';
             } else {
               if (_this__u8e3s4 instanceof DoubleProp) {
-                tmp = '{"k":"double","v":' + _this__u8e3s4.p6_1 + '}';
+                tmp = '{"k":"double","v":' + _this__u8e3s4.r6_1 + '}';
               } else {
                 if (_this__u8e3s4 instanceof StringProp) {
-                  tmp = '{"k":"string","v":"' + escapeJson(_this__u8e3s4.o6_1) + '"}';
+                  tmp = '{"k":"string","v":"' + escapeJson(_this__u8e3s4.q6_1) + '"}';
                 } else {
                   if (_this__u8e3s4 instanceof DpProp) {
-                    tmp = '{"k":"dp","v":' + _this__u8e3s4.n6_1 + '}';
+                    tmp = '{"k":"dp","v":' + _this__u8e3s4.p6_1 + '}';
                   } else {
                     if (_this__u8e3s4 instanceof ColorProp) {
-                      tmp = '{"k":"color","v":' + _this__u8e3s4.m6_1.toString() + '}';
+                      tmp = '{"k":"color","v":' + _this__u8e3s4.o6_1.toString() + '}';
                     } else {
                       if (_this__u8e3s4 instanceof ThemeColorProp) {
-                        tmp = '{"k":"themeColor","token":"' + escapeJson(_this__u8e3s4.l6_1) + '"}';
+                        tmp = '{"k":"themeColor","token":"' + escapeJson(_this__u8e3s4.n6_1) + '"}';
                       } else {
                         if (_this__u8e3s4 instanceof ShapeProp) {
-                          tmp = '{"k":"shape","token":"' + escapeJson(_this__u8e3s4.k6_1) + '"}';
+                          tmp = '{"k":"shape","token":"' + escapeJson(_this__u8e3s4.m6_1) + '"}';
                         } else {
                           if (_this__u8e3s4 instanceof PainterResourceProp) {
-                            tmp = '{"k":"painterRes","key":"' + escapeJson(_this__u8e3s4.j6_1) + '"}';
+                            tmp = '{"k":"painterRes","key":"' + escapeJson(_this__u8e3s4.l6_1) + '"}';
                           } else {
                             if (_this__u8e3s4 instanceof StringResourceProp) {
-                              tmp = '{"k":"stringRes","key":"' + escapeJson(_this__u8e3s4.i6_1) + '"}';
+                              tmp = '{"k":"stringRes","key":"' + escapeJson(_this__u8e3s4.k6_1) + '"}';
                             } else {
                               if (_this__u8e3s4 instanceof ModifierProp) {
-                                tmp = '{"k":"modifier","ops":[' + joinToString_0(_this__u8e3s4.h6_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_0) + ']}';
+                                tmp = '{"k":"modifier","ops":[' + joinToString_0(_this__u8e3s4.j6_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_0) + ']}';
                               } else {
                                 if (_this__u8e3s4 instanceof ListProp) {
-                                  tmp = '{"k":"list","items":[' + joinToString_0(_this__u8e3s4.g6_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_1) + ']}';
+                                  tmp = '{"k":"list","items":[' + joinToString_0(_this__u8e3s4.i6_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_1) + ']}';
                                 } else {
                                   if (_this__u8e3s4 instanceof HandleProp) {
-                                    tmp = '{"k":"handle","name":"' + escapeJson(_this__u8e3s4.f6_1) + '"}';
+                                    tmp = '{"k":"handle","name":"' + escapeJson(_this__u8e3s4.h6_1) + '"}';
                                   } else {
                                     if (_this__u8e3s4 instanceof StateProp) {
-                                      tmp = '{"k":"state","name":"' + escapeJson(_this__u8e3s4.e6_1) + '"}';
+                                      tmp = '{"k":"state","name":"' + escapeJson(_this__u8e3s4.g6_1) + '"}';
                                     } else {
                                       if (_this__u8e3s4 instanceof CallbackProp) {
-                                        tmp = '{"k":"callback","id":"' + escapeJson(_this__u8e3s4.c6_1) + '","arity":' + _this__u8e3s4.d6_1 + '}';
+                                        tmp = '{"k":"callback","id":"' + escapeJson(_this__u8e3s4.e6_1) + '","arity":' + _this__u8e3s4.f6_1 + '}';
                                       } else {
                                         noWhenBranchMatchedException();
                                       }
@@ -3490,12 +3525,12 @@ if (typeof Math.clz32 === 'undefined') {
     return tmp;
   }
   function toJson_3(_this__u8e3s4) {
-    var tmp = '{"op":"' + escapeJson(_this__u8e3s4.u6_1) + '"';
+    var tmp = '{"op":"' + escapeJson(_this__u8e3s4.w6_1) + '"';
     var tmp_0;
-    if (_this__u8e3s4.v6_1.h()) {
+    if (_this__u8e3s4.x6_1.h()) {
       tmp_0 = '';
     } else {
-      var tmp_1 = _this__u8e3s4.v6_1.p();
+      var tmp_1 = _this__u8e3s4.x6_1.p();
       tmp_0 = ',"args":{' + joinToString_0(tmp_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_2) + '}';
     }
     return tmp + tmp_0 + '}';
@@ -3540,57 +3575,118 @@ if (typeof Math.clz32 === 'undefined') {
     var value = _destruct__k2r9zo.m();
     return '"' + escapeJson(name) + '":' + toJson_2(value);
   }
-  function StringResourceProp(key) {
-    this.i6_1 = key;
-  }
-  protoOf(StringResourceProp).toString = function () {
-    return 'StringResourceProp(key=' + this.i6_1 + ')';
-  };
-  protoOf(StringResourceProp).hashCode = function () {
-    return getStringHashCode(this.i6_1);
-  };
-  protoOf(StringResourceProp).equals = function (other) {
-    if (this === other)
-      return true;
-    if (!(other instanceof StringResourceProp))
-      return false;
-    if (!(this.i6_1 === other.i6_1))
-      return false;
-    return true;
-  };
   function StringProp(value) {
-    this.o6_1 = value;
+    this.q6_1 = value;
   }
   protoOf(StringProp).toString = function () {
-    return 'StringProp(value=' + this.o6_1 + ')';
+    return 'StringProp(value=' + this.q6_1 + ')';
   };
   protoOf(StringProp).hashCode = function () {
-    return getStringHashCode(this.o6_1);
+    return getStringHashCode(this.q6_1);
   };
   protoOf(StringProp).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof StringProp))
       return false;
-    if (!(this.o6_1 === other.o6_1))
+    if (!(this.q6_1 === other.q6_1))
+      return false;
+    return true;
+  };
+  function StringResourceProp(key) {
+    this.k6_1 = key;
+  }
+  protoOf(StringResourceProp).toString = function () {
+    return 'StringResourceProp(key=' + this.k6_1 + ')';
+  };
+  protoOf(StringResourceProp).hashCode = function () {
+    return getStringHashCode(this.k6_1);
+  };
+  protoOf(StringResourceProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof StringResourceProp))
+      return false;
+    if (!(this.k6_1 === other.k6_1))
       return false;
     return true;
   };
   function HandleProp(name) {
-    this.f6_1 = name;
+    this.h6_1 = name;
   }
   protoOf(HandleProp).toString = function () {
-    return 'HandleProp(name=' + this.f6_1 + ')';
+    return 'HandleProp(name=' + this.h6_1 + ')';
   };
   protoOf(HandleProp).hashCode = function () {
-    return getStringHashCode(this.f6_1);
+    return getStringHashCode(this.h6_1);
   };
   protoOf(HandleProp).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof HandleProp))
       return false;
-    if (!(this.f6_1 === other.f6_1))
+    if (!(this.h6_1 === other.h6_1))
+      return false;
+    return true;
+  };
+  function ModifierProp(operations) {
+    operations = operations === VOID ? emptyList() : operations;
+    this.j6_1 = operations;
+  }
+  protoOf(ModifierProp).toString = function () {
+    return 'ModifierProp(operations=' + toString_1(this.j6_1) + ')';
+  };
+  protoOf(ModifierProp).hashCode = function () {
+    return hashCode_0(this.j6_1);
+  };
+  protoOf(ModifierProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof ModifierProp))
+      return false;
+    if (!equals(this.j6_1, other.j6_1))
+      return false;
+    return true;
+  };
+  function ModifierOpNode(op, arguments_0) {
+    arguments_0 = arguments_0 === VOID ? emptyMap() : arguments_0;
+    this.w6_1 = op;
+    this.x6_1 = arguments_0;
+  }
+  protoOf(ModifierOpNode).toString = function () {
+    return 'ModifierOpNode(op=' + this.w6_1 + ', arguments=' + toString_1(this.x6_1) + ')';
+  };
+  protoOf(ModifierOpNode).hashCode = function () {
+    var result = getStringHashCode(this.w6_1);
+    result = imul(result, 31) + hashCode_0(this.x6_1) | 0;
+    return result;
+  };
+  protoOf(ModifierOpNode).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof ModifierOpNode))
+      return false;
+    if (!(this.w6_1 === other.w6_1))
+      return false;
+    if (!equals(this.x6_1, other.x6_1))
+      return false;
+    return true;
+  };
+  function DpProp(value) {
+    this.p6_1 = value;
+  }
+  protoOf(DpProp).toString = function () {
+    return 'DpProp(value=' + this.p6_1 + ')';
+  };
+  protoOf(DpProp).hashCode = function () {
+    return getNumberHashCode(this.p6_1);
+  };
+  protoOf(DpProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof DpProp))
+      return false;
+    if (!equals(this.p6_1, other.p6_1))
       return false;
     return true;
   };
@@ -3606,8 +3702,6 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function DoubleProp() {
   }
-  function DpProp() {
-  }
   function ColorProp() {
   }
   function ThemeColorProp() {
@@ -3615,8 +3709,6 @@ if (typeof Math.clz32 === 'undefined') {
   function ShapeProp() {
   }
   function PainterResourceProp() {
-  }
-  function ModifierProp() {
   }
   function ListProp() {
   }
@@ -3631,7 +3723,7 @@ if (typeof Math.clz32 === 'undefined') {
   var screenStates;
   function screenIds() {
     _init_properties_DootahExports_kt__7euayy();
-    return screenIdsJson(listOf('com.example.jetsnack.ui.home.SortFiltersSection'));
+    return screenIdsJson(listOf_0(['com.example.jetsnack.ui.home.FilterChipSection', 'com.example.jetsnack.ui.home.MaxCalories', 'com.example.jetsnack.ui.home.SortFiltersSection', 'com.example.jetsnack.ui.home.search.SearchCategoryCollection']));
   }
   function renderScreen(screenId, argumentsJson) {
     _init_properties_DootahExports_kt__7euayy();
@@ -3693,11 +3785,33 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function renderOf(screenId, arguments_0, state) {
     _init_properties_DootahExports_kt__7euayy();
-    return screenId === 'com.example.jetsnack.ui.home.SortFiltersSection' ? DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection_instance.x6(arguments_0, state) : null;
+    switch (screenId) {
+      case 'com.example.jetsnack.ui.home.FilterChipSection':
+        return DootahScreen_com_example_jetsnack_ui_home_FilterChipSection_instance.z6(arguments_0, state);
+      case 'com.example.jetsnack.ui.home.MaxCalories':
+        return DootahScreen_com_example_jetsnack_ui_home_MaxCalories_instance.z6(arguments_0, state);
+      case 'com.example.jetsnack.ui.home.SortFiltersSection':
+        return DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection_instance.z6(arguments_0, state);
+      case 'com.example.jetsnack.ui.home.search.SearchCategoryCollection':
+        return DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection_instance.z6(arguments_0, state);
+      default:
+        return null;
+    }
   }
   function performOn(screenId, action, arguments_0, state) {
     _init_properties_DootahExports_kt__7euayy();
-    return screenId === 'com.example.jetsnack.ui.home.SortFiltersSection' ? DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection_instance.y6(action, arguments_0, state) : null;
+    switch (screenId) {
+      case 'com.example.jetsnack.ui.home.FilterChipSection':
+        return DootahScreen_com_example_jetsnack_ui_home_FilterChipSection_instance.d7(action, arguments_0, state);
+      case 'com.example.jetsnack.ui.home.MaxCalories':
+        return DootahScreen_com_example_jetsnack_ui_home_MaxCalories_instance.d7(action, arguments_0, state);
+      case 'com.example.jetsnack.ui.home.SortFiltersSection':
+        return DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection_instance.d7(action, arguments_0, state);
+      case 'com.example.jetsnack.ui.home.search.SearchCategoryCollection':
+        return DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection_instance.d7(action, arguments_0, state);
+      default:
+        return null;
+    }
   }
   var properties_initialized_DootahExports_kt_l3kioo;
   function _init_properties_DootahExports_kt__7euayy() {
@@ -3706,18 +3820,72 @@ if (typeof Math.clz32 === 'undefined') {
       screenStates = HashMap_init_$Create$();
     }
   }
-  function DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection() {
-    this.w6_1 = 'com.example.jetsnack.ui.home.SortFiltersSection';
+  function DootahScreen_com_example_jetsnack_ui_home_FilterChipSection() {
+    this.y6_1 = 'com.example.jetsnack.ui.home.FilterChipSection';
   }
-  protoOf(DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection).x6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetsnack_ui_home_FilterChipSection).z6 = function (arguments_0, state) {
+    var title = arguments_0.y4('title');
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_0 = ArrayList_init_$Create$();
+    this_0.f1(new ComponentNode('com.example.jetsnack.ui.home.FilterTitle(text)', mapOf(to('text', new StringProp(title)))));
+    this_0.f1(new ComponentNode('!androidx.compose.foundation.layout.FlowRow@0xrbhc43bbvcp'));
+    var tmp$ret$0 = this_0.a2();
+    return new FragmentNode(tmp$ret$0);
+  };
+  protoOf(DootahScreen_com_example_jetsnack_ui_home_FilterChipSection).d7 = function (action, arguments_0, state) {
+    // Inline function 'kotlin.collections.mutableListOf' call
+    var commands = ArrayList_init_$Create$();
+    var title = arguments_0.y4('title');
+    return commands;
+  };
+  var DootahScreen_com_example_jetsnack_ui_home_FilterChipSection_instance;
+  function DootahScreen_com_example_jetsnack_ui_home_FilterChipSection_getInstance() {
+    return DootahScreen_com_example_jetsnack_ui_home_FilterChipSection_instance;
+  }
+  function DootahScreen_com_example_jetsnack_ui_home_MaxCalories() {
+    this.a7_1 = 'com.example.jetsnack.ui.home.MaxCalories';
+  }
+  protoOf(DootahScreen_com_example_jetsnack_ui_home_MaxCalories).z6 = function (arguments_0, state) {
+    var sliderPosition = arguments_0.a5('sliderPosition');
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_0 = ArrayList_init_$Create$();
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_1 = ArrayList_init_$Create$();
+    this_1.f1(new ComponentNode('com.example.jetsnack.ui.home.FilterTitle(text)', mapOf(to('text', new StringResourceProp('string:max_calories')))));
+    this_1.f1(new ComponentNode('!androidx.compose.material3.Text@0ejwzwigmo82j'));
+    var tmp$ret$4 = this_1.a2();
+    this_0.f1(new ComponentNode('androidx.compose.foundation.layout.FlowRow(content|horizontalArrangement|itemVerticalAlignment|maxItemsInEachRow|maxLines|modifier|verticalArrangement)', VOID, mapOf(to('content', tmp$ret$4))));
+    this_0.f1(new ComponentNode('!androidx.compose.material3.Slider@01e8vth6ta6dd'));
+    var tmp$ret$0 = this_0.a2();
+    return new FragmentNode(tmp$ret$0);
+  };
+  protoOf(DootahScreen_com_example_jetsnack_ui_home_MaxCalories).d7 = function (action, arguments_0, state) {
+    // Inline function 'kotlin.collections.mutableListOf' call
+    var commands = ArrayList_init_$Create$();
+    var sliderPosition = arguments_0.a5('sliderPosition');
+    return commands;
+  };
+  var DootahScreen_com_example_jetsnack_ui_home_MaxCalories_instance;
+  function DootahScreen_com_example_jetsnack_ui_home_MaxCalories_getInstance() {
+    return DootahScreen_com_example_jetsnack_ui_home_MaxCalories_instance;
+  }
+  function DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection() {
+    this.b7_1 = 'com.example.jetsnack.ui.home.SortFiltersSection';
+  }
+  protoOf(DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection).z6 = function (arguments_0, state) {
     var sortState = arguments_0.y4('sortState');
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_0 = ArrayList_init_$Create$();
     this_0.f1(new ComponentNode('com.example.jetsnack.ui.home.FilterTitle(text)', mapOf(to('text', new StringResourceProp('string:sort')))));
-    this_0.f1(new TextNode('Currently sorting by ' + sortState));
-    var tmp = listOf(new Padding(0.0, 0.0, 0.0, 8.0));
+    var tmp = listOf(new Padding(0.0, 0.0, 0.0, 24.0));
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
@@ -3728,7 +3896,7 @@ if (typeof Math.clz32 === 'undefined') {
     var tmp$ret$0 = this_0.a2();
     return new FragmentNode(tmp$ret$0);
   };
-  protoOf(DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection).y6 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection).d7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     var sortState = arguments_0.y4('sortState');
@@ -3737,6 +3905,32 @@ if (typeof Math.clz32 === 'undefined') {
   var DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection_instance;
   function DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection_getInstance() {
     return DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection_instance;
+  }
+  function DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection() {
+    this.c7_1 = 'com.example.jetsnack.ui.home.search.SearchCategoryCollection';
+  }
+  protoOf(DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection).z6 = function (arguments_0, state) {
+    var index = arguments_0.z4('index');
+    var tmp = listOf(Inherited_instance);
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_0 = ArrayList_init_$Create$();
+    this_0.f1(new ComponentNode('!androidx.compose.material3.Text@116t0rsqzewuw'));
+    this_0.f1(new ComponentNode('!com.example.jetsnack.ui.components.VerticalGrid@1p8n7htxrptiw'));
+    this_0.f1(new ComponentNode('androidx.compose.foundation.layout.Spacer(modifier)', mapOf(to('modifier', new ModifierProp(listOf(new ModifierOpNode('height', mapOf(to('height', new DpProp(4.0))))))))));
+    var tmp$ret$0 = this_0.a2();
+    return new ColumnNode(tmp, tmp$ret$0);
+  };
+  protoOf(DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection).d7 = function (action, arguments_0, state) {
+    // Inline function 'kotlin.collections.mutableListOf' call
+    var commands = ArrayList_init_$Create$();
+    var index = arguments_0.z4('index');
+    return commands;
+  };
+  var DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection_instance;
+  function DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection_getInstance() {
+    return DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection_instance;
   }
   //region block: post-declaration
   protoOf(InternalHashMap).o2 = containsAllEntries;
@@ -3748,7 +3942,11 @@ if (typeof Math.clz32 === 'undefined') {
   Companion_instance_3 = new Companion_3();
   Companion_instance_4 = new Companion_4();
   EmptyIterator_instance = new EmptyIterator();
+  Inherited_instance = new Inherited();
+  DootahScreen_com_example_jetsnack_ui_home_FilterChipSection_instance = new DootahScreen_com_example_jetsnack_ui_home_FilterChipSection();
+  DootahScreen_com_example_jetsnack_ui_home_MaxCalories_instance = new DootahScreen_com_example_jetsnack_ui_home_MaxCalories();
   DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection_instance = new DootahScreen_com_example_jetsnack_ui_home_SortFiltersSection();
+  DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection_instance = new DootahScreen_com_example_jetsnack_ui_home_search_SearchCategoryCollection();
   //endregion
   //region block: exports
   function $jsExportAll$(_) {
