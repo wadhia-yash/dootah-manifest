@@ -139,6 +139,7 @@ if (typeof Math.clz32 === 'undefined') {
   }
   initMetadataForInterface(InternalMap, 'InternalMap');
   initMetadataForClass(InternalHashMap, 'InternalHashMap', InternalHashMap_init_$Create$, VOID, [InternalMap]);
+  initMetadataForClass(LinkedHashMap, 'LinkedHashMap', LinkedHashMap_init_$Create$, HashMap, [KtMap]);
   initMetadataForClass(Exception, 'Exception', Exception_init_$Create$, Error);
   initMetadataForClass(RuntimeException, 'RuntimeException', RuntimeException_init_$Create$, Exception);
   initMetadataForClass(UnsupportedOperationException, 'UnsupportedOperationException', UnsupportedOperationException_init_$Create$, RuntimeException);
@@ -160,6 +161,9 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForCompanion(Companion_4);
   initMetadataForObject(EmptyList, 'EmptyList', VOID, VOID, [KtList]);
   initMetadataForObject(EmptyIterator, 'EmptyIterator');
+  initMetadataForObject(EmptyMap, 'EmptyMap', VOID, VOID, [KtMap]);
+  initMetadataForObject(EmptySet, 'EmptySet', VOID, VOID, [KtSet]);
+  initMetadataForClass(Pair, 'Pair');
   initMetadataForClass(InvokeCallback, 'InvokeCallback');
   initMetadataForClass(Log, 'Log');
   initMetadataForClass(Toast, 'Toast');
@@ -178,11 +182,30 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(Background, 'Background');
   initMetadataForClass(FragmentNode, 'FragmentNode', FragmentNode);
   initMetadataForClass(BoxNode, 'BoxNode', BoxNode);
-  initMetadataForClass(NativeSlotNode, 'NativeSlotNode');
+  initMetadataForClass(ComponentNode, 'ComponentNode');
   initMetadataForClass(ColumnNode, 'ColumnNode', ColumnNode);
   initMetadataForClass(TextNode, 'TextNode');
   initMetadataForClass(ButtonNode, 'ButtonNode');
   initMetadataForClass(RowNode, 'RowNode', RowNode);
+  initMetadataForClass(CallbackProp, 'CallbackProp');
+  initMetadataForClass(ModifierProp, 'ModifierProp', ModifierProp);
+  initMetadataForClass(ModifierOpNode, 'ModifierOpNode');
+  initMetadataForClass(DpProp, 'DpProp');
+  initMetadataForClass(PainterResourceProp, 'PainterResourceProp');
+  initMetadataForClass(StringResourceProp, 'StringResourceProp');
+  initMetadataForClass(ColorProp, 'ColorProp');
+  initMetadataForClass(ThemeColorProp, 'ThemeColorProp');
+  initMetadataForClass(ShapeProp, 'ShapeProp');
+  initMetadataForClass(StateProp, 'StateProp');
+  initMetadataForClass(HandleProp, 'HandleProp');
+  initMetadataForClass(BoolProp, 'BoolProp');
+  initMetadataForClass(NullProp, 'NullProp');
+  initMetadataForClass(IntProp, 'IntProp');
+  initMetadataForClass(LongProp, 'LongProp');
+  initMetadataForClass(FloatProp, 'FloatProp');
+  initMetadataForClass(DoubleProp, 'DoubleProp');
+  initMetadataForClass(StringProp, 'StringProp');
+  initMetadataForClass(ListProp, 'ListProp');
   initMetadataForObject(DootahScreen_com_example_cahier_features_drawing_ToolBoxContent, 'DootahScreen_com_example_cahier_features_drawing_ToolBoxContent');
   initMetadataForObject(DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls, 'DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls');
   initMetadataForObject(DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions, 'DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions');
@@ -1319,6 +1342,12 @@ if (typeof Math.clz32 === 'undefined') {
     var tmp$ret$0 = [element];
     return new ArrayList(tmp$ret$0);
   }
+  function mapOf(pair) {
+    return hashMapOf([pair]);
+  }
+  function mapCapacity(expectedSize) {
+    return expectedSize;
+  }
   function AbstractMutableCollection() {
     AbstractCollection.call(this);
   }
@@ -1532,6 +1561,17 @@ if (typeof Math.clz32 === 'undefined') {
   function HashMap_init_$Create$() {
     return HashMap_init_$Init$_0(objectCreate(protoOf(HashMap)));
   }
+  function HashMap_init_$Init$_1(initialCapacity, loadFactor, $this) {
+    HashMap_init_$Init$(InternalHashMap_init_$Create$_0(initialCapacity, loadFactor), $this);
+    return $this;
+  }
+  function HashMap_init_$Init$_2(initialCapacity, $this) {
+    HashMap_init_$Init$_1(initialCapacity, 1.0, $this);
+    return $this;
+  }
+  function HashMap_init_$Create$_0(initialCapacity) {
+    return HashMap_init_$Init$_2(initialCapacity, objectCreate(protoOf(HashMap)));
+  }
   protoOf(HashMap).n = function (key) {
     return this.g2_1.i2(key);
   };
@@ -1608,6 +1648,18 @@ if (typeof Math.clz32 === 'undefined') {
   function InternalHashMap_init_$Init$_0(initialCapacity, $this) {
     InternalHashMap.call($this, arrayOfUninitializedElements(initialCapacity), null, new Int32Array(initialCapacity), new Int32Array(computeHashSize(Companion_instance_1, initialCapacity)), 2, 0);
     return $this;
+  }
+  function InternalHashMap_init_$Init$_1(initialCapacity, loadFactor, $this) {
+    InternalHashMap_init_$Init$_0(initialCapacity, $this);
+    // Inline function 'kotlin.require' call
+    if (!(loadFactor > 0)) {
+      var message = 'Non-positive load factor: ' + loadFactor;
+      throw IllegalArgumentException_init_$Create$_0(toString_1(message));
+    }
+    return $this;
+  }
+  function InternalHashMap_init_$Create$_0(initialCapacity, loadFactor) {
+    return InternalHashMap_init_$Init$_1(initialCapacity, loadFactor, objectCreate(protoOf(InternalHashMap)));
   }
   function _get_capacity__a9k9f3($this) {
     return $this.p2_1.length;
@@ -1994,6 +2046,24 @@ if (typeof Math.clz32 === 'undefined') {
     return new EntriesItr(this);
   };
   function InternalMap() {
+  }
+  function LinkedHashMap_init_$Init$($this) {
+    HashMap_init_$Init$_0($this);
+    LinkedHashMap.call($this);
+    return $this;
+  }
+  function LinkedHashMap_init_$Create$() {
+    return LinkedHashMap_init_$Init$(objectCreate(protoOf(LinkedHashMap)));
+  }
+  function LinkedHashMap_init_$Init$_0(initialCapacity, $this) {
+    HashMap_init_$Init$_2(initialCapacity, $this);
+    LinkedHashMap.call($this);
+    return $this;
+  }
+  function LinkedHashMap_init_$Create$_0(initialCapacity) {
+    return LinkedHashMap_init_$Init$_0(initialCapacity, objectCreate(protoOf(LinkedHashMap)));
+  }
+  function LinkedHashMap() {
   }
   function UnsupportedOperationException_init_$Init$($this) {
     RuntimeException_init_$Init$($this);
@@ -2651,6 +2721,9 @@ if (typeof Math.clz32 === 'undefined') {
   protoOf(AbstractMap).hashCode = function () {
     return hashCode_0(this.p());
   };
+  protoOf(AbstractMap).h = function () {
+    return this.g() === 0;
+  };
   protoOf(AbstractMap).g = function () {
     return this.p().g();
   };
@@ -2749,6 +2822,125 @@ if (typeof Math.clz32 === 'undefined') {
   function EmptyIterator_getInstance() {
     return EmptyIterator_instance;
   }
+  function mapOf_0(pairs) {
+    return pairs.length > 0 ? toMap(pairs, LinkedHashMap_init_$Create$_0(mapCapacity(pairs.length))) : emptyMap();
+  }
+  function toMap(_this__u8e3s4, destination) {
+    // Inline function 'kotlin.apply' call
+    putAll(destination, _this__u8e3s4);
+    return destination;
+  }
+  function emptyMap() {
+    var tmp = EmptyMap_getInstance();
+    return isInterface(tmp, KtMap) ? tmp : THROW_CCE();
+  }
+  function putAll(_this__u8e3s4, pairs) {
+    var inductionVariable = 0;
+    var last = pairs.length;
+    while (inductionVariable < last) {
+      var _destruct__k2r9zo = pairs[inductionVariable];
+      inductionVariable = inductionVariable + 1 | 0;
+      var key = _destruct__k2r9zo.l4();
+      var value = _destruct__k2r9zo.m4();
+      _this__u8e3s4.o1(key, value);
+    }
+  }
+  function EmptyMap() {
+    EmptyMap_instance = this;
+    this.n4_1 = new Long(-888910638, 1920087921);
+  }
+  protoOf(EmptyMap).equals = function (other) {
+    var tmp;
+    if (!(other == null) ? isInterface(other, KtMap) : false) {
+      tmp = other.h();
+    } else {
+      tmp = false;
+    }
+    return tmp;
+  };
+  protoOf(EmptyMap).hashCode = function () {
+    return 0;
+  };
+  protoOf(EmptyMap).toString = function () {
+    return '{}';
+  };
+  protoOf(EmptyMap).g = function () {
+    return 0;
+  };
+  protoOf(EmptyMap).h = function () {
+    return true;
+  };
+  protoOf(EmptyMap).o4 = function (key) {
+    return false;
+  };
+  protoOf(EmptyMap).n = function (key) {
+    if (!true)
+      return false;
+    return this.o4(key);
+  };
+  protoOf(EmptyMap).p4 = function (key) {
+    return null;
+  };
+  protoOf(EmptyMap).o = function (key) {
+    if (!true)
+      return null;
+    return this.p4(key);
+  };
+  protoOf(EmptyMap).p = function () {
+    return EmptySet_getInstance();
+  };
+  var EmptyMap_instance;
+  function EmptyMap_getInstance() {
+    if (EmptyMap_instance == null)
+      new EmptyMap();
+    return EmptyMap_instance;
+  }
+  function hashMapOf(pairs) {
+    // Inline function 'kotlin.apply' call
+    var this_0 = HashMap_init_$Create$_0(mapCapacity(pairs.length));
+    putAll(this_0, pairs);
+    return this_0;
+  }
+  function EmptySet() {
+    EmptySet_instance = this;
+    this.q4_1 = new Long(1993859828, 793161749);
+  }
+  protoOf(EmptySet).equals = function (other) {
+    var tmp;
+    if (!(other == null) ? isInterface(other, KtSet) : false) {
+      tmp = other.h();
+    } else {
+      tmp = false;
+    }
+    return tmp;
+  };
+  protoOf(EmptySet).hashCode = function () {
+    return 0;
+  };
+  protoOf(EmptySet).toString = function () {
+    return '[]';
+  };
+  protoOf(EmptySet).g = function () {
+    return 0;
+  };
+  protoOf(EmptySet).h = function () {
+    return true;
+  };
+  protoOf(EmptySet).r4 = function (elements) {
+    return elements.h();
+  };
+  protoOf(EmptySet).k = function (elements) {
+    return this.r4(elements);
+  };
+  protoOf(EmptySet).d = function () {
+    return EmptyIterator_instance;
+  };
+  var EmptySet_instance;
+  function EmptySet_getInstance() {
+    if (EmptySet_instance == null)
+      new EmptySet();
+    return EmptySet_instance;
+  }
   function appendElement(_this__u8e3s4, element, transform) {
     if (!(transform == null))
       _this__u8e3s4.c(transform(element));
@@ -2757,7 +2949,7 @@ if (typeof Math.clz32 === 'undefined') {
         _this__u8e3s4.c(element);
       else {
         if (element instanceof Char)
-          _this__u8e3s4.x3(element.j4_1);
+          _this__u8e3s4.x3(element.s4_1);
         else {
           _this__u8e3s4.c(toString_1(element));
         }
@@ -2786,6 +2978,38 @@ if (typeof Math.clz32 === 'undefined') {
        while (!(i === last));
     sb.c(_this__u8e3s4);
     return sb;
+  }
+  function Pair(first, second) {
+    this.j4_1 = first;
+    this.k4_1 = second;
+  }
+  protoOf(Pair).toString = function () {
+    return '(' + toString_0(this.j4_1) + ', ' + toString_0(this.k4_1) + ')';
+  };
+  protoOf(Pair).l4 = function () {
+    return this.j4_1;
+  };
+  protoOf(Pair).m4 = function () {
+    return this.k4_1;
+  };
+  protoOf(Pair).hashCode = function () {
+    var result = this.j4_1 == null ? 0 : hashCode_0(this.j4_1);
+    result = imul(result, 31) + (this.k4_1 == null ? 0 : hashCode_0(this.k4_1)) | 0;
+    return result;
+  };
+  protoOf(Pair).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof Pair))
+      return false;
+    if (!equals(this.j4_1, other.j4_1))
+      return false;
+    if (!equals(this.k4_1, other.k4_1))
+      return false;
+    return true;
+  };
+  function to(_this__u8e3s4, that) {
+    return new Pair(_this__u8e3s4, that);
   }
   function escapeJson(_this__u8e3s4) {
     var escaped = StringBuilder_init_$Create$(_this__u8e3s4.length);
@@ -2849,10 +3073,9 @@ if (typeof Math.clz32 === 'undefined') {
   function unknownScreen(screenId) {
     return '{"error":"unknownScreen","screenId":"' + escapeJson(screenId) + '"}';
   }
-  function envelope(ui, commands, componentShapes) {
-    componentShapes = componentShapes === VOID ? '{}' : componentShapes;
+  function envelope(ui, commands) {
     var tmp = '{"ui":' + toJson_0(ui) + ',"commands":[';
-    return tmp + joinToString_0(commands, ',', VOID, VOID, VOID, VOID, envelope$lambda) + ']' + ',"shapes":' + componentShapes + '}';
+    return tmp + joinToString_0(commands, ',', VOID, VOID, VOID, VOID, envelope$lambda) + ']}';
   }
   function failure(message) {
     return '{"error":"screenFailed","message":"' + escapeJson(message) + '"}';
@@ -2864,20 +3087,20 @@ if (typeof Math.clz32 === 'undefined') {
     return toJson(it);
   }
   function InvokeCallback(name) {
-    this.k4_1 = name;
+    this.t4_1 = name;
   }
   protoOf(InvokeCallback).toString = function () {
-    return 'InvokeCallback(name=' + this.k4_1 + ')';
+    return 'InvokeCallback(name=' + this.t4_1 + ')';
   };
   protoOf(InvokeCallback).hashCode = function () {
-    return getStringHashCode(this.k4_1);
+    return getStringHashCode(this.t4_1);
   };
   protoOf(InvokeCallback).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof InvokeCallback))
       return false;
-    if (!(this.k4_1 === other.k4_1))
+    if (!(this.t4_1 === other.t4_1))
       return false;
     return true;
   };
@@ -2888,13 +3111,13 @@ if (typeof Math.clz32 === 'undefined') {
   function toJson(_this__u8e3s4) {
     var tmp;
     if (_this__u8e3s4 instanceof InvokeCallback) {
-      tmp = '{"type":"invokeCallback","name":"' + escapeJson(_this__u8e3s4.k4_1) + '"}';
+      tmp = '{"type":"invokeCallback","name":"' + escapeJson(_this__u8e3s4.t4_1) + '"}';
     } else {
       if (_this__u8e3s4 instanceof Log) {
-        tmp = '{"type":"log","message":"' + escapeJson(_this__u8e3s4.m4_1) + '"}';
+        tmp = '{"type":"log","message":"' + escapeJson(_this__u8e3s4.v4_1) + '"}';
       } else {
         if (_this__u8e3s4 instanceof Toast) {
-          tmp = '{"type":"toast","message":"' + escapeJson(_this__u8e3s4.l4_1) + '"}';
+          tmp = '{"type":"toast","message":"' + escapeJson(_this__u8e3s4.u4_1) + '"}';
         } else {
           noWhenBranchMatchedException();
         }
@@ -2913,7 +3136,7 @@ if (typeof Math.clz32 === 'undefined') {
     return tmp;
   }
   function readNullable($this, name) {
-    var value = $this.n4_1[name];
+    var value = $this.w4_1[name];
     return value == null || value == undefined ? null : value;
   }
   function missing($this, name, type) {
@@ -2921,7 +3144,7 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function Companion_5() {
     Companion_instance_5 = this;
-    this.o4_1 = new ScreenArguments({});
+    this.x4_1 = new ScreenArguments({});
   }
   var Companion_instance_5;
   function Companion_getInstance_5() {
@@ -2931,9 +3154,9 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function ScreenArguments(raw) {
     Companion_getInstance_5();
-    this.n4_1 = raw;
+    this.w4_1 = raw;
   }
-  protoOf(ScreenArguments).p4 = function (name) {
+  protoOf(ScreenArguments).y4 = function (name) {
     var tmp = read(this, name, 'Boolean');
     var tmp0_elvis_lhs = (!(tmp == null) ? typeof tmp === 'boolean' : false) ? tmp : null;
     var tmp_0;
@@ -2947,31 +3170,31 @@ if (typeof Math.clz32 === 'undefined') {
   function parseArguments(json) {
     // Inline function 'kotlin.text.isEmpty' call
     if (charSequenceLength(json) === 0)
-      return Companion_getInstance_5().o4_1;
+      return Companion_getInstance_5().x4_1;
     return new ScreenArguments(JSON.parse(json));
   }
   function initialize($this, name, initial) {
-    if (!$this.q4_1.n(name)) {
+    if (!$this.z4_1.n(name)) {
       // Inline function 'kotlin.collections.set' call
-      $this.q4_1.o1(name, initial);
+      $this.z4_1.o1(name, initial);
     }
   }
   function read_0($this, name) {
-    if (!$this.q4_1.n(name)) {
+    if (!$this.z4_1.n(name)) {
       throw IllegalStateException_init_$Create$_0("Dootah screen state '" + name + "' was never initialised");
     }
-    return $this.q4_1.o(name);
+    return $this.z4_1.o(name);
   }
   function wrongType($this, name, type) {
     throw IllegalStateException_init_$Create$_0("Dootah screen state '" + name + "' is not a " + type);
   }
   function ScreenState() {
-    this.q4_1 = HashMap_init_$Create$();
+    this.z4_1 = HashMap_init_$Create$();
   }
-  protoOf(ScreenState).r4 = function (name, initial) {
+  protoOf(ScreenState).a5 = function (name, initial) {
     return initialize(this, name, initial);
   };
-  protoOf(ScreenState).s4 = function (name) {
+  protoOf(ScreenState).b5 = function (name) {
     var tmp = read_0(this, name);
     var tmp0_elvis_lhs = (!(tmp == null) ? typeof tmp === 'number' : false) ? tmp : null;
     var tmp_0;
@@ -2982,9 +3205,9 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp_0;
   };
-  protoOf(ScreenState).t4 = function (name, value) {
+  protoOf(ScreenState).c5 = function (name, value) {
     // Inline function 'kotlin.collections.set' call
-    this.q4_1.o1(name, value);
+    this.z4_1.o1(name, value);
   };
   function Inherited() {
   }
@@ -3025,35 +3248,35 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function FragmentNode(children) {
     children = children === VOID ? emptyList() : children;
-    this.u4_1 = children;
+    this.d5_1 = children;
   }
   protoOf(FragmentNode).toString = function () {
-    return 'FragmentNode(children=' + toString_1(this.u4_1) + ')';
+    return 'FragmentNode(children=' + toString_1(this.d5_1) + ')';
   };
   protoOf(FragmentNode).hashCode = function () {
-    return hashCode_0(this.u4_1);
+    return hashCode_0(this.d5_1);
   };
   protoOf(FragmentNode).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof FragmentNode))
       return false;
-    if (!equals(this.u4_1, other.u4_1))
+    if (!equals(this.d5_1, other.d5_1))
       return false;
     return true;
   };
   function BoxNode(modifiers, children) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
     children = children === VOID ? emptyList() : children;
-    this.v4_1 = modifiers;
-    this.w4_1 = children;
+    this.e5_1 = modifiers;
+    this.f5_1 = children;
   }
   protoOf(BoxNode).toString = function () {
-    return 'BoxNode(modifiers=' + toString_1(this.v4_1) + ', children=' + toString_1(this.w4_1) + ')';
+    return 'BoxNode(modifiers=' + toString_1(this.e5_1) + ', children=' + toString_1(this.f5_1) + ')';
   };
   protoOf(BoxNode).hashCode = function () {
-    var result = hashCode_0(this.v4_1);
-    result = imul(result, 31) + hashCode_0(this.w4_1) | 0;
+    var result = hashCode_0(this.e5_1);
+    result = imul(result, 31) + hashCode_0(this.f5_1) | 0;
     return result;
   };
   protoOf(BoxNode).equals = function (other) {
@@ -3061,42 +3284,53 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof BoxNode))
       return false;
-    if (!equals(this.v4_1, other.v4_1))
+    if (!equals(this.e5_1, other.e5_1))
       return false;
-    if (!equals(this.w4_1, other.w4_1))
+    if (!equals(this.f5_1, other.f5_1))
       return false;
     return true;
   };
-  function NativeSlotNode(slot) {
-    this.x4_1 = slot;
+  function ComponentNode(adapter, props, children) {
+    props = props === VOID ? emptyMap() : props;
+    children = children === VOID ? emptyMap() : children;
+    this.g5_1 = adapter;
+    this.h5_1 = props;
+    this.i5_1 = children;
   }
-  protoOf(NativeSlotNode).toString = function () {
-    return 'NativeSlotNode(slot=' + this.x4_1 + ')';
+  protoOf(ComponentNode).toString = function () {
+    return 'ComponentNode(adapter=' + this.g5_1 + ', props=' + toString_1(this.h5_1) + ', children=' + toString_1(this.i5_1) + ')';
   };
-  protoOf(NativeSlotNode).hashCode = function () {
-    return getStringHashCode(this.x4_1);
+  protoOf(ComponentNode).hashCode = function () {
+    var result = getStringHashCode(this.g5_1);
+    result = imul(result, 31) + hashCode_0(this.h5_1) | 0;
+    result = imul(result, 31) + hashCode_0(this.i5_1) | 0;
+    return result;
   };
-  protoOf(NativeSlotNode).equals = function (other) {
+  protoOf(ComponentNode).equals = function (other) {
     if (this === other)
       return true;
-    if (!(other instanceof NativeSlotNode))
+    if (!(other instanceof ComponentNode))
       return false;
-    if (!(this.x4_1 === other.x4_1))
+    if (!(this.g5_1 === other.g5_1))
+      return false;
+    if (!equals(this.h5_1, other.h5_1))
+      return false;
+    if (!equals(this.i5_1, other.i5_1))
       return false;
     return true;
   };
   function ColumnNode(modifiers, children) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
     children = children === VOID ? emptyList() : children;
-    this.y4_1 = modifiers;
-    this.z4_1 = children;
+    this.j5_1 = modifiers;
+    this.k5_1 = children;
   }
   protoOf(ColumnNode).toString = function () {
-    return 'ColumnNode(modifiers=' + toString_1(this.y4_1) + ', children=' + toString_1(this.z4_1) + ')';
+    return 'ColumnNode(modifiers=' + toString_1(this.j5_1) + ', children=' + toString_1(this.k5_1) + ')';
   };
   protoOf(ColumnNode).hashCode = function () {
-    var result = hashCode_0(this.y4_1);
-    result = imul(result, 31) + hashCode_0(this.z4_1) | 0;
+    var result = hashCode_0(this.j5_1);
+    result = imul(result, 31) + hashCode_0(this.k5_1) | 0;
     return result;
   };
   protoOf(ColumnNode).equals = function (other) {
@@ -3104,23 +3338,23 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof ColumnNode))
       return false;
-    if (!equals(this.y4_1, other.y4_1))
+    if (!equals(this.j5_1, other.j5_1))
       return false;
-    if (!equals(this.z4_1, other.z4_1))
+    if (!equals(this.k5_1, other.k5_1))
       return false;
     return true;
   };
   function TextNode(text, modifiers) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
-    this.a5_1 = text;
-    this.b5_1 = modifiers;
+    this.l5_1 = text;
+    this.m5_1 = modifiers;
   }
   protoOf(TextNode).toString = function () {
-    return 'TextNode(text=' + this.a5_1 + ', modifiers=' + toString_1(this.b5_1) + ')';
+    return 'TextNode(text=' + this.l5_1 + ', modifiers=' + toString_1(this.m5_1) + ')';
   };
   protoOf(TextNode).hashCode = function () {
-    var result = getStringHashCode(this.a5_1);
-    result = imul(result, 31) + hashCode_0(this.b5_1) | 0;
+    var result = getStringHashCode(this.l5_1);
+    result = imul(result, 31) + hashCode_0(this.m5_1) | 0;
     return result;
   };
   protoOf(TextNode).equals = function (other) {
@@ -3128,25 +3362,25 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof TextNode))
       return false;
-    if (!(this.a5_1 === other.a5_1))
+    if (!(this.l5_1 === other.l5_1))
       return false;
-    if (!equals(this.b5_1, other.b5_1))
+    if (!equals(this.m5_1, other.m5_1))
       return false;
     return true;
   };
   function ButtonNode(text, action, modifiers) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
-    this.c5_1 = text;
-    this.d5_1 = action;
-    this.e5_1 = modifiers;
+    this.n5_1 = text;
+    this.o5_1 = action;
+    this.p5_1 = modifiers;
   }
   protoOf(ButtonNode).toString = function () {
-    return 'ButtonNode(text=' + this.c5_1 + ', action=' + this.d5_1 + ', modifiers=' + toString_1(this.e5_1) + ')';
+    return 'ButtonNode(text=' + this.n5_1 + ', action=' + this.o5_1 + ', modifiers=' + toString_1(this.p5_1) + ')';
   };
   protoOf(ButtonNode).hashCode = function () {
-    var result = getStringHashCode(this.c5_1);
-    result = imul(result, 31) + getStringHashCode(this.d5_1) | 0;
-    result = imul(result, 31) + hashCode_0(this.e5_1) | 0;
+    var result = getStringHashCode(this.n5_1);
+    result = imul(result, 31) + getStringHashCode(this.o5_1) | 0;
+    result = imul(result, 31) + hashCode_0(this.p5_1) | 0;
     return result;
   };
   protoOf(ButtonNode).equals = function (other) {
@@ -3154,26 +3388,26 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof ButtonNode))
       return false;
-    if (!(this.c5_1 === other.c5_1))
+    if (!(this.n5_1 === other.n5_1))
       return false;
-    if (!(this.d5_1 === other.d5_1))
+    if (!(this.o5_1 === other.o5_1))
       return false;
-    if (!equals(this.e5_1, other.e5_1))
+    if (!equals(this.p5_1, other.p5_1))
       return false;
     return true;
   };
   function RowNode(modifiers, children) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
     children = children === VOID ? emptyList() : children;
-    this.f5_1 = modifiers;
-    this.g5_1 = children;
+    this.q5_1 = modifiers;
+    this.r5_1 = children;
   }
   protoOf(RowNode).toString = function () {
-    return 'RowNode(modifiers=' + toString_1(this.f5_1) + ', children=' + toString_1(this.g5_1) + ')';
+    return 'RowNode(modifiers=' + toString_1(this.q5_1) + ', children=' + toString_1(this.r5_1) + ')';
   };
   protoOf(RowNode).hashCode = function () {
-    var result = hashCode_0(this.f5_1);
-    result = imul(result, 31) + hashCode_0(this.g5_1) | 0;
+    var result = hashCode_0(this.q5_1);
+    result = imul(result, 31) + hashCode_0(this.r5_1) | 0;
     return result;
   };
   protoOf(RowNode).equals = function (other) {
@@ -3181,34 +3415,34 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof RowNode))
       return false;
-    if (!equals(this.f5_1, other.f5_1))
+    if (!equals(this.q5_1, other.q5_1))
       return false;
-    if (!equals(this.g5_1, other.g5_1))
+    if (!equals(this.r5_1, other.r5_1))
       return false;
     return true;
   };
   function toJson_0(_this__u8e3s4) {
     var tmp;
     if (_this__u8e3s4 instanceof ColumnNode) {
-      tmp = container('column', _this__u8e3s4.y4_1, _this__u8e3s4.z4_1);
+      tmp = container('column', _this__u8e3s4.j5_1, _this__u8e3s4.k5_1);
     } else {
       if (_this__u8e3s4 instanceof RowNode) {
-        tmp = container('row', _this__u8e3s4.f5_1, _this__u8e3s4.g5_1);
+        tmp = container('row', _this__u8e3s4.q5_1, _this__u8e3s4.r5_1);
       } else {
         if (_this__u8e3s4 instanceof BoxNode) {
-          tmp = container('box', _this__u8e3s4.v4_1, _this__u8e3s4.w4_1);
+          tmp = container('box', _this__u8e3s4.e5_1, _this__u8e3s4.f5_1);
         } else {
           if (_this__u8e3s4 instanceof TextNode) {
-            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.a5_1) + '"' + modifiersField(_this__u8e3s4.b5_1) + '}';
+            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.l5_1) + '"' + modifiersField(_this__u8e3s4.m5_1) + '}';
           } else {
             if (_this__u8e3s4 instanceof ButtonNode) {
-              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.c5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.d5_1) + '"') + modifiersField(_this__u8e3s4.e5_1) + '}';
+              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.n5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.o5_1) + '"') + modifiersField(_this__u8e3s4.p5_1) + '}';
             } else {
-              if (_this__u8e3s4 instanceof NativeSlotNode) {
-                tmp = '{"type":"native","slot":"' + escapeJson(_this__u8e3s4.x4_1) + '"}';
+              if (_this__u8e3s4 instanceof ComponentNode) {
+                tmp = '{"type":"component","adapter":"' + escapeJson(_this__u8e3s4.g5_1) + '"' + propsField(_this__u8e3s4.h5_1) + slotsField(_this__u8e3s4.i5_1) + '}';
               } else {
                 if (_this__u8e3s4 instanceof FragmentNode) {
-                  tmp = '{"type":"fragment","children":[' + joinToString_0(_this__u8e3s4.u4_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + ']}';
+                  tmp = '{"type":"fragment","children":[' + joinToString_0(_this__u8e3s4.d5_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + ']}';
                 } else {
                   noWhenBranchMatchedException();
                 }
@@ -3233,37 +3467,57 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp;
   }
+  function propsField(props) {
+    var tmp;
+    if (props.h()) {
+      tmp = '';
+    } else {
+      var tmp_0 = props.p();
+      tmp = ',"props":{' + joinToString_0(tmp_0, ',', VOID, VOID, VOID, VOID, propsField$lambda) + '}';
+    }
+    return tmp;
+  }
+  function slotsField(children) {
+    var tmp;
+    if (children.h()) {
+      tmp = '';
+    } else {
+      var tmp_0 = children.p();
+      tmp = ',"slots":{' + joinToString_0(tmp_0, ',', VOID, VOID, VOID, VOID, slotsField$lambda) + '}';
+    }
+    return tmp;
+  }
   function toJson_1(_this__u8e3s4) {
     var tmp;
     if (_this__u8e3s4 instanceof Inherited) {
       tmp = '{"type":"inherited"}';
     } else {
       if (_this__u8e3s4 instanceof Padding) {
-        tmp = '{"type":"padding","start":' + _this__u8e3s4.q5_1 + ',"top":' + _this__u8e3s4.r5_1 + ',' + ('"end":' + _this__u8e3s4.s5_1 + ',"bottom":' + _this__u8e3s4.t5_1 + '}');
+        tmp = '{"type":"padding","start":' + _this__u8e3s4.b6_1 + ',"top":' + _this__u8e3s4.c6_1 + ',' + ('"end":' + _this__u8e3s4.d6_1 + ',"bottom":' + _this__u8e3s4.e6_1 + '}');
       } else {
         if (_this__u8e3s4 instanceof FillMaxWidth) {
-          tmp = '{"type":"fillMaxWidth","fraction":' + _this__u8e3s4.p5_1 + '}';
+          tmp = '{"type":"fillMaxWidth","fraction":' + _this__u8e3s4.a6_1 + '}';
         } else {
           if (_this__u8e3s4 instanceof FillMaxHeight) {
-            tmp = '{"type":"fillMaxHeight","fraction":' + _this__u8e3s4.o5_1 + '}';
+            tmp = '{"type":"fillMaxHeight","fraction":' + _this__u8e3s4.z5_1 + '}';
           } else {
             if (_this__u8e3s4 instanceof FillMaxSize) {
-              tmp = '{"type":"fillMaxSize","fraction":' + _this__u8e3s4.n5_1 + '}';
+              tmp = '{"type":"fillMaxSize","fraction":' + _this__u8e3s4.y5_1 + '}';
             } else {
               if (_this__u8e3s4 instanceof Size) {
-                tmp = '{"type":"size","width":' + _this__u8e3s4.l5_1 + ',"height":' + _this__u8e3s4.m5_1 + '}';
+                tmp = '{"type":"size","width":' + _this__u8e3s4.w5_1 + ',"height":' + _this__u8e3s4.x5_1 + '}';
               } else {
                 if (_this__u8e3s4 instanceof Width) {
-                  tmp = '{"type":"width","value":' + _this__u8e3s4.k5_1 + '}';
+                  tmp = '{"type":"width","value":' + _this__u8e3s4.v5_1 + '}';
                 } else {
                   if (_this__u8e3s4 instanceof Height) {
-                    tmp = '{"type":"height","value":' + _this__u8e3s4.j5_1 + '}';
+                    tmp = '{"type":"height","value":' + _this__u8e3s4.u5_1 + '}';
                   } else {
                     if (_this__u8e3s4 instanceof Weight) {
-                      tmp = '{"type":"weight","value":' + _this__u8e3s4.i5_1 + '}';
+                      tmp = '{"type":"weight","value":' + _this__u8e3s4.t5_1 + '}';
                     } else {
                       if (_this__u8e3s4 instanceof Background) {
-                        tmp = '{"type":"background","color":' + _this__u8e3s4.h5_1.toString() + '}';
+                        tmp = '{"type":"background","color":' + _this__u8e3s4.s5_1.toString() + '}';
                       } else {
                         noWhenBranchMatchedException();
                       }
@@ -3278,6 +3532,94 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp;
   }
+  function toJson_2(_this__u8e3s4) {
+    var tmp;
+    if (_this__u8e3s4 instanceof NullProp) {
+      tmp = '{"k":"null"}';
+    } else {
+      if (_this__u8e3s4 instanceof BoolProp) {
+        tmp = '{"k":"bool","v":' + _this__u8e3s4.w6_1 + '}';
+      } else {
+        if (_this__u8e3s4 instanceof IntProp) {
+          tmp = '{"k":"int","v":' + _this__u8e3s4.v6_1 + '}';
+        } else {
+          if (_this__u8e3s4 instanceof LongProp) {
+            tmp = '{"k":"long","v":"' + escapeJson(_this__u8e3s4.u6_1) + '"}';
+          } else {
+            if (_this__u8e3s4 instanceof FloatProp) {
+              tmp = '{"k":"float","v":' + _this__u8e3s4.t6_1 + '}';
+            } else {
+              if (_this__u8e3s4 instanceof DoubleProp) {
+                tmp = '{"k":"double","v":' + _this__u8e3s4.s6_1 + '}';
+              } else {
+                if (_this__u8e3s4 instanceof StringProp) {
+                  tmp = '{"k":"string","v":"' + escapeJson(_this__u8e3s4.r6_1) + '"}';
+                } else {
+                  if (_this__u8e3s4 instanceof DpProp) {
+                    tmp = '{"k":"dp","v":' + _this__u8e3s4.q6_1 + '}';
+                  } else {
+                    if (_this__u8e3s4 instanceof ColorProp) {
+                      tmp = '{"k":"color","v":' + _this__u8e3s4.p6_1.toString() + '}';
+                    } else {
+                      if (_this__u8e3s4 instanceof ThemeColorProp) {
+                        tmp = '{"k":"themeColor","token":"' + escapeJson(_this__u8e3s4.o6_1) + '"}';
+                      } else {
+                        if (_this__u8e3s4 instanceof ShapeProp) {
+                          tmp = '{"k":"shape","token":"' + escapeJson(_this__u8e3s4.n6_1) + '"}';
+                        } else {
+                          if (_this__u8e3s4 instanceof PainterResourceProp) {
+                            tmp = '{"k":"painterRes","key":"' + escapeJson(_this__u8e3s4.m6_1) + '"}';
+                          } else {
+                            if (_this__u8e3s4 instanceof StringResourceProp) {
+                              tmp = '{"k":"stringRes","key":"' + escapeJson(_this__u8e3s4.l6_1) + '"}';
+                            } else {
+                              if (_this__u8e3s4 instanceof ModifierProp) {
+                                tmp = '{"k":"modifier","ops":[' + joinToString_0(_this__u8e3s4.k6_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_0) + ']}';
+                              } else {
+                                if (_this__u8e3s4 instanceof ListProp) {
+                                  tmp = '{"k":"list","items":[' + joinToString_0(_this__u8e3s4.j6_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_1) + ']}';
+                                } else {
+                                  if (_this__u8e3s4 instanceof HandleProp) {
+                                    tmp = '{"k":"handle","name":"' + escapeJson(_this__u8e3s4.i6_1) + '"}';
+                                  } else {
+                                    if (_this__u8e3s4 instanceof StateProp) {
+                                      tmp = '{"k":"state","name":"' + escapeJson(_this__u8e3s4.h6_1) + '"}';
+                                    } else {
+                                      if (_this__u8e3s4 instanceof CallbackProp) {
+                                        tmp = '{"k":"callback","id":"' + escapeJson(_this__u8e3s4.f6_1) + '","arity":' + _this__u8e3s4.g6_1 + '}';
+                                      } else {
+                                        noWhenBranchMatchedException();
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return tmp;
+  }
+  function toJson_3(_this__u8e3s4) {
+    var tmp = '{"op":"' + escapeJson(_this__u8e3s4.x6_1) + '"';
+    var tmp_0;
+    if (_this__u8e3s4.y6_1.h()) {
+      tmp_0 = '';
+    } else {
+      var tmp_1 = _this__u8e3s4.y6_1.p();
+      tmp_0 = ',"args":{' + joinToString_0(tmp_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_2) + '}';
+    }
+    return tmp + tmp_0 + '}';
+  }
   function toJson$lambda(it) {
     return toJson_0(it);
   }
@@ -3286,6 +3628,280 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function modifiersField$lambda(it) {
     return toJson_1(it);
+  }
+  function propsField$lambda(_destruct__k2r9zo) {
+    // Inline function 'kotlin.collections.component1' call
+    var name = _destruct__k2r9zo.l();
+    // Inline function 'kotlin.collections.component2' call
+    var value = _destruct__k2r9zo.m();
+    return '"' + escapeJson(name) + '":' + toJson_2(value);
+  }
+  function slotsField$lambda(_destruct__k2r9zo) {
+    // Inline function 'kotlin.collections.component1' call
+    var name = _destruct__k2r9zo.l();
+    // Inline function 'kotlin.collections.component2' call
+    var nodes = _destruct__k2r9zo.m();
+    var tmp = '"' + escapeJson(name) + '":[';
+    return tmp + joinToString_0(nodes, ',', VOID, VOID, VOID, VOID, slotsField$lambda$lambda) + ']';
+  }
+  function slotsField$lambda$lambda(it) {
+    return toJson_0(it);
+  }
+  function toJson$lambda_0(it) {
+    return toJson_3(it);
+  }
+  function toJson$lambda_1(it) {
+    return toJson_2(it);
+  }
+  function toJson$lambda_2(_destruct__k2r9zo) {
+    // Inline function 'kotlin.collections.component1' call
+    var name = _destruct__k2r9zo.l();
+    // Inline function 'kotlin.collections.component2' call
+    var value = _destruct__k2r9zo.m();
+    return '"' + escapeJson(name) + '":' + toJson_2(value);
+  }
+  function CallbackProp(id, arity) {
+    arity = arity === VOID ? 0 : arity;
+    this.f6_1 = id;
+    this.g6_1 = arity;
+  }
+  protoOf(CallbackProp).toString = function () {
+    return 'CallbackProp(id=' + this.f6_1 + ', arity=' + this.g6_1 + ')';
+  };
+  protoOf(CallbackProp).hashCode = function () {
+    var result = getStringHashCode(this.f6_1);
+    result = imul(result, 31) + this.g6_1 | 0;
+    return result;
+  };
+  protoOf(CallbackProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof CallbackProp))
+      return false;
+    if (!(this.f6_1 === other.f6_1))
+      return false;
+    if (!(this.g6_1 === other.g6_1))
+      return false;
+    return true;
+  };
+  function ModifierProp(operations) {
+    operations = operations === VOID ? emptyList() : operations;
+    this.k6_1 = operations;
+  }
+  protoOf(ModifierProp).toString = function () {
+    return 'ModifierProp(operations=' + toString_1(this.k6_1) + ')';
+  };
+  protoOf(ModifierProp).hashCode = function () {
+    return hashCode_0(this.k6_1);
+  };
+  protoOf(ModifierProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof ModifierProp))
+      return false;
+    if (!equals(this.k6_1, other.k6_1))
+      return false;
+    return true;
+  };
+  function ModifierOpNode(op, arguments_0) {
+    arguments_0 = arguments_0 === VOID ? emptyMap() : arguments_0;
+    this.x6_1 = op;
+    this.y6_1 = arguments_0;
+  }
+  protoOf(ModifierOpNode).toString = function () {
+    return 'ModifierOpNode(op=' + this.x6_1 + ', arguments=' + toString_1(this.y6_1) + ')';
+  };
+  protoOf(ModifierOpNode).hashCode = function () {
+    var result = getStringHashCode(this.x6_1);
+    result = imul(result, 31) + hashCode_0(this.y6_1) | 0;
+    return result;
+  };
+  protoOf(ModifierOpNode).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof ModifierOpNode))
+      return false;
+    if (!(this.x6_1 === other.x6_1))
+      return false;
+    if (!equals(this.y6_1, other.y6_1))
+      return false;
+    return true;
+  };
+  function DpProp(value) {
+    this.q6_1 = value;
+  }
+  protoOf(DpProp).toString = function () {
+    return 'DpProp(value=' + this.q6_1 + ')';
+  };
+  protoOf(DpProp).hashCode = function () {
+    return getNumberHashCode(this.q6_1);
+  };
+  protoOf(DpProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof DpProp))
+      return false;
+    if (!equals(this.q6_1, other.q6_1))
+      return false;
+    return true;
+  };
+  function PainterResourceProp(key) {
+    this.m6_1 = key;
+  }
+  protoOf(PainterResourceProp).toString = function () {
+    return 'PainterResourceProp(key=' + this.m6_1 + ')';
+  };
+  protoOf(PainterResourceProp).hashCode = function () {
+    return getStringHashCode(this.m6_1);
+  };
+  protoOf(PainterResourceProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof PainterResourceProp))
+      return false;
+    if (!(this.m6_1 === other.m6_1))
+      return false;
+    return true;
+  };
+  function StringResourceProp(key) {
+    this.l6_1 = key;
+  }
+  protoOf(StringResourceProp).toString = function () {
+    return 'StringResourceProp(key=' + this.l6_1 + ')';
+  };
+  protoOf(StringResourceProp).hashCode = function () {
+    return getStringHashCode(this.l6_1);
+  };
+  protoOf(StringResourceProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof StringResourceProp))
+      return false;
+    if (!(this.l6_1 === other.l6_1))
+      return false;
+    return true;
+  };
+  function ColorProp(argb) {
+    this.p6_1 = argb;
+  }
+  protoOf(ColorProp).toString = function () {
+    return 'ColorProp(argb=' + this.p6_1.toString() + ')';
+  };
+  protoOf(ColorProp).hashCode = function () {
+    return this.p6_1.hashCode();
+  };
+  protoOf(ColorProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof ColorProp))
+      return false;
+    if (!equalsLong(this.p6_1, other.p6_1))
+      return false;
+    return true;
+  };
+  function ThemeColorProp(token) {
+    this.o6_1 = token;
+  }
+  protoOf(ThemeColorProp).toString = function () {
+    return 'ThemeColorProp(token=' + this.o6_1 + ')';
+  };
+  protoOf(ThemeColorProp).hashCode = function () {
+    return getStringHashCode(this.o6_1);
+  };
+  protoOf(ThemeColorProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof ThemeColorProp))
+      return false;
+    if (!(this.o6_1 === other.o6_1))
+      return false;
+    return true;
+  };
+  function ShapeProp(token) {
+    this.n6_1 = token;
+  }
+  protoOf(ShapeProp).toString = function () {
+    return 'ShapeProp(token=' + this.n6_1 + ')';
+  };
+  protoOf(ShapeProp).hashCode = function () {
+    return getStringHashCode(this.n6_1);
+  };
+  protoOf(ShapeProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof ShapeProp))
+      return false;
+    if (!(this.n6_1 === other.n6_1))
+      return false;
+    return true;
+  };
+  function StateProp(name) {
+    this.h6_1 = name;
+  }
+  protoOf(StateProp).toString = function () {
+    return 'StateProp(name=' + this.h6_1 + ')';
+  };
+  protoOf(StateProp).hashCode = function () {
+    return getStringHashCode(this.h6_1);
+  };
+  protoOf(StateProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof StateProp))
+      return false;
+    if (!(this.h6_1 === other.h6_1))
+      return false;
+    return true;
+  };
+  function HandleProp(name) {
+    this.i6_1 = name;
+  }
+  protoOf(HandleProp).toString = function () {
+    return 'HandleProp(name=' + this.i6_1 + ')';
+  };
+  protoOf(HandleProp).hashCode = function () {
+    return getStringHashCode(this.i6_1);
+  };
+  protoOf(HandleProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof HandleProp))
+      return false;
+    if (!(this.i6_1 === other.i6_1))
+      return false;
+    return true;
+  };
+  function BoolProp(value) {
+    this.w6_1 = value;
+  }
+  protoOf(BoolProp).toString = function () {
+    return 'BoolProp(value=' + this.w6_1 + ')';
+  };
+  protoOf(BoolProp).hashCode = function () {
+    return getBooleanHashCode(this.w6_1);
+  };
+  protoOf(BoolProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof BoolProp))
+      return false;
+    if (!(this.w6_1 === other.w6_1))
+      return false;
+    return true;
+  };
+  function NullProp() {
+  }
+  function IntProp() {
+  }
+  function LongProp() {
+  }
+  function FloatProp() {
+  }
+  function DoubleProp() {
+  }
+  function StringProp() {
+  }
+  function ListProp() {
   }
   function get_screenStates() {
     _init_properties_DootahExports_kt__7euayy();
@@ -3303,7 +3919,7 @@ if (typeof Math.clz32 === 'undefined') {
       var state = stateFor(screenId);
       var arguments_0 = parseArguments(argumentsJson);
       var ui = renderOf(screenId, arguments_0, state);
-      tmp = ui == null ? unknownScreen(screenId) : envelope(ui, emptyList(), shapesOf(screenId));
+      tmp = ui == null ? unknownScreen(screenId) : envelope(ui, emptyList());
     } catch ($p) {
       var tmp_0;
       if ($p instanceof Error) {
@@ -3325,7 +3941,7 @@ if (typeof Math.clz32 === 'undefined') {
       var arguments_0 = parseArguments(argumentsJson);
       var commands = performOn(screenId, action, arguments_0, state);
       var ui = renderOf(screenId, arguments_0, state);
-      tmp = commands == null || ui == null ? unknownScreen(screenId) : envelope(ui, commands, shapesOf(screenId));
+      tmp = commands == null || ui == null ? unknownScreen(screenId) : envelope(ui, commands);
     } catch ($p) {
       var tmp_0;
       if ($p instanceof Error) {
@@ -3354,28 +3970,15 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp;
   }
-  function shapesOf(screenId) {
-    _init_properties_DootahExports_kt__7euayy();
-    switch (screenId) {
-      case 'com.example.cahier.features.drawing.ToolBoxContent':
-        return '{"Box(content)":1,"Box(content|modifier)":1,"BrushesDropdownMenu(customBrushes|expanded|onBrushChange|onDismissRequest)":1,"Icon(contentDescription|painter)":2,"IconButton(content|modifier|onClick)":2,"SizeDropdownMenu(expanded|onDismissRequest|onSizeChange)":1,"painterResource(id)":2,"stringResource(id)":2}';
-      case 'com.example.cahier.features.drawing.ToolboxHistoryControls':
-        return '{"Button(content|onClick)":2,"Column(content|modifier)":1,"Row(content|modifier)":1,"Text(text)":4,"ToolboxHistoryControlsContent(canRedo|canUndo|drawingCanvasViewModel|onClear|onRedo|onUndo)":2}';
-      case 'com.example.cahier.features.drawing.ToolboxNoteActions':
-        return '{"Column(content|modifier)":1,"Row(content|modifier)":1,"ToolboxNoteActionsContent(drawingCanvasViewModel|imagePickerLauncher|onEditActiveBrush|onExit)":2}';
-      default:
-        return '{}';
-    }
-  }
   function renderOf(screenId, arguments_0, state) {
     _init_properties_DootahExports_kt__7euayy();
     switch (screenId) {
       case 'com.example.cahier.features.drawing.ToolBoxContent':
-        return DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_instance.w5(arguments_0, state);
+        return DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_instance.a7(arguments_0, state);
       case 'com.example.cahier.features.drawing.ToolboxHistoryControls':
-        return DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls_instance.w5(arguments_0, state);
+        return DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls_instance.a7(arguments_0, state);
       case 'com.example.cahier.features.drawing.ToolboxNoteActions':
-        return DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions_instance.w5(arguments_0, state);
+        return DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions_instance.a7(arguments_0, state);
       default:
         return null;
     }
@@ -3384,11 +3987,11 @@ if (typeof Math.clz32 === 'undefined') {
     _init_properties_DootahExports_kt__7euayy();
     switch (screenId) {
       case 'com.example.cahier.features.drawing.ToolBoxContent':
-        return DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_instance.b6(action, arguments_0, state);
+        return DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_instance.d7(action, arguments_0, state);
       case 'com.example.cahier.features.drawing.ToolboxHistoryControls':
-        return DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls_instance.b6(action, arguments_0, state);
+        return DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls_instance.d7(action, arguments_0, state);
       case 'com.example.cahier.features.drawing.ToolboxNoteActions':
-        return DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions_instance.b6(action, arguments_0, state);
+        return DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions_instance.d7(action, arguments_0, state);
       default:
         return null;
     }
@@ -3401,11 +4004,10 @@ if (typeof Math.clz32 === 'undefined') {
     }
   }
   function DootahScreen_com_example_cahier_features_drawing_ToolBoxContent() {
-    this.u5_1 = 'com.example.cahier.features.drawing.ToolBoxContent';
-    this.v5_1 = '{"Box(content)":1,"Box(content|modifier)":1,"BrushesDropdownMenu(customBrushes|expanded|onBrushChange|onDismissRequest)":1,"Icon(contentDescription|painter)":2,"IconButton(content|modifier|onClick)":2,"SizeDropdownMenu(expanded|onDismissRequest|onSizeChange)":1,"painterResource(id)":2,"stringResource(id)":2}';
+    this.z6_1 = 'com.example.cahier.features.drawing.ToolBoxContent';
   }
-  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolBoxContent).w5 = function (arguments_0, state) {
-    var isEraserMode = arguments_0.p4('isEraserMode');
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolBoxContent).a7 = function (arguments_0, state) {
+    var isEraserMode = arguments_0.y4('isEraserMode');
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
@@ -3415,26 +4017,48 @@ if (typeof Math.clz32 === 'undefined') {
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_1 = ArrayList_init_$Create$();
-    this_1.f1(new NativeSlotNode('BrushesDropdownMenu(customBrushes|expanded|onBrushChange|onDismissRequest)#0'));
-    var tmp$ret$4 = this_1.a2();
-    this_0.f1(new BoxNode(tmp, tmp$ret$4));
-    this_0.f1(new NativeSlotNode('IconButton(content|modifier|onClick)#0'));
-    var tmp_0 = emptyList();
+    var tmp_0 = mapOf_0([to('onClick', new CallbackProp('brushesMenuExpanded.value=true', 0)), to('modifier', new ModifierProp(listOf(new ModifierOpNode('size', mapOf_0([to('width', new DpProp(48.0)), to('height', new DpProp(48.0))])))))]);
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_2 = ArrayList_init_$Create$();
-    this_2.f1(new NativeSlotNode('IconButton(content|modifier|onClick)#1'));
-    this_2.f1(new NativeSlotNode('SizeDropdownMenu(expanded|onDismissRequest|onSizeChange)#0'));
+    this_2.f1(new ComponentNode('androidx.compose.material3.Icon(contentDescription|modifier|painter|tint)', mapOf_0([to('painter', new PainterResourceProp('drawable:brush_24px')), to('contentDescription', new StringResourceProp('string:brush')), to('modifier', new ModifierProp(listOf(new ModifierOpNode('background', mapOf_0([to('color', isEraserMode ? new ColorProp(new Long(0, 0)) : new ThemeColorProp('inversePrimary')), to('shape', new ShapeProp('circle'))])))))])));
     var tmp$ret$8 = this_2.a2();
-    this_0.f1(new BoxNode(tmp_0, tmp$ret$8));
+    this_1.f1(new ComponentNode('androidx.compose.material3.IconButton(colors|content|enabled|interactionSource|modifier|onClick|shape)', tmp_0, mapOf(to('content', tmp$ret$8))));
+    this_1.f1(new ComponentNode('com.example.cahier.features.drawing.BrushesDropdownMenu(customBrushes|expanded|modifier|onBrushChange|onDismissRequest)', mapOf_0([to('expanded', new StateProp('brushesMenuExpanded')), to('onDismissRequest', new CallbackProp('brushesMenuExpanded.value=false', 0)), to('onBrushChange', new CallbackProp('drawingCanvasViewModel.changeBrush($0);brushesMenuExpanded.value=false', 1)), to('customBrushes', new HandleProp('customBrushes'))])));
+    var tmp$ret$4 = this_1.a2();
+    this_0.f1(new BoxNode(tmp, tmp$ret$4));
+    var tmp_1 = mapOf_0([to('onClick', new CallbackProp('onColorPickerClick();drawingCanvasViewModel.setEraserMode(false)', 0)), to('modifier', new ModifierProp(listOf(new ModifierOpNode('size', mapOf_0([to('width', new DpProp(48.0)), to('height', new DpProp(48.0))])))))]);
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_3 = ArrayList_init_$Create$();
+    this_3.f1(new ComponentNode('androidx.compose.material3.Icon(contentDescription|modifier|painter|tint)', mapOf_0([to('painter', new PainterResourceProp('drawable:palette_24px')), to('contentDescription', new StringResourceProp('string:color'))])));
+    var tmp$ret$12 = this_3.a2();
+    this_0.f1(new ComponentNode('androidx.compose.material3.IconButton(colors|content|enabled|interactionSource|modifier|onClick|shape)', tmp_1, mapOf(to('content', tmp$ret$12))));
+    var tmp_2 = emptyList();
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_4 = ArrayList_init_$Create$();
+    var tmp_3 = mapOf_0([to('onClick', new CallbackProp('sizeMenuExpanded.value=true', 0)), to('modifier', new ModifierProp(listOf(new ModifierOpNode('size', mapOf_0([to('width', new DpProp(48.0)), to('height', new DpProp(48.0))])))))]);
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_5 = ArrayList_init_$Create$();
+    this_5.f1(new ComponentNode('androidx.compose.material3.Icon(contentDescription|modifier|painter|tint)', mapOf_0([to('painter', new PainterResourceProp('drawable:line_weight_24px')), to('contentDescription', new StringResourceProp('string:brush_size'))])));
+    var tmp$ret$20 = this_5.a2();
+    this_4.f1(new ComponentNode('androidx.compose.material3.IconButton(colors|content|enabled|interactionSource|modifier|onClick|shape)', tmp_3, mapOf(to('content', tmp$ret$20))));
+    this_4.f1(new ComponentNode('com.example.cahier.features.drawing.SizeDropdownMenu(expanded|modifier|onDismissRequest|onSizeChange)', mapOf_0([to('expanded', new StateProp('sizeMenuExpanded')), to('onDismissRequest', new CallbackProp('sizeMenuExpanded.value=false', 0)), to('onSizeChange', new CallbackProp('drawingCanvasViewModel.changeBrushSize($0);sizeMenuExpanded.value=false', 1))])));
+    var tmp$ret$16 = this_4.a2();
+    this_0.f1(new BoxNode(tmp_2, tmp$ret$16));
     var tmp$ret$0 = this_0.a2();
     return new FragmentNode(tmp$ret$0);
   };
-  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolBoxContent).b6 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolBoxContent).d7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
-    var isEraserMode = arguments_0.p4('isEraserMode');
+    var isEraserMode = arguments_0.y4('isEraserMode');
     return commands;
   };
   var DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_instance;
@@ -3442,14 +4066,13 @@ if (typeof Math.clz32 === 'undefined') {
     return DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_instance;
   }
   function DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls() {
-    this.x5_1 = 'com.example.cahier.features.drawing.ToolboxHistoryControls';
-    this.y5_1 = '{"Button(content|onClick)":2,"Column(content|modifier)":1,"Row(content|modifier)":1,"Text(text)":4,"ToolboxHistoryControlsContent(canRedo|canUndo|drawingCanvasViewModel|onClear|onRedo|onUndo)":2}';
+    this.b7_1 = 'com.example.cahier.features.drawing.ToolboxHistoryControls';
   }
-  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls).w5 = function (arguments_0, state) {
-    var canUndo = arguments_0.p4('canUndo');
-    var canRedo = arguments_0.p4('canRedo');
-    var isVertical = arguments_0.p4('isVertical');
-    state.r4('taps', 0);
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls).a7 = function (arguments_0, state) {
+    var canUndo = arguments_0.y4('canUndo');
+    var canRedo = arguments_0.y4('canRedo');
+    var isVertical = arguments_0.y4('isVertical');
+    state.a5('taps', 0);
     var tmp;
     if (isVertical) {
       var tmp_0 = listOf(Inherited_instance);
@@ -3458,8 +4081,8 @@ if (typeof Math.clz32 === 'undefined') {
       // Inline function 'kotlin.apply' call
       var this_0 = ArrayList_init_$Create$();
       this_0.f1(new TextNode('History'));
-      this_0.f1(new NativeSlotNode('ToolboxHistoryControlsContent(canRedo|canUndo|drawingCanvasViewModel|onClear|onRedo|onUndo)#0'));
-      this_0.f1(new TextNode('Taps: ' + state.s4('taps')));
+      this_0.f1(new ComponentNode('com.example.cahier.features.drawing.ToolboxHistoryControlsContent(canRedo|canUndo|drawingCanvasViewModel|onClear|onRedo|onUndo)', mapOf_0([to('drawingCanvasViewModel', new HandleProp('drawingCanvasViewModel')), to('onUndo', new CallbackProp('onUndo()', 0)), to('canUndo', new BoolProp(canUndo)), to('onRedo', new CallbackProp('onRedo()', 0)), to('canRedo', new BoolProp(canRedo)), to('onClear', new CallbackProp('onClear()', 0))])));
+      this_0.f1(new TextNode('Taps: ' + state.b5('taps')));
       this_0.f1(new ButtonNode('Count', 'count'));
       this_0.f1(new ButtonNode('Clear all', 'clear-all'));
       var tmp$ret$0 = this_0.a2();
@@ -3470,21 +4093,21 @@ if (typeof Math.clz32 === 'undefined') {
       // Inline function 'kotlin.collections.buildListInternal' call
       // Inline function 'kotlin.apply' call
       var this_1 = ArrayList_init_$Create$();
-      this_1.f1(new NativeSlotNode('ToolboxHistoryControlsContent(canRedo|canUndo|drawingCanvasViewModel|onClear|onRedo|onUndo)#1'));
+      this_1.f1(new ComponentNode('com.example.cahier.features.drawing.ToolboxHistoryControlsContent(canRedo|canUndo|drawingCanvasViewModel|onClear|onRedo|onUndo)', mapOf_0([to('drawingCanvasViewModel', new HandleProp('drawingCanvasViewModel')), to('onUndo', new CallbackProp('onUndo()', 0)), to('canUndo', new BoolProp(canUndo)), to('onRedo', new CallbackProp('onRedo()', 0)), to('canRedo', new BoolProp(canRedo)), to('onClear', new CallbackProp('onClear()', 0))])));
       var tmp$ret$4 = this_1.a2();
       tmp = new RowNode(tmp_1, tmp$ret$4);
     }
     return tmp;
   };
-  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls).b6 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls).d7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
-    var canUndo = arguments_0.p4('canUndo');
-    var canRedo = arguments_0.p4('canRedo');
-    var isVertical = arguments_0.p4('isVertical');
-    state.r4('taps', 0);
+    var canUndo = arguments_0.y4('canUndo');
+    var canRedo = arguments_0.y4('canRedo');
+    var isVertical = arguments_0.y4('isVertical');
+    state.a5('taps', 0);
     if (action === 'count') {
-      state.t4('taps', state.s4('taps') + 1 | 0);
+      state.c5('taps', state.b5('taps') + 1 | 0);
     } else if (action === 'clear-all') {
       commands.f1(new InvokeCallback('onClear'));
     }
@@ -3495,11 +4118,10 @@ if (typeof Math.clz32 === 'undefined') {
     return DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls_instance;
   }
   function DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions() {
-    this.z5_1 = 'com.example.cahier.features.drawing.ToolboxNoteActions';
-    this.a6_1 = '{"Column(content|modifier)":1,"Row(content|modifier)":1,"ToolboxNoteActionsContent(drawingCanvasViewModel|imagePickerLauncher|onEditActiveBrush|onExit)":2}';
+    this.c7_1 = 'com.example.cahier.features.drawing.ToolboxNoteActions';
   }
-  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions).w5 = function (arguments_0, state) {
-    var isVertical = arguments_0.p4('isVertical');
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions).a7 = function (arguments_0, state) {
+    var isVertical = arguments_0.y4('isVertical');
     var tmp;
     if (isVertical) {
       var tmp_0 = listOf(Inherited_instance);
@@ -3507,7 +4129,7 @@ if (typeof Math.clz32 === 'undefined') {
       // Inline function 'kotlin.collections.buildListInternal' call
       // Inline function 'kotlin.apply' call
       var this_0 = ArrayList_init_$Create$();
-      this_0.f1(new NativeSlotNode('ToolboxNoteActionsContent(drawingCanvasViewModel|imagePickerLauncher|onEditActiveBrush|onExit)#0'));
+      this_0.f1(new ComponentNode('com.example.cahier.features.drawing.ToolboxNoteActionsContent(drawingCanvasViewModel|imagePickerLauncher|onEditActiveBrush|onExit)', mapOf_0([to('drawingCanvasViewModel', new HandleProp('drawingCanvasViewModel')), to('imagePickerLauncher', new HandleProp('imagePickerLauncher')), to('onExit', new CallbackProp('onExit()', 0)), to('onEditActiveBrush', new CallbackProp('onEditActiveBrush()', 0))])));
       var tmp$ret$0 = this_0.a2();
       tmp = new ColumnNode(tmp_0, tmp$ret$0);
     } else {
@@ -3516,16 +4138,16 @@ if (typeof Math.clz32 === 'undefined') {
       // Inline function 'kotlin.collections.buildListInternal' call
       // Inline function 'kotlin.apply' call
       var this_1 = ArrayList_init_$Create$();
-      this_1.f1(new NativeSlotNode('ToolboxNoteActionsContent(drawingCanvasViewModel|imagePickerLauncher|onEditActiveBrush|onExit)#1'));
+      this_1.f1(new ComponentNode('com.example.cahier.features.drawing.ToolboxNoteActionsContent(drawingCanvasViewModel|imagePickerLauncher|onEditActiveBrush|onExit)', mapOf_0([to('drawingCanvasViewModel', new HandleProp('drawingCanvasViewModel')), to('imagePickerLauncher', new HandleProp('imagePickerLauncher')), to('onExit', new CallbackProp('onExit()', 0)), to('onEditActiveBrush', new CallbackProp('onEditActiveBrush()', 0))])));
       var tmp$ret$4 = this_1.a2();
       tmp = new RowNode(tmp_1, tmp$ret$4);
     }
     return tmp;
   };
-  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions).b6 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions).d7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
-    var isVertical = arguments_0.p4('isVertical');
+    var isVertical = arguments_0.y4('isVertical');
     return commands;
   };
   var DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions_instance;

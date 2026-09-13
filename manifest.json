@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "bundleVersion": 5,
+  "bundleVersion": 6,
   "runtimeVersion": "3",
   "enabled": true,
   "url": "https://wadhia-yash.github.io/dootah-manifest/bundle.js",
-  "sha256": "f9e8f24c82537d5e277e933e8a6859891cd91b3816431fab0de734122668cd74"
+  "sha256": "50ce2f68e42f9d7665099ef84df92cb0b17268b407e44ab50f10f9fb20da3364"
 }
