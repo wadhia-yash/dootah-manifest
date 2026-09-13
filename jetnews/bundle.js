@@ -181,10 +181,10 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(Weight, 'Weight');
   initMetadataForClass(Background, 'Background');
   initMetadataForClass(ComponentNode, 'ComponentNode');
+  initMetadataForClass(TextNode, 'TextNode');
   initMetadataForClass(ColumnNode, 'ColumnNode');
   initMetadataForClass(RowNode, 'RowNode');
   initMetadataForClass(BoxNode, 'BoxNode');
-  initMetadataForClass(TextNode, 'TextNode');
   initMetadataForClass(ButtonNode, 'ButtonNode');
   initMetadataForClass(FragmentNode, 'FragmentNode');
   initMetadataForClass(ModifierProp, 'ModifierProp', ModifierProp);
@@ -3210,13 +3210,35 @@ if (typeof Math.clz32 === 'undefined') {
       return false;
     return true;
   };
+  function TextNode(text, modifiers) {
+    modifiers = modifiers === VOID ? emptyList() : modifiers;
+    this.d5_1 = text;
+    this.e5_1 = modifiers;
+  }
+  protoOf(TextNode).toString = function () {
+    return 'TextNode(text=' + this.d5_1 + ', modifiers=' + toString_1(this.e5_1) + ')';
+  };
+  protoOf(TextNode).hashCode = function () {
+    var result = getStringHashCode(this.d5_1);
+    result = imul(result, 31) + hashCode_0(this.e5_1) | 0;
+    return result;
+  };
+  protoOf(TextNode).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof TextNode))
+      return false;
+    if (!(this.d5_1 === other.d5_1))
+      return false;
+    if (!equals(this.e5_1, other.e5_1))
+      return false;
+    return true;
+  };
   function ColumnNode() {
   }
   function RowNode() {
   }
   function BoxNode() {
-  }
-  function TextNode() {
   }
   function ButtonNode() {
   }
@@ -3234,16 +3256,16 @@ if (typeof Math.clz32 === 'undefined') {
           tmp = container('box', _this__u8e3s4.j5_1, _this__u8e3s4.k5_1);
         } else {
           if (_this__u8e3s4 instanceof TextNode) {
-            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.h5_1) + '"' + modifiersField(_this__u8e3s4.i5_1) + '}';
+            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.d5_1) + '"' + modifiersField(_this__u8e3s4.e5_1) + '}';
           } else {
             if (_this__u8e3s4 instanceof ButtonNode) {
-              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.e5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.f5_1) + '"') + modifiersField(_this__u8e3s4.g5_1) + '}';
+              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.g5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.h5_1) + '"') + modifiersField(_this__u8e3s4.i5_1) + '}';
             } else {
               if (_this__u8e3s4 instanceof ComponentNode) {
                 tmp = '{"type":"component","adapter":"' + escapeJson(_this__u8e3s4.a5_1) + '"' + propsField(_this__u8e3s4.b5_1) + slotsField(_this__u8e3s4.c5_1) + '}';
               } else {
                 if (_this__u8e3s4 instanceof FragmentNode) {
-                  tmp = '{"type":"fragment","children":[' + joinToString_0(_this__u8e3s4.d5_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + ']}';
+                  tmp = '{"type":"fragment","children":[' + joinToString_0(_this__u8e3s4.f5_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + ']}';
                 } else {
                   noWhenBranchMatchedException();
                 }
@@ -3788,7 +3810,7 @@ if (typeof Math.clz32 === 'undefined') {
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_0 = ArrayList_init_$Create$();
-    this_0.f1(new ComponentNode('androidx.compose.material3.Icon(contentDescription|modifier|painter|tint)', mapOf_0([to('painter', new PainterResourceProp('drawable:ic_share')), to('contentDescription', new StringResourceProp('string:cd_share'))])));
+    this_0.f1(new TextNode('Share'));
     var tmp$ret$0 = this_0.a2();
     return new ComponentNode('androidx.compose.material3.IconButton(colors|content|enabled|interactionSource|modifier|onClick|shape)', tmp, mapOf(to('content', tmp$ret$0)));
   };
