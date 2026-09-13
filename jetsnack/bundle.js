@@ -182,10 +182,10 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(Background, 'Background');
   initMetadataForClass(FragmentNode, 'FragmentNode', FragmentNode);
   initMetadataForClass(ComponentNode, 'ComponentNode');
+  initMetadataForClass(TextNode, 'TextNode');
   initMetadataForClass(ColumnNode, 'ColumnNode', ColumnNode);
   initMetadataForClass(RowNode, 'RowNode');
   initMetadataForClass(BoxNode, 'BoxNode');
-  initMetadataForClass(TextNode, 'TextNode');
   initMetadataForClass(ButtonNode, 'ButtonNode');
   initMetadataForClass(StringResourceProp, 'StringResourceProp');
   initMetadataForClass(StringProp, 'StringProp');
@@ -3246,18 +3246,42 @@ if (typeof Math.clz32 === 'undefined') {
       return false;
     return true;
   };
+  function TextNode(text, modifiers) {
+    modifiers = modifiers === VOID ? emptyList() : modifiers;
+    this.i5_1 = text;
+    this.j5_1 = modifiers;
+  }
+  protoOf(TextNode).toString = function () {
+    return 'TextNode(text=' + this.i5_1 + ', modifiers=' + toString_1(this.j5_1) + ')';
+  };
+  protoOf(TextNode).hashCode = function () {
+    var result = getStringHashCode(this.i5_1);
+    result = imul(result, 31) + hashCode_0(this.j5_1) | 0;
+    return result;
+  };
+  protoOf(TextNode).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof TextNode))
+      return false;
+    if (!(this.i5_1 === other.i5_1))
+      return false;
+    if (!equals(this.j5_1, other.j5_1))
+      return false;
+    return true;
+  };
   function ColumnNode(modifiers, children) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
     children = children === VOID ? emptyList() : children;
-    this.i5_1 = modifiers;
-    this.j5_1 = children;
+    this.k5_1 = modifiers;
+    this.l5_1 = children;
   }
   protoOf(ColumnNode).toString = function () {
-    return 'ColumnNode(modifiers=' + toString_1(this.i5_1) + ', children=' + toString_1(this.j5_1) + ')';
+    return 'ColumnNode(modifiers=' + toString_1(this.k5_1) + ', children=' + toString_1(this.l5_1) + ')';
   };
   protoOf(ColumnNode).hashCode = function () {
-    var result = hashCode_0(this.i5_1);
-    result = imul(result, 31) + hashCode_0(this.j5_1) | 0;
+    var result = hashCode_0(this.k5_1);
+    result = imul(result, 31) + hashCode_0(this.l5_1) | 0;
     return result;
   };
   protoOf(ColumnNode).equals = function (other) {
@@ -3265,9 +3289,9 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof ColumnNode))
       return false;
-    if (!equals(this.i5_1, other.i5_1))
+    if (!equals(this.k5_1, other.k5_1))
       return false;
-    if (!equals(this.j5_1, other.j5_1))
+    if (!equals(this.l5_1, other.l5_1))
       return false;
     return true;
   };
@@ -3275,14 +3299,12 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function BoxNode() {
   }
-  function TextNode() {
-  }
   function ButtonNode() {
   }
   function toJson_0(_this__u8e3s4) {
     var tmp;
     if (_this__u8e3s4 instanceof ColumnNode) {
-      tmp = container('column', _this__u8e3s4.i5_1, _this__u8e3s4.j5_1);
+      tmp = container('column', _this__u8e3s4.k5_1, _this__u8e3s4.l5_1);
     } else {
       if (_this__u8e3s4 instanceof RowNode) {
         tmp = container('row', _this__u8e3s4.r5_1, _this__u8e3s4.s5_1);
@@ -3291,10 +3313,10 @@ if (typeof Math.clz32 === 'undefined') {
           tmp = container('box', _this__u8e3s4.p5_1, _this__u8e3s4.q5_1);
         } else {
           if (_this__u8e3s4 instanceof TextNode) {
-            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.n5_1) + '"' + modifiersField(_this__u8e3s4.o5_1) + '}';
+            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.i5_1) + '"' + modifiersField(_this__u8e3s4.j5_1) + '}';
           } else {
             if (_this__u8e3s4 instanceof ButtonNode) {
-              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.k5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.l5_1) + '"') + modifiersField(_this__u8e3s4.m5_1) + '}';
+              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.m5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.n5_1) + '"') + modifiersField(_this__u8e3s4.o5_1) + '}';
             } else {
               if (_this__u8e3s4 instanceof ComponentNode) {
                 tmp = '{"type":"component","adapter":"' + escapeJson(_this__u8e3s4.f5_1) + '"' + propsField(_this__u8e3s4.g5_1) + slotsField(_this__u8e3s4.h5_1) + '}';
@@ -3694,7 +3716,8 @@ if (typeof Math.clz32 === 'undefined') {
     // Inline function 'kotlin.apply' call
     var this_0 = ArrayList_init_$Create$();
     this_0.f1(new ComponentNode('com.example.jetsnack.ui.home.FilterTitle(text)', mapOf(to('text', new StringResourceProp('string:sort')))));
-    var tmp = listOf(new Padding(0.0, 0.0, 0.0, 24.0));
+    this_0.f1(new TextNode('Currently sorting by ' + sortState));
+    var tmp = listOf(new Padding(0.0, 0.0, 0.0, 8.0));
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
