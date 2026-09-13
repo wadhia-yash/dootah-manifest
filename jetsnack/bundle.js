@@ -3853,6 +3853,7 @@ if (typeof Math.clz32 === 'undefined') {
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_0 = ArrayList_init_$Create$();
+    this_0.f1(new ComponentNode('!androidx.compose.material3.Slider@01e8vth6ta6dd'));
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
@@ -3861,7 +3862,6 @@ if (typeof Math.clz32 === 'undefined') {
     this_1.f1(new ComponentNode('!androidx.compose.material3.Text@0ejwzwigmo82j'));
     var tmp$ret$4 = this_1.a2();
     this_0.f1(new ComponentNode('androidx.compose.foundation.layout.FlowRow(content|horizontalArrangement|itemVerticalAlignment|maxItemsInEachRow|maxLines|modifier|verticalArrangement)', VOID, mapOf(to('content', tmp$ret$4))));
-    this_0.f1(new ComponentNode('!androidx.compose.material3.Slider@01e8vth6ta6dd'));
     var tmp$ret$0 = this_0.a2();
     return new FragmentNode(tmp$ret$0);
   };
