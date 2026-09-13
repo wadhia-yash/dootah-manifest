@@ -176,12 +176,14 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(Height, 'Height');
   initMetadataForClass(Weight, 'Weight');
   initMetadataForClass(Background, 'Background');
+  initMetadataForClass(FragmentNode, 'FragmentNode', FragmentNode);
+  initMetadataForClass(BoxNode, 'BoxNode', BoxNode);
+  initMetadataForClass(NativeSlotNode, 'NativeSlotNode');
   initMetadataForClass(ColumnNode, 'ColumnNode', ColumnNode);
   initMetadataForClass(TextNode, 'TextNode');
-  initMetadataForClass(NativeSlotNode, 'NativeSlotNode');
   initMetadataForClass(ButtonNode, 'ButtonNode');
   initMetadataForClass(RowNode, 'RowNode', RowNode);
-  initMetadataForClass(BoxNode, 'BoxNode');
+  initMetadataForObject(DootahScreen_com_example_cahier_features_drawing_ToolBoxContent, 'DootahScreen_com_example_cahier_features_drawing_ToolBoxContent');
   initMetadataForObject(DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls, 'DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls');
   initMetadataForObject(DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions, 'DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions');
   //endregion
@@ -2847,9 +2849,10 @@ if (typeof Math.clz32 === 'undefined') {
   function unknownScreen(screenId) {
     return '{"error":"unknownScreen","screenId":"' + escapeJson(screenId) + '"}';
   }
-  function envelope(ui, commands) {
+  function envelope(ui, commands, componentShapes) {
+    componentShapes = componentShapes === VOID ? '{}' : componentShapes;
     var tmp = '{"ui":' + toJson_0(ui) + ',"commands":[';
-    return tmp + joinToString_0(commands, ',', VOID, VOID, VOID, VOID, envelope$lambda) + ']}';
+    return tmp + joinToString_0(commands, ',', VOID, VOID, VOID, VOID, envelope$lambda) + ']' + ',"shapes":' + componentShapes + '}';
   }
   function failure(message) {
     return '{"error":"screenFailed","message":"' + escapeJson(message) + '"}';
@@ -3020,18 +3023,80 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function Background() {
   }
+  function FragmentNode(children) {
+    children = children === VOID ? emptyList() : children;
+    this.u4_1 = children;
+  }
+  protoOf(FragmentNode).toString = function () {
+    return 'FragmentNode(children=' + toString_1(this.u4_1) + ')';
+  };
+  protoOf(FragmentNode).hashCode = function () {
+    return hashCode_0(this.u4_1);
+  };
+  protoOf(FragmentNode).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof FragmentNode))
+      return false;
+    if (!equals(this.u4_1, other.u4_1))
+      return false;
+    return true;
+  };
+  function BoxNode(modifiers, children) {
+    modifiers = modifiers === VOID ? emptyList() : modifiers;
+    children = children === VOID ? emptyList() : children;
+    this.v4_1 = modifiers;
+    this.w4_1 = children;
+  }
+  protoOf(BoxNode).toString = function () {
+    return 'BoxNode(modifiers=' + toString_1(this.v4_1) + ', children=' + toString_1(this.w4_1) + ')';
+  };
+  protoOf(BoxNode).hashCode = function () {
+    var result = hashCode_0(this.v4_1);
+    result = imul(result, 31) + hashCode_0(this.w4_1) | 0;
+    return result;
+  };
+  protoOf(BoxNode).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof BoxNode))
+      return false;
+    if (!equals(this.v4_1, other.v4_1))
+      return false;
+    if (!equals(this.w4_1, other.w4_1))
+      return false;
+    return true;
+  };
+  function NativeSlotNode(slot) {
+    this.x4_1 = slot;
+  }
+  protoOf(NativeSlotNode).toString = function () {
+    return 'NativeSlotNode(slot=' + this.x4_1 + ')';
+  };
+  protoOf(NativeSlotNode).hashCode = function () {
+    return getStringHashCode(this.x4_1);
+  };
+  protoOf(NativeSlotNode).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof NativeSlotNode))
+      return false;
+    if (!(this.x4_1 === other.x4_1))
+      return false;
+    return true;
+  };
   function ColumnNode(modifiers, children) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
     children = children === VOID ? emptyList() : children;
-    this.u4_1 = modifiers;
-    this.v4_1 = children;
+    this.y4_1 = modifiers;
+    this.z4_1 = children;
   }
   protoOf(ColumnNode).toString = function () {
-    return 'ColumnNode(modifiers=' + toString_1(this.u4_1) + ', children=' + toString_1(this.v4_1) + ')';
+    return 'ColumnNode(modifiers=' + toString_1(this.y4_1) + ', children=' + toString_1(this.z4_1) + ')';
   };
   protoOf(ColumnNode).hashCode = function () {
-    var result = hashCode_0(this.u4_1);
-    result = imul(result, 31) + hashCode_0(this.v4_1) | 0;
+    var result = hashCode_0(this.y4_1);
+    result = imul(result, 31) + hashCode_0(this.z4_1) | 0;
     return result;
   };
   protoOf(ColumnNode).equals = function (other) {
@@ -3039,23 +3104,23 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof ColumnNode))
       return false;
-    if (!equals(this.u4_1, other.u4_1))
+    if (!equals(this.y4_1, other.y4_1))
       return false;
-    if (!equals(this.v4_1, other.v4_1))
+    if (!equals(this.z4_1, other.z4_1))
       return false;
     return true;
   };
   function TextNode(text, modifiers) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
-    this.w4_1 = text;
-    this.x4_1 = modifiers;
+    this.a5_1 = text;
+    this.b5_1 = modifiers;
   }
   protoOf(TextNode).toString = function () {
-    return 'TextNode(text=' + this.w4_1 + ', modifiers=' + toString_1(this.x4_1) + ')';
+    return 'TextNode(text=' + this.a5_1 + ', modifiers=' + toString_1(this.b5_1) + ')';
   };
   protoOf(TextNode).hashCode = function () {
-    var result = getStringHashCode(this.w4_1);
-    result = imul(result, 31) + hashCode_0(this.x4_1) | 0;
+    var result = getStringHashCode(this.a5_1);
+    result = imul(result, 31) + hashCode_0(this.b5_1) | 0;
     return result;
   };
   protoOf(TextNode).equals = function (other) {
@@ -3063,43 +3128,25 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof TextNode))
       return false;
-    if (!(this.w4_1 === other.w4_1))
+    if (!(this.a5_1 === other.a5_1))
       return false;
-    if (!equals(this.x4_1, other.x4_1))
-      return false;
-    return true;
-  };
-  function NativeSlotNode(slot) {
-    this.y4_1 = slot;
-  }
-  protoOf(NativeSlotNode).toString = function () {
-    return 'NativeSlotNode(slot=' + this.y4_1 + ')';
-  };
-  protoOf(NativeSlotNode).hashCode = function () {
-    return getStringHashCode(this.y4_1);
-  };
-  protoOf(NativeSlotNode).equals = function (other) {
-    if (this === other)
-      return true;
-    if (!(other instanceof NativeSlotNode))
-      return false;
-    if (!(this.y4_1 === other.y4_1))
+    if (!equals(this.b5_1, other.b5_1))
       return false;
     return true;
   };
   function ButtonNode(text, action, modifiers) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
-    this.z4_1 = text;
-    this.a5_1 = action;
-    this.b5_1 = modifiers;
+    this.c5_1 = text;
+    this.d5_1 = action;
+    this.e5_1 = modifiers;
   }
   protoOf(ButtonNode).toString = function () {
-    return 'ButtonNode(text=' + this.z4_1 + ', action=' + this.a5_1 + ', modifiers=' + toString_1(this.b5_1) + ')';
+    return 'ButtonNode(text=' + this.c5_1 + ', action=' + this.d5_1 + ', modifiers=' + toString_1(this.e5_1) + ')';
   };
   protoOf(ButtonNode).hashCode = function () {
-    var result = getStringHashCode(this.z4_1);
-    result = imul(result, 31) + getStringHashCode(this.a5_1) | 0;
-    result = imul(result, 31) + hashCode_0(this.b5_1) | 0;
+    var result = getStringHashCode(this.c5_1);
+    result = imul(result, 31) + getStringHashCode(this.d5_1) | 0;
+    result = imul(result, 31) + hashCode_0(this.e5_1) | 0;
     return result;
   };
   protoOf(ButtonNode).equals = function (other) {
@@ -3107,26 +3154,26 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof ButtonNode))
       return false;
-    if (!(this.z4_1 === other.z4_1))
+    if (!(this.c5_1 === other.c5_1))
       return false;
-    if (!(this.a5_1 === other.a5_1))
+    if (!(this.d5_1 === other.d5_1))
       return false;
-    if (!equals(this.b5_1, other.b5_1))
+    if (!equals(this.e5_1, other.e5_1))
       return false;
     return true;
   };
   function RowNode(modifiers, children) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
     children = children === VOID ? emptyList() : children;
-    this.c5_1 = modifiers;
-    this.d5_1 = children;
+    this.f5_1 = modifiers;
+    this.g5_1 = children;
   }
   protoOf(RowNode).toString = function () {
-    return 'RowNode(modifiers=' + toString_1(this.c5_1) + ', children=' + toString_1(this.d5_1) + ')';
+    return 'RowNode(modifiers=' + toString_1(this.f5_1) + ', children=' + toString_1(this.g5_1) + ')';
   };
   protoOf(RowNode).hashCode = function () {
-    var result = hashCode_0(this.c5_1);
-    result = imul(result, 31) + hashCode_0(this.d5_1) | 0;
+    var result = hashCode_0(this.f5_1);
+    result = imul(result, 31) + hashCode_0(this.g5_1) | 0;
     return result;
   };
   protoOf(RowNode).equals = function (other) {
@@ -3134,35 +3181,37 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof RowNode))
       return false;
-    if (!equals(this.c5_1, other.c5_1))
+    if (!equals(this.f5_1, other.f5_1))
       return false;
-    if (!equals(this.d5_1, other.d5_1))
+    if (!equals(this.g5_1, other.g5_1))
       return false;
     return true;
   };
-  function BoxNode() {
-  }
   function toJson_0(_this__u8e3s4) {
     var tmp;
     if (_this__u8e3s4 instanceof ColumnNode) {
-      tmp = container('column', _this__u8e3s4.u4_1, _this__u8e3s4.v4_1);
+      tmp = container('column', _this__u8e3s4.y4_1, _this__u8e3s4.z4_1);
     } else {
       if (_this__u8e3s4 instanceof RowNode) {
-        tmp = container('row', _this__u8e3s4.c5_1, _this__u8e3s4.d5_1);
+        tmp = container('row', _this__u8e3s4.f5_1, _this__u8e3s4.g5_1);
       } else {
         if (_this__u8e3s4 instanceof BoxNode) {
-          tmp = container('box', _this__u8e3s4.e5_1, _this__u8e3s4.f5_1);
+          tmp = container('box', _this__u8e3s4.v4_1, _this__u8e3s4.w4_1);
         } else {
           if (_this__u8e3s4 instanceof TextNode) {
-            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.w4_1) + '"' + modifiersField(_this__u8e3s4.x4_1) + '}';
+            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.a5_1) + '"' + modifiersField(_this__u8e3s4.b5_1) + '}';
           } else {
             if (_this__u8e3s4 instanceof ButtonNode) {
-              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.z4_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.a5_1) + '"') + modifiersField(_this__u8e3s4.b5_1) + '}';
+              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.c5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.d5_1) + '"') + modifiersField(_this__u8e3s4.e5_1) + '}';
             } else {
               if (_this__u8e3s4 instanceof NativeSlotNode) {
-                tmp = '{"type":"native","slot":"' + escapeJson(_this__u8e3s4.y4_1) + '"}';
+                tmp = '{"type":"native","slot":"' + escapeJson(_this__u8e3s4.x4_1) + '"}';
               } else {
-                noWhenBranchMatchedException();
+                if (_this__u8e3s4 instanceof FragmentNode) {
+                  tmp = '{"type":"fragment","children":[' + joinToString_0(_this__u8e3s4.u4_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + ']}';
+                } else {
+                  noWhenBranchMatchedException();
+                }
               }
             }
           }
@@ -3190,31 +3239,31 @@ if (typeof Math.clz32 === 'undefined') {
       tmp = '{"type":"inherited"}';
     } else {
       if (_this__u8e3s4 instanceof Padding) {
-        tmp = '{"type":"padding","start":' + _this__u8e3s4.p5_1 + ',"top":' + _this__u8e3s4.q5_1 + ',' + ('"end":' + _this__u8e3s4.r5_1 + ',"bottom":' + _this__u8e3s4.s5_1 + '}');
+        tmp = '{"type":"padding","start":' + _this__u8e3s4.q5_1 + ',"top":' + _this__u8e3s4.r5_1 + ',' + ('"end":' + _this__u8e3s4.s5_1 + ',"bottom":' + _this__u8e3s4.t5_1 + '}');
       } else {
         if (_this__u8e3s4 instanceof FillMaxWidth) {
-          tmp = '{"type":"fillMaxWidth","fraction":' + _this__u8e3s4.o5_1 + '}';
+          tmp = '{"type":"fillMaxWidth","fraction":' + _this__u8e3s4.p5_1 + '}';
         } else {
           if (_this__u8e3s4 instanceof FillMaxHeight) {
-            tmp = '{"type":"fillMaxHeight","fraction":' + _this__u8e3s4.n5_1 + '}';
+            tmp = '{"type":"fillMaxHeight","fraction":' + _this__u8e3s4.o5_1 + '}';
           } else {
             if (_this__u8e3s4 instanceof FillMaxSize) {
-              tmp = '{"type":"fillMaxSize","fraction":' + _this__u8e3s4.m5_1 + '}';
+              tmp = '{"type":"fillMaxSize","fraction":' + _this__u8e3s4.n5_1 + '}';
             } else {
               if (_this__u8e3s4 instanceof Size) {
-                tmp = '{"type":"size","width":' + _this__u8e3s4.k5_1 + ',"height":' + _this__u8e3s4.l5_1 + '}';
+                tmp = '{"type":"size","width":' + _this__u8e3s4.l5_1 + ',"height":' + _this__u8e3s4.m5_1 + '}';
               } else {
                 if (_this__u8e3s4 instanceof Width) {
-                  tmp = '{"type":"width","value":' + _this__u8e3s4.j5_1 + '}';
+                  tmp = '{"type":"width","value":' + _this__u8e3s4.k5_1 + '}';
                 } else {
                   if (_this__u8e3s4 instanceof Height) {
-                    tmp = '{"type":"height","value":' + _this__u8e3s4.i5_1 + '}';
+                    tmp = '{"type":"height","value":' + _this__u8e3s4.j5_1 + '}';
                   } else {
                     if (_this__u8e3s4 instanceof Weight) {
-                      tmp = '{"type":"weight","value":' + _this__u8e3s4.h5_1 + '}';
+                      tmp = '{"type":"weight","value":' + _this__u8e3s4.i5_1 + '}';
                     } else {
                       if (_this__u8e3s4 instanceof Background) {
-                        tmp = '{"type":"background","color":' + _this__u8e3s4.g5_1.toString() + '}';
+                        tmp = '{"type":"background","color":' + _this__u8e3s4.h5_1.toString() + '}';
                       } else {
                         noWhenBranchMatchedException();
                       }
@@ -3229,6 +3278,9 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp;
   }
+  function toJson$lambda(it) {
+    return toJson_0(it);
+  }
   function container$lambda(it) {
     return toJson_0(it);
   }
@@ -3242,7 +3294,7 @@ if (typeof Math.clz32 === 'undefined') {
   var screenStates;
   function screenIds() {
     _init_properties_DootahExports_kt__7euayy();
-    return screenIdsJson(listOf_0(['com.example.cahier.features.drawing.ToolboxHistoryControls', 'com.example.cahier.features.drawing.ToolboxNoteActions']));
+    return screenIdsJson(listOf_0(['com.example.cahier.features.drawing.ToolBoxContent', 'com.example.cahier.features.drawing.ToolboxHistoryControls', 'com.example.cahier.features.drawing.ToolboxNoteActions']));
   }
   function renderScreen(screenId, argumentsJson) {
     _init_properties_DootahExports_kt__7euayy();
@@ -3251,7 +3303,7 @@ if (typeof Math.clz32 === 'undefined') {
       var state = stateFor(screenId);
       var arguments_0 = parseArguments(argumentsJson);
       var ui = renderOf(screenId, arguments_0, state);
-      tmp = ui == null ? unknownScreen(screenId) : envelope(ui, emptyList());
+      tmp = ui == null ? unknownScreen(screenId) : envelope(ui, emptyList(), shapesOf(screenId));
     } catch ($p) {
       var tmp_0;
       if ($p instanceof Error) {
@@ -3273,7 +3325,7 @@ if (typeof Math.clz32 === 'undefined') {
       var arguments_0 = parseArguments(argumentsJson);
       var commands = performOn(screenId, action, arguments_0, state);
       var ui = renderOf(screenId, arguments_0, state);
-      tmp = commands == null || ui == null ? unknownScreen(screenId) : envelope(ui, commands);
+      tmp = commands == null || ui == null ? unknownScreen(screenId) : envelope(ui, commands, shapesOf(screenId));
     } catch ($p) {
       var tmp_0;
       if ($p instanceof Error) {
@@ -3302,13 +3354,28 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp;
   }
+  function shapesOf(screenId) {
+    _init_properties_DootahExports_kt__7euayy();
+    switch (screenId) {
+      case 'com.example.cahier.features.drawing.ToolBoxContent':
+        return '{"Box(content)":1,"Box(content|modifier)":1,"BrushesDropdownMenu(customBrushes|expanded|onBrushChange|onDismissRequest)":1,"Icon(contentDescription|painter)":2,"IconButton(content|modifier|onClick)":2,"SizeDropdownMenu(expanded|onDismissRequest|onSizeChange)":1,"painterResource(id)":2,"stringResource(id)":2}';
+      case 'com.example.cahier.features.drawing.ToolboxHistoryControls':
+        return '{"Button(content|onClick)":2,"Column(content|modifier)":1,"Row(content|modifier)":1,"Text(text)":4,"ToolboxHistoryControlsContent(canRedo|canUndo|drawingCanvasViewModel|onClear|onRedo|onUndo)":2}';
+      case 'com.example.cahier.features.drawing.ToolboxNoteActions':
+        return '{"Column(content|modifier)":1,"Row(content|modifier)":1,"ToolboxNoteActionsContent(drawingCanvasViewModel|imagePickerLauncher|onEditActiveBrush|onExit)":2}';
+      default:
+        return '{}';
+    }
+  }
   function renderOf(screenId, arguments_0, state) {
     _init_properties_DootahExports_kt__7euayy();
     switch (screenId) {
+      case 'com.example.cahier.features.drawing.ToolBoxContent':
+        return DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_instance.w5(arguments_0, state);
       case 'com.example.cahier.features.drawing.ToolboxHistoryControls':
-        return DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls_instance.u5(arguments_0, state);
+        return DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls_instance.w5(arguments_0, state);
       case 'com.example.cahier.features.drawing.ToolboxNoteActions':
-        return DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions_instance.u5(arguments_0, state);
+        return DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions_instance.w5(arguments_0, state);
       default:
         return null;
     }
@@ -3316,10 +3383,12 @@ if (typeof Math.clz32 === 'undefined') {
   function performOn(screenId, action, arguments_0, state) {
     _init_properties_DootahExports_kt__7euayy();
     switch (screenId) {
+      case 'com.example.cahier.features.drawing.ToolBoxContent':
+        return DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_instance.b6(action, arguments_0, state);
       case 'com.example.cahier.features.drawing.ToolboxHistoryControls':
-        return DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls_instance.w5(action, arguments_0, state);
+        return DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls_instance.b6(action, arguments_0, state);
       case 'com.example.cahier.features.drawing.ToolboxNoteActions':
-        return DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions_instance.w5(action, arguments_0, state);
+        return DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions_instance.b6(action, arguments_0, state);
       default:
         return null;
     }
@@ -3331,10 +3400,52 @@ if (typeof Math.clz32 === 'undefined') {
       screenStates = HashMap_init_$Create$();
     }
   }
-  function DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls() {
-    this.t5_1 = 'com.example.cahier.features.drawing.ToolboxHistoryControls';
+  function DootahScreen_com_example_cahier_features_drawing_ToolBoxContent() {
+    this.u5_1 = 'com.example.cahier.features.drawing.ToolBoxContent';
+    this.v5_1 = '{"Box(content)":1,"Box(content|modifier)":1,"BrushesDropdownMenu(customBrushes|expanded|onBrushChange|onDismissRequest)":1,"Icon(contentDescription|painter)":2,"IconButton(content|modifier|onClick)":2,"SizeDropdownMenu(expanded|onDismissRequest|onSizeChange)":1,"painterResource(id)":2,"stringResource(id)":2}';
   }
-  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls).u5 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolBoxContent).w5 = function (arguments_0, state) {
+    var isEraserMode = arguments_0.p4('isEraserMode');
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_0 = ArrayList_init_$Create$();
+    var tmp = listOf(Inherited_instance);
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_1 = ArrayList_init_$Create$();
+    this_1.f1(new NativeSlotNode('BrushesDropdownMenu(customBrushes|expanded|onBrushChange|onDismissRequest)#0'));
+    var tmp$ret$4 = this_1.a2();
+    this_0.f1(new BoxNode(tmp, tmp$ret$4));
+    this_0.f1(new NativeSlotNode('IconButton(content|modifier|onClick)#0'));
+    var tmp_0 = emptyList();
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_2 = ArrayList_init_$Create$();
+    this_2.f1(new NativeSlotNode('IconButton(content|modifier|onClick)#1'));
+    this_2.f1(new NativeSlotNode('SizeDropdownMenu(expanded|onDismissRequest|onSizeChange)#0'));
+    var tmp$ret$8 = this_2.a2();
+    this_0.f1(new BoxNode(tmp_0, tmp$ret$8));
+    var tmp$ret$0 = this_0.a2();
+    return new FragmentNode(tmp$ret$0);
+  };
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolBoxContent).b6 = function (action, arguments_0, state) {
+    // Inline function 'kotlin.collections.mutableListOf' call
+    var commands = ArrayList_init_$Create$();
+    var isEraserMode = arguments_0.p4('isEraserMode');
+    return commands;
+  };
+  var DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_instance;
+  function DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_getInstance() {
+    return DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_instance;
+  }
+  function DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls() {
+    this.x5_1 = 'com.example.cahier.features.drawing.ToolboxHistoryControls';
+    this.y5_1 = '{"Button(content|onClick)":2,"Column(content|modifier)":1,"Row(content|modifier)":1,"Text(text)":4,"ToolboxHistoryControlsContent(canRedo|canUndo|drawingCanvasViewModel|onClear|onRedo|onUndo)":2}';
+  }
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls).w5 = function (arguments_0, state) {
     var canUndo = arguments_0.p4('canUndo');
     var canRedo = arguments_0.p4('canRedo');
     var isVertical = arguments_0.p4('isVertical');
@@ -3365,7 +3476,7 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp;
   };
-  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls).w5 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls).b6 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     var canUndo = arguments_0.p4('canUndo');
@@ -3384,9 +3495,10 @@ if (typeof Math.clz32 === 'undefined') {
     return DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls_instance;
   }
   function DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions() {
-    this.v5_1 = 'com.example.cahier.features.drawing.ToolboxNoteActions';
+    this.z5_1 = 'com.example.cahier.features.drawing.ToolboxNoteActions';
+    this.a6_1 = '{"Column(content|modifier)":1,"Row(content|modifier)":1,"ToolboxNoteActionsContent(drawingCanvasViewModel|imagePickerLauncher|onEditActiveBrush|onExit)":2}';
   }
-  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions).u5 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions).w5 = function (arguments_0, state) {
     var isVertical = arguments_0.p4('isVertical');
     var tmp;
     if (isVertical) {
@@ -3410,7 +3522,7 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp;
   };
-  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions).w5 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions).b6 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     var isVertical = arguments_0.p4('isVertical');
@@ -3431,6 +3543,7 @@ if (typeof Math.clz32 === 'undefined') {
   Companion_instance_4 = new Companion_4();
   EmptyIterator_instance = new EmptyIterator();
   Inherited_instance = new Inherited();
+  DootahScreen_com_example_cahier_features_drawing_ToolBoxContent_instance = new DootahScreen_com_example_cahier_features_drawing_ToolBoxContent();
   DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls_instance = new DootahScreen_com_example_cahier_features_drawing_ToolboxHistoryControls();
   DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions_instance = new DootahScreen_com_example_cahier_features_drawing_ToolboxNoteActions();
   //endregion
