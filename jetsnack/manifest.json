@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "bundleVersion": 1,
+  "bundleVersion": 3,
   "runtimeVersion": "3",
   "enabled": true,
   "url": "https://wadhia-yash.github.io/dootah-manifest/jetsnack/bundle.js",
