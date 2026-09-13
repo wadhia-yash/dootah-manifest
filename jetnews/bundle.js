@@ -182,10 +182,10 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(Background, 'Background');
   initMetadataForClass(ComponentNode, 'ComponentNode');
   initMetadataForClass(RowNode, 'RowNode', RowNode);
+  initMetadataForClass(TextNode, 'TextNode');
   initMetadataForClass(ColumnNode, 'ColumnNode', ColumnNode);
   initMetadataForClass(FragmentNode, 'FragmentNode', FragmentNode);
   initMetadataForClass(BoxNode, 'BoxNode');
-  initMetadataForClass(TextNode, 'TextNode');
   initMetadataForClass(ButtonNode, 'ButtonNode');
   initMetadataForClass(HandleProp, 'HandleProp');
   initMetadataForClass(ModifierProp, 'ModifierProp', ModifierProp);
@@ -3270,18 +3270,42 @@ if (typeof Math.clz32 === 'undefined') {
       return false;
     return true;
   };
+  function TextNode(text, modifiers) {
+    modifiers = modifiers === VOID ? emptyList() : modifiers;
+    this.g5_1 = text;
+    this.h5_1 = modifiers;
+  }
+  protoOf(TextNode).toString = function () {
+    return 'TextNode(text=' + this.g5_1 + ', modifiers=' + toString_1(this.h5_1) + ')';
+  };
+  protoOf(TextNode).hashCode = function () {
+    var result = getStringHashCode(this.g5_1);
+    result = imul(result, 31) + hashCode_0(this.h5_1) | 0;
+    return result;
+  };
+  protoOf(TextNode).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof TextNode))
+      return false;
+    if (!(this.g5_1 === other.g5_1))
+      return false;
+    if (!equals(this.h5_1, other.h5_1))
+      return false;
+    return true;
+  };
   function ColumnNode(modifiers, children) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
     children = children === VOID ? emptyList() : children;
-    this.g5_1 = modifiers;
-    this.h5_1 = children;
+    this.i5_1 = modifiers;
+    this.j5_1 = children;
   }
   protoOf(ColumnNode).toString = function () {
-    return 'ColumnNode(modifiers=' + toString_1(this.g5_1) + ', children=' + toString_1(this.h5_1) + ')';
+    return 'ColumnNode(modifiers=' + toString_1(this.i5_1) + ', children=' + toString_1(this.j5_1) + ')';
   };
   protoOf(ColumnNode).hashCode = function () {
-    var result = hashCode_0(this.g5_1);
-    result = imul(result, 31) + hashCode_0(this.h5_1) | 0;
+    var result = hashCode_0(this.i5_1);
+    result = imul(result, 31) + hashCode_0(this.j5_1) | 0;
     return result;
   };
   protoOf(ColumnNode).equals = function (other) {
@@ -3289,41 +3313,39 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof ColumnNode))
       return false;
-    if (!equals(this.g5_1, other.g5_1))
+    if (!equals(this.i5_1, other.i5_1))
       return false;
-    if (!equals(this.h5_1, other.h5_1))
+    if (!equals(this.j5_1, other.j5_1))
       return false;
     return true;
   };
   function FragmentNode(children) {
     children = children === VOID ? emptyList() : children;
-    this.i5_1 = children;
+    this.k5_1 = children;
   }
   protoOf(FragmentNode).toString = function () {
-    return 'FragmentNode(children=' + toString_1(this.i5_1) + ')';
+    return 'FragmentNode(children=' + toString_1(this.k5_1) + ')';
   };
   protoOf(FragmentNode).hashCode = function () {
-    return hashCode_0(this.i5_1);
+    return hashCode_0(this.k5_1);
   };
   protoOf(FragmentNode).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof FragmentNode))
       return false;
-    if (!equals(this.i5_1, other.i5_1))
+    if (!equals(this.k5_1, other.k5_1))
       return false;
     return true;
   };
   function BoxNode() {
-  }
-  function TextNode() {
   }
   function ButtonNode() {
   }
   function toJson_0(_this__u8e3s4) {
     var tmp;
     if (_this__u8e3s4 instanceof ColumnNode) {
-      tmp = container('column', _this__u8e3s4.g5_1, _this__u8e3s4.h5_1);
+      tmp = container('column', _this__u8e3s4.i5_1, _this__u8e3s4.j5_1);
     } else {
       if (_this__u8e3s4 instanceof RowNode) {
         tmp = container('row', _this__u8e3s4.e5_1, _this__u8e3s4.f5_1);
@@ -3332,16 +3354,16 @@ if (typeof Math.clz32 === 'undefined') {
           tmp = container('box', _this__u8e3s4.o5_1, _this__u8e3s4.p5_1);
         } else {
           if (_this__u8e3s4 instanceof TextNode) {
-            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.m5_1) + '"' + modifiersField(_this__u8e3s4.n5_1) + '}';
+            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.g5_1) + '"' + modifiersField(_this__u8e3s4.h5_1) + '}';
           } else {
             if (_this__u8e3s4 instanceof ButtonNode) {
-              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.j5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.k5_1) + '"') + modifiersField(_this__u8e3s4.l5_1) + '}';
+              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.l5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.m5_1) + '"') + modifiersField(_this__u8e3s4.n5_1) + '}';
             } else {
               if (_this__u8e3s4 instanceof ComponentNode) {
                 tmp = '{"type":"component","adapter":"' + escapeJson(_this__u8e3s4.b5_1) + '"' + propsField(_this__u8e3s4.c5_1) + slotsField(_this__u8e3s4.d5_1) + '}';
               } else {
                 if (_this__u8e3s4 instanceof FragmentNode) {
-                  tmp = '{"type":"fragment","children":[' + joinToString_0(_this__u8e3s4.i5_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + ']}';
+                  tmp = '{"type":"fragment","children":[' + joinToString_0(_this__u8e3s4.k5_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + ']}';
                 } else {
                   noWhenBranchMatchedException();
                 }
@@ -3947,6 +3969,7 @@ if (typeof Math.clz32 === 'undefined') {
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_0 = ArrayList_init_$Create$();
+    this_0.f1(new TextNode('\u2605 '));
     this_0.f1(new ComponentNode('!androidx.compose.material3.Text@0mjrtva468l0y'));
     var tmp$ret$0 = this_0.a2();
     return new RowNode(tmp, tmp$ret$0);
@@ -3998,6 +4021,7 @@ if (typeof Math.clz32 === 'undefined') {
     var this_0 = ArrayList_init_$Create$();
     this_0.f1(new ComponentNode('!androidx.compose.material3.Text@134ukua59ul36'));
     this_0.f1(new ComponentNode('!androidx.compose.foundation.layout.Row@1dkyl9rc9m8nq'));
+    this_0.f1(new TextNode('Updated over the air'));
     this_0.f1(new ComponentNode('androidx.compose.foundation.layout.Spacer(modifier)', mapOf(to('modifier', new ModifierProp(listOf(new ModifierOpNode('height', mapOf(to('height', new DpProp(16.0))))))))));
     this_0.f1(new ComponentNode('com.example.jetnews.ui.home.PostListDivider()'));
     var tmp$ret$0 = this_0.a2();
