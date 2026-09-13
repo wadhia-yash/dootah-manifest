@@ -194,6 +194,7 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(CallbackProp, 'CallbackProp');
   initMetadataForClass(PainterResourceProp, 'PainterResourceProp');
   initMetadataForClass(StringResourceProp, 'StringResourceProp');
+  initMetadataForClass(ThemeColorProp, 'ThemeColorProp');
   initMetadataForClass(NullProp, 'NullProp');
   initMetadataForClass(IntProp, 'IntProp');
   initMetadataForClass(LongProp, 'LongProp');
@@ -201,7 +202,6 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(DoubleProp, 'DoubleProp');
   initMetadataForClass(StringProp, 'StringProp');
   initMetadataForClass(ColorProp, 'ColorProp');
-  initMetadataForClass(ThemeColorProp, 'ThemeColorProp');
   initMetadataForClass(ShapeProp, 'ShapeProp');
   initMetadataForClass(ListProp, 'ListProp');
   initMetadataForClass(HandleProp, 'HandleProp');
@@ -3600,6 +3600,24 @@ if (typeof Math.clz32 === 'undefined') {
       return false;
     return true;
   };
+  function ThemeColorProp(token) {
+    this.l6_1 = token;
+  }
+  protoOf(ThemeColorProp).toString = function () {
+    return 'ThemeColorProp(token=' + this.l6_1 + ')';
+  };
+  protoOf(ThemeColorProp).hashCode = function () {
+    return getStringHashCode(this.l6_1);
+  };
+  protoOf(ThemeColorProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof ThemeColorProp))
+      return false;
+    if (!(this.l6_1 === other.l6_1))
+      return false;
+    return true;
+  };
   function NullProp() {
   }
   function IntProp() {
@@ -3613,8 +3631,6 @@ if (typeof Math.clz32 === 'undefined') {
   function StringProp() {
   }
   function ColorProp() {
-  }
-  function ThemeColorProp() {
   }
   function ShapeProp() {
   }
@@ -3788,7 +3804,7 @@ if (typeof Math.clz32 === 'undefined') {
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_0 = ArrayList_init_$Create$();
-    this_0.f1(new ComponentNode('androidx.compose.material3.Icon(contentDescription|modifier|painter|tint)', mapOf_0([to('painter', new PainterResourceProp('drawable:ic_share')), to('contentDescription', new StringResourceProp('string:cd_share'))])));
+    this_0.f1(new ComponentNode('androidx.compose.material3.Icon(contentDescription|modifier|painter|tint)', mapOf_0([to('painter', new PainterResourceProp('drawable:ic_share')), to('contentDescription', new StringResourceProp('string:cd_share')), to('tint', new ThemeColorProp('primary'))])));
     var tmp$ret$0 = this_0.a2();
     return new ComponentNode('androidx.compose.material3.IconButton(colors|content|enabled|interactionSource|modifier|onClick|shape)', tmp, mapOf(to('content', tmp$ret$0)));
   };

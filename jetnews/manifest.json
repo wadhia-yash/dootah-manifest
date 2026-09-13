@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "bundleVersion": 1,
+  "bundleVersion": 2,
   "runtimeVersion": "3",
   "enabled": true,
   "url": "https://wadhia-yash.github.io/dootah-manifest/jetnews/bundle.js",
-  "sha256": "e965c66f49db5e2bf20432560e7bc91e7172f65520c39257824f7891d98ccb58"
+  "sha256": "8650cc9c51a3751efbe048f2a3ad5e4c2db4e6bb4740c99fd13eaf47f89777bb"
 }
