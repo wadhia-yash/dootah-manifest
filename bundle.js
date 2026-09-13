@@ -4044,6 +4044,14 @@ if (typeof Math.clz32 === 'undefined') {
     this_3.f1(new ComponentNode('com.example.cahier.features.drawing.SizeDropdownMenu(expanded|modifier|onDismissRequest|onSizeChange)', mapOf_0([to('expanded', new StateProp('sizeMenuExpanded')), to('onDismissRequest', new CallbackProp('sizeMenuExpanded.value=false', 0)), to('onSizeChange', new CallbackProp('drawingCanvasViewModel.changeBrushSize($0);sizeMenuExpanded.value=false', 1))])));
     var tmp$ret$12 = this_3.a2();
     this_0.f1(new BoxNode(tmp_1, tmp$ret$12));
+    var tmp_3 = mapOf_0([to('onClick', new CallbackProp('onColorPickerClick();drawingCanvasViewModel.setEraserMode(false)', 0)), to('modifier', new ModifierProp(listOf(new ModifierOpNode('size', mapOf_0([to('width', new DpProp(48.0)), to('height', new DpProp(48.0))])))))]);
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_5 = ArrayList_init_$Create$();
+    this_5.f1(new ComponentNode('androidx.compose.material3.Icon(contentDescription|modifier|painter|tint)', mapOf_0([to('painter', new PainterResourceProp('drawable:palette_24px')), to('contentDescription', new StringResourceProp('string:color'))])));
+    var tmp$ret$20 = this_5.a2();
+    this_0.f1(new ComponentNode('androidx.compose.material3.IconButton(colors|content|enabled|interactionSource|modifier|onClick|shape)', tmp_3, mapOf(to('content', tmp$ret$20))));
     var tmp$ret$0 = this_0.a2();
     return new FragmentNode(tmp$ret$0);
   };
