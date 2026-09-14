@@ -191,12 +191,12 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(BoxNode, 'BoxNode');
   initMetadataForClass(ButtonNode, 'ButtonNode');
   initMetadataForClass(HandleProp, 'HandleProp');
-  initMetadataForClass(ModifierProp, 'ModifierProp', ModifierProp);
-  initMetadataForClass(ModifierOpNode, 'ModifierOpNode');
-  initMetadataForClass(DpProp, 'DpProp');
   initMetadataForClass(PainterResourceProp, 'PainterResourceProp');
   initMetadataForClass(StringResourceProp, 'StringResourceProp');
   initMetadataForClass(ThemeColorProp, 'ThemeColorProp');
+  initMetadataForClass(ModifierProp, 'ModifierProp', ModifierProp);
+  initMetadataForClass(ModifierOpNode, 'ModifierOpNode');
+  initMetadataForClass(DpProp, 'DpProp');
   initMetadataForClass(BoolProp, 'BoolProp');
   initMetadataForClass(CallbackProp, 'CallbackProp');
   initMetadataForClass(AnchorProp, 'AnchorProp');
@@ -3783,6 +3783,60 @@ if (typeof Math.clz32 === 'undefined') {
       return false;
     return true;
   };
+  function PainterResourceProp(key) {
+    this.w6_1 = key;
+  }
+  protoOf(PainterResourceProp).toString = function () {
+    return 'PainterResourceProp(key=' + this.w6_1 + ')';
+  };
+  protoOf(PainterResourceProp).hashCode = function () {
+    return getStringHashCode(this.w6_1);
+  };
+  protoOf(PainterResourceProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof PainterResourceProp))
+      return false;
+    if (!(this.w6_1 === other.w6_1))
+      return false;
+    return true;
+  };
+  function StringResourceProp(key) {
+    this.v6_1 = key;
+  }
+  protoOf(StringResourceProp).toString = function () {
+    return 'StringResourceProp(key=' + this.v6_1 + ')';
+  };
+  protoOf(StringResourceProp).hashCode = function () {
+    return getStringHashCode(this.v6_1);
+  };
+  protoOf(StringResourceProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof StringResourceProp))
+      return false;
+    if (!(this.v6_1 === other.v6_1))
+      return false;
+    return true;
+  };
+  function ThemeColorProp(token) {
+    this.y6_1 = token;
+  }
+  protoOf(ThemeColorProp).toString = function () {
+    return 'ThemeColorProp(token=' + this.y6_1 + ')';
+  };
+  protoOf(ThemeColorProp).hashCode = function () {
+    return getStringHashCode(this.y6_1);
+  };
+  protoOf(ThemeColorProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof ThemeColorProp))
+      return false;
+    if (!(this.y6_1 === other.y6_1))
+      return false;
+    return true;
+  };
   function ModifierProp(operations) {
     operations = operations === VOID ? emptyList() : operations;
     this.u6_1 = operations;
@@ -3841,60 +3895,6 @@ if (typeof Math.clz32 === 'undefined') {
     if (!(other instanceof DpProp))
       return false;
     if (!equals(this.b7_1, other.b7_1))
-      return false;
-    return true;
-  };
-  function PainterResourceProp(key) {
-    this.w6_1 = key;
-  }
-  protoOf(PainterResourceProp).toString = function () {
-    return 'PainterResourceProp(key=' + this.w6_1 + ')';
-  };
-  protoOf(PainterResourceProp).hashCode = function () {
-    return getStringHashCode(this.w6_1);
-  };
-  protoOf(PainterResourceProp).equals = function (other) {
-    if (this === other)
-      return true;
-    if (!(other instanceof PainterResourceProp))
-      return false;
-    if (!(this.w6_1 === other.w6_1))
-      return false;
-    return true;
-  };
-  function StringResourceProp(key) {
-    this.v6_1 = key;
-  }
-  protoOf(StringResourceProp).toString = function () {
-    return 'StringResourceProp(key=' + this.v6_1 + ')';
-  };
-  protoOf(StringResourceProp).hashCode = function () {
-    return getStringHashCode(this.v6_1);
-  };
-  protoOf(StringResourceProp).equals = function (other) {
-    if (this === other)
-      return true;
-    if (!(other instanceof StringResourceProp))
-      return false;
-    if (!(this.v6_1 === other.v6_1))
-      return false;
-    return true;
-  };
-  function ThemeColorProp(token) {
-    this.y6_1 = token;
-  }
-  protoOf(ThemeColorProp).toString = function () {
-    return 'ThemeColorProp(token=' + this.y6_1 + ')';
-  };
-  protoOf(ThemeColorProp).hashCode = function () {
-    return getStringHashCode(this.y6_1);
-  };
-  protoOf(ThemeColorProp).equals = function (other) {
-    if (this === other)
-      return true;
-    if (!(other instanceof ThemeColorProp))
-      return false;
-    if (!(this.y6_1 === other.y6_1))
       return false;
     return true;
   };
@@ -4156,7 +4156,7 @@ if (typeof Math.clz32 === 'undefined') {
     // Inline function 'kotlin.apply' call
     var this_0 = ArrayList_init_$Create$();
     this_0.f1(new ComponentNode('!androidx.compose.material3.Icon@1idl9u5pfh9x5'));
-    this_0.f1(new ComponentNode('androidx.compose.foundation.layout.Spacer(modifier)', mapOf(to('modifier', new ModifierProp(listOf(new ModifierOpNode('width', mapOf(to('width', new DpProp(8.0))))))))));
+    this_0.f1(new ComponentNode('!androidx.compose.foundation.layout.Spacer@1b7tqzk1yg6d4'));
     this_0.f1(new ComponentNode('androidx.compose.material3.Icon(contentDescription|modifier|painter|tint)', mapOf_0([to('painter', new PainterResourceProp('drawable:ic_jetnews_wordmark')), to('contentDescription', new StringResourceProp('string:app_name')), to('tint', new ThemeColorProp('onSurfaceVariant'))])));
     var tmp$ret$0 = this_0.a2();
     return new RowNode(tmp, VOID, VOID, tmp$ret$0);
@@ -4230,7 +4230,7 @@ if (typeof Math.clz32 === 'undefined') {
     var this_0 = ArrayList_init_$Create$();
     this_0.f1(new ComponentNode('!androidx.compose.material3.Text@134ukua59ul36'));
     this_0.f1(new ComponentNode('!androidx.compose.foundation.layout.Row@1dkyl9rc9m8nq'));
-    this_0.f1(new ComponentNode('androidx.compose.foundation.layout.Spacer(modifier)', mapOf(to('modifier', new ModifierProp(listOf(new ModifierOpNode('height', mapOf(to('height', new DpProp(16.0))))))))));
+    this_0.f1(new ComponentNode('!androidx.compose.foundation.layout.Spacer@11dvi2jldpn1q'));
     this_0.f1(new ComponentNode('com.example.jetnews.ui.home.PostListDivider()'));
     var tmp$ret$0 = this_0.a2();
     return new ColumnNode(tmp, VOID, VOID, tmp$ret$0);
@@ -4280,7 +4280,7 @@ if (typeof Math.clz32 === 'undefined') {
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_1 = ArrayList_init_$Create$();
-    this_1.f1(new ComponentNode('com.example.jetnews.ui.interests.SelectTopicButton(modifier|selected)', mapOf_0([to('modifier', new ModifierProp(listOf(new ModifierOpNode('padding', mapOf(to('all', new DpProp(32.0))))))), to('selected', new BoolProp(selected))])));
+    this_1.f1(new ComponentNode('com.example.jetnews.ui.interests.SelectTopicButton(modifier|selected)', mapOf_0([to('modifier', new ModifierProp(listOf(new ModifierOpNode('padding', mapOf_0([to('start', new DpProp(32.0)), to('top', new DpProp(32.0)), to('end', new DpProp(32.0)), to('bottom', new DpProp(32.0))]))))), to('selected', new BoolProp(selected))])));
     var tmp$ret$4 = this_1.a2();
     this_0.f1(new ComponentNode('androidx.compose.material3.Surface(border|color|content|contentColor|modifier|shadowElevation|shape|tonalElevation)', VOID, mapOf(to('content', tmp$ret$4))));
     var tmp$ret$0 = this_0.a2();
@@ -4366,7 +4366,7 @@ if (typeof Math.clz32 === 'undefined') {
     var tmp = to('contentPadding', new HandleProp('contentPadding'));
     // Inline function 'kotlin.collections.mapOf' call
     var tmp$ret$0 = emptyMap();
-    var tmp_0 = mapOf_0([tmp, to('modifier', new ModifierProp(listOf_0([new ModifierOpNode('inherited', tmp$ret$0), new ModifierOpNode('padding', mapOf(to('horizontal', new AnchorProp('com.example.jetnews.ui.post.defaultSpacerSize'))))]))), to('state', new HandleProp('state'))]);
+    var tmp_0 = mapOf_0([tmp, to('modifier', new ModifierProp(listOf_0([new ModifierOpNode('inherited', tmp$ret$0), new ModifierOpNode('padding', mapOf_0([to('start', new AnchorProp('com.example.jetnews.ui.post.defaultSpacerSize')), to('top', new DpProp(0.0)), to('end', new AnchorProp('com.example.jetnews.ui.post.defaultSpacerSize')), to('bottom', new DpProp(0.0))]))]))), to('state', new HandleProp('state'))]);
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
