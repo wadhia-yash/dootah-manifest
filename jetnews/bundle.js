@@ -92,11 +92,11 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [KtList, Collection]);
   initMetadataForClass(AbstractMap, 'AbstractMap', VOID, VOID, [KtMap]);
   initMetadataForClass(AbstractMutableMap, 'AbstractMutableMap', VOID, AbstractMap, [KtMap]);
-  initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [Collection, KtSet]);
+  initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [KtSet, Collection]);
   initMetadataForCompanion(Companion_0);
   initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [KtList, Collection]);
   initMetadataForClass(HashMap, 'HashMap', HashMap_init_$Create$, AbstractMutableMap, [KtMap]);
-  initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [Collection, KtSet]);
+  initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [KtSet, Collection]);
   initMetadataForClass(HashMapEntrySet, 'HashMapEntrySet', VOID, HashMapEntrySetBase);
   initMetadataForCompanion(Companion_1);
   initMetadataForClass(Itr, 'Itr');
@@ -182,9 +182,12 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(Background, 'Background');
   initMetadataForClass(ComponentNode, 'ComponentNode');
   initMetadataForClass(RowNode, 'RowNode', RowNode);
-  initMetadataForClass(TextNode, 'TextNode');
   initMetadataForClass(ColumnNode, 'ColumnNode', ColumnNode);
   initMetadataForClass(FragmentNode, 'FragmentNode', FragmentNode);
+  initMetadataForClass(DimensionNode, 'DimensionNode', DimensionNode);
+  initMetadataForClass(Item, 'Item');
+  initMetadataForClass(Region, 'Region');
+  initMetadataForClass(TextNode, 'TextNode');
   initMetadataForClass(BoxNode, 'BoxNode');
   initMetadataForClass(ButtonNode, 'ButtonNode');
   initMetadataForClass(HandleProp, 'HandleProp');
@@ -196,6 +199,7 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForClass(ThemeColorProp, 'ThemeColorProp');
   initMetadataForClass(BoolProp, 'BoolProp');
   initMetadataForClass(CallbackProp, 'CallbackProp');
+  initMetadataForClass(AnchorProp, 'AnchorProp');
   initMetadataForClass(NullProp, 'NullProp');
   initMetadataForClass(IntProp, 'IntProp');
   initMetadataForClass(LongProp, 'LongProp');
@@ -213,7 +217,9 @@ if (typeof Math.clz32 === 'undefined') {
   initMetadataForObject(DootahScreen_com_example_jetnews_ui_home_PostListPopularSection, 'DootahScreen_com_example_jetnews_ui_home_PostListPopularSection');
   initMetadataForObject(DootahScreen_com_example_jetnews_ui_home_PostListTopSection, 'DootahScreen_com_example_jetnews_ui_home_PostListTopSection');
   initMetadataForObject(DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate, 'DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate');
+  initMetadataForObject(DootahScreen_com_example_jetnews_ui_interests_TopicItem, 'DootahScreen_com_example_jetnews_ui_interests_TopicItem');
   initMetadataForObject(DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup, 'DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup');
+  initMetadataForObject(DootahScreen_com_example_jetnews_ui_post_PostContent, 'DootahScreen_com_example_jetnews_ui_post_PostContent');
   initMetadataForObject(DootahScreen_com_example_jetnews_ui_utils_FavoriteButton, 'DootahScreen_com_example_jetnews_ui_utils_FavoriteButton');
   initMetadataForObject(DootahScreen_com_example_jetnews_ui_utils_ShareButton, 'DootahScreen_com_example_jetnews_ui_utils_ShareButton');
   initMetadataForObject(DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton, 'DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton');
@@ -3198,8 +3204,37 @@ if (typeof Math.clz32 === 'undefined') {
   function Inherited_getInstance() {
     return Inherited_instance;
   }
-  function Padding() {
+  function Padding(start, top, end, bottom) {
+    this.b5_1 = start;
+    this.c5_1 = top;
+    this.d5_1 = end;
+    this.e5_1 = bottom;
   }
+  protoOf(Padding).toString = function () {
+    return 'Padding(start=' + this.b5_1.toString() + ', top=' + this.c5_1.toString() + ', end=' + this.d5_1.toString() + ', bottom=' + this.e5_1.toString() + ')';
+  };
+  protoOf(Padding).hashCode = function () {
+    var result = this.b5_1.hashCode();
+    result = imul(result, 31) + this.c5_1.hashCode() | 0;
+    result = imul(result, 31) + this.d5_1.hashCode() | 0;
+    result = imul(result, 31) + this.e5_1.hashCode() | 0;
+    return result;
+  };
+  protoOf(Padding).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof Padding))
+      return false;
+    if (!this.b5_1.equals(other.b5_1))
+      return false;
+    if (!this.c5_1.equals(other.c5_1))
+      return false;
+    if (!this.d5_1.equals(other.d5_1))
+      return false;
+    if (!this.e5_1.equals(other.e5_1))
+      return false;
+    return true;
+  };
   function FillMaxWidth() {
   }
   function FillMaxHeight() {
@@ -3216,20 +3251,23 @@ if (typeof Math.clz32 === 'undefined') {
   }
   function Background() {
   }
-  function ComponentNode(adapter, props, children) {
+  function ComponentNode(adapter, props, children, entries) {
     props = props === VOID ? emptyMap() : props;
     children = children === VOID ? emptyMap() : children;
-    this.b5_1 = adapter;
-    this.c5_1 = props;
-    this.d5_1 = children;
+    entries = entries === VOID ? emptyMap() : entries;
+    this.f5_1 = adapter;
+    this.g5_1 = props;
+    this.h5_1 = children;
+    this.i5_1 = entries;
   }
   protoOf(ComponentNode).toString = function () {
-    return 'ComponentNode(adapter=' + this.b5_1 + ', props=' + toString_1(this.c5_1) + ', children=' + toString_1(this.d5_1) + ')';
+    return 'ComponentNode(adapter=' + this.f5_1 + ', props=' + toString_1(this.g5_1) + ', children=' + toString_1(this.h5_1) + ', entries=' + toString_1(this.i5_1) + ')';
   };
   protoOf(ComponentNode).hashCode = function () {
-    var result = getStringHashCode(this.b5_1);
-    result = imul(result, 31) + hashCode_0(this.c5_1) | 0;
-    result = imul(result, 31) + hashCode_0(this.d5_1) | 0;
+    var result = getStringHashCode(this.f5_1);
+    result = imul(result, 31) + hashCode_0(this.g5_1) | 0;
+    result = imul(result, 31) + hashCode_0(this.h5_1) | 0;
+    result = imul(result, 31) + hashCode_0(this.i5_1) | 0;
     return result;
   };
   protoOf(ComponentNode).equals = function (other) {
@@ -3237,26 +3275,34 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof ComponentNode))
       return false;
-    if (!(this.b5_1 === other.b5_1))
+    if (!(this.f5_1 === other.f5_1))
       return false;
-    if (!equals(this.c5_1, other.c5_1))
+    if (!equals(this.g5_1, other.g5_1))
       return false;
-    if (!equals(this.d5_1, other.d5_1))
+    if (!equals(this.h5_1, other.h5_1))
+      return false;
+    if (!equals(this.i5_1, other.i5_1))
       return false;
     return true;
   };
-  function RowNode(modifiers, children) {
+  function RowNode(modifiers, verticalAlignment, horizontalArrangement, children) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
+    verticalAlignment = verticalAlignment === VOID ? null : verticalAlignment;
+    horizontalArrangement = horizontalArrangement === VOID ? null : horizontalArrangement;
     children = children === VOID ? emptyList() : children;
-    this.e5_1 = modifiers;
-    this.f5_1 = children;
+    this.j5_1 = modifiers;
+    this.k5_1 = verticalAlignment;
+    this.l5_1 = horizontalArrangement;
+    this.m5_1 = children;
   }
   protoOf(RowNode).toString = function () {
-    return 'RowNode(modifiers=' + toString_1(this.e5_1) + ', children=' + toString_1(this.f5_1) + ')';
+    return 'RowNode(modifiers=' + toString_1(this.j5_1) + ', verticalAlignment=' + this.k5_1 + ', horizontalArrangement=' + toString_0(this.l5_1) + ', children=' + toString_1(this.m5_1) + ')';
   };
   protoOf(RowNode).hashCode = function () {
-    var result = hashCode_0(this.e5_1);
-    result = imul(result, 31) + hashCode_0(this.f5_1) | 0;
+    var result = hashCode_0(this.j5_1);
+    result = imul(result, 31) + (this.k5_1 == null ? 0 : getStringHashCode(this.k5_1)) | 0;
+    result = imul(result, 31) + (this.l5_1 == null ? 0 : this.l5_1.hashCode()) | 0;
+    result = imul(result, 31) + hashCode_0(this.m5_1) | 0;
     return result;
   };
   protoOf(RowNode).equals = function (other) {
@@ -3264,48 +3310,34 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof RowNode))
       return false;
-    if (!equals(this.e5_1, other.e5_1))
+    if (!equals(this.j5_1, other.j5_1))
       return false;
-    if (!equals(this.f5_1, other.f5_1))
+    if (!(this.k5_1 == other.k5_1))
       return false;
-    return true;
-  };
-  function TextNode(text, modifiers) {
-    modifiers = modifiers === VOID ? emptyList() : modifiers;
-    this.g5_1 = text;
-    this.h5_1 = modifiers;
-  }
-  protoOf(TextNode).toString = function () {
-    return 'TextNode(text=' + this.g5_1 + ', modifiers=' + toString_1(this.h5_1) + ')';
-  };
-  protoOf(TextNode).hashCode = function () {
-    var result = getStringHashCode(this.g5_1);
-    result = imul(result, 31) + hashCode_0(this.h5_1) | 0;
-    return result;
-  };
-  protoOf(TextNode).equals = function (other) {
-    if (this === other)
-      return true;
-    if (!(other instanceof TextNode))
+    if (!equals(this.l5_1, other.l5_1))
       return false;
-    if (!(this.g5_1 === other.g5_1))
-      return false;
-    if (!equals(this.h5_1, other.h5_1))
+    if (!equals(this.m5_1, other.m5_1))
       return false;
     return true;
   };
-  function ColumnNode(modifiers, children) {
+  function ColumnNode(modifiers, horizontalAlignment, verticalArrangement, children) {
     modifiers = modifiers === VOID ? emptyList() : modifiers;
+    horizontalAlignment = horizontalAlignment === VOID ? null : horizontalAlignment;
+    verticalArrangement = verticalArrangement === VOID ? null : verticalArrangement;
     children = children === VOID ? emptyList() : children;
-    this.i5_1 = modifiers;
-    this.j5_1 = children;
+    this.n5_1 = modifiers;
+    this.o5_1 = horizontalAlignment;
+    this.p5_1 = verticalArrangement;
+    this.q5_1 = children;
   }
   protoOf(ColumnNode).toString = function () {
-    return 'ColumnNode(modifiers=' + toString_1(this.i5_1) + ', children=' + toString_1(this.j5_1) + ')';
+    return 'ColumnNode(modifiers=' + toString_1(this.n5_1) + ', horizontalAlignment=' + this.o5_1 + ', verticalArrangement=' + toString_0(this.p5_1) + ', children=' + toString_1(this.q5_1) + ')';
   };
   protoOf(ColumnNode).hashCode = function () {
-    var result = hashCode_0(this.i5_1);
-    result = imul(result, 31) + hashCode_0(this.j5_1) | 0;
+    var result = hashCode_0(this.n5_1);
+    result = imul(result, 31) + (this.o5_1 == null ? 0 : getStringHashCode(this.o5_1)) | 0;
+    result = imul(result, 31) + (this.p5_1 == null ? 0 : this.p5_1.hashCode()) | 0;
+    result = imul(result, 31) + hashCode_0(this.q5_1) | 0;
     return result;
   };
   protoOf(ColumnNode).equals = function (other) {
@@ -3313,28 +3345,117 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof ColumnNode))
       return false;
-    if (!equals(this.i5_1, other.i5_1))
+    if (!equals(this.n5_1, other.n5_1))
       return false;
-    if (!equals(this.j5_1, other.j5_1))
+    if (!(this.o5_1 == other.o5_1))
+      return false;
+    if (!equals(this.p5_1, other.p5_1))
+      return false;
+    if (!equals(this.q5_1, other.q5_1))
       return false;
     return true;
   };
   function FragmentNode(children) {
     children = children === VOID ? emptyList() : children;
-    this.k5_1 = children;
+    this.r5_1 = children;
   }
   protoOf(FragmentNode).toString = function () {
-    return 'FragmentNode(children=' + toString_1(this.k5_1) + ')';
+    return 'FragmentNode(children=' + toString_1(this.r5_1) + ')';
   };
   protoOf(FragmentNode).hashCode = function () {
-    return hashCode_0(this.k5_1);
+    return hashCode_0(this.r5_1);
   };
   protoOf(FragmentNode).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof FragmentNode))
       return false;
-    if (!equals(this.k5_1, other.k5_1))
+    if (!equals(this.r5_1, other.r5_1))
+      return false;
+    return true;
+  };
+  function DimensionNode(value, anchor) {
+    value = value === VOID ? null : value;
+    anchor = anchor === VOID ? null : anchor;
+    this.s5_1 = value;
+    this.t5_1 = anchor;
+  }
+  protoOf(DimensionNode).toString = function () {
+    return 'DimensionNode(value=' + this.s5_1 + ', anchor=' + this.t5_1 + ')';
+  };
+  protoOf(DimensionNode).hashCode = function () {
+    var result = this.s5_1 == null ? 0 : getNumberHashCode(this.s5_1);
+    result = imul(result, 31) + (this.t5_1 == null ? 0 : getStringHashCode(this.t5_1)) | 0;
+    return result;
+  };
+  protoOf(DimensionNode).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof DimensionNode))
+      return false;
+    if (!equals(this.s5_1, other.s5_1))
+      return false;
+    if (!(this.t5_1 == other.t5_1))
+      return false;
+    return true;
+  };
+  function Item(children) {
+    this.u5_1 = children;
+  }
+  protoOf(Item).toString = function () {
+    return 'Item(children=' + toString_1(this.u5_1) + ')';
+  };
+  protoOf(Item).hashCode = function () {
+    return hashCode_0(this.u5_1);
+  };
+  protoOf(Item).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof Item))
+      return false;
+    if (!equals(this.u5_1, other.u5_1))
+      return false;
+    return true;
+  };
+  function Region(adapter) {
+    this.v5_1 = adapter;
+  }
+  protoOf(Region).toString = function () {
+    return 'Region(adapter=' + this.v5_1 + ')';
+  };
+  protoOf(Region).hashCode = function () {
+    return getStringHashCode(this.v5_1);
+  };
+  protoOf(Region).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof Region))
+      return false;
+    if (!(this.v5_1 === other.v5_1))
+      return false;
+    return true;
+  };
+  function TextNode(text, modifiers) {
+    modifiers = modifiers === VOID ? emptyList() : modifiers;
+    this.w5_1 = text;
+    this.x5_1 = modifiers;
+  }
+  protoOf(TextNode).toString = function () {
+    return 'TextNode(text=' + this.w5_1 + ', modifiers=' + toString_1(this.x5_1) + ')';
+  };
+  protoOf(TextNode).hashCode = function () {
+    var result = getStringHashCode(this.w5_1);
+    result = imul(result, 31) + hashCode_0(this.x5_1) | 0;
+    return result;
+  };
+  protoOf(TextNode).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof TextNode))
+      return false;
+    if (!(this.w5_1 === other.w5_1))
+      return false;
+    if (!equals(this.x5_1, other.x5_1))
       return false;
     return true;
   };
@@ -3345,25 +3466,25 @@ if (typeof Math.clz32 === 'undefined') {
   function toJson_0(_this__u8e3s4) {
     var tmp;
     if (_this__u8e3s4 instanceof ColumnNode) {
-      tmp = container('column', _this__u8e3s4.i5_1, _this__u8e3s4.j5_1);
+      tmp = container('column', _this__u8e3s4.n5_1, _this__u8e3s4.q5_1, alignmentField('horizontalAlignment', _this__u8e3s4.o5_1) + arrangementField('verticalArrangement', _this__u8e3s4.p5_1));
     } else {
       if (_this__u8e3s4 instanceof RowNode) {
-        tmp = container('row', _this__u8e3s4.e5_1, _this__u8e3s4.f5_1);
+        tmp = container('row', _this__u8e3s4.j5_1, _this__u8e3s4.m5_1, alignmentField('verticalAlignment', _this__u8e3s4.k5_1) + arrangementField('horizontalArrangement', _this__u8e3s4.l5_1));
       } else {
         if (_this__u8e3s4 instanceof BoxNode) {
-          tmp = container('box', _this__u8e3s4.o5_1, _this__u8e3s4.p5_1);
+          tmp = container('box', _this__u8e3s4.b6_1, _this__u8e3s4.d6_1, alignmentField('contentAlignment', _this__u8e3s4.c6_1));
         } else {
           if (_this__u8e3s4 instanceof TextNode) {
-            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.g5_1) + '"' + modifiersField(_this__u8e3s4.h5_1) + '}';
+            tmp = '{"type":"text","text":"' + escapeJson(_this__u8e3s4.w5_1) + '"' + modifiersField(_this__u8e3s4.x5_1) + '}';
           } else {
             if (_this__u8e3s4 instanceof ButtonNode) {
-              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.l5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.m5_1) + '"') + modifiersField(_this__u8e3s4.n5_1) + '}';
+              tmp = '{"type":"button","text":"' + escapeJson(_this__u8e3s4.y5_1) + '",' + ('"action":"' + escapeJson(_this__u8e3s4.z5_1) + '"') + modifiersField(_this__u8e3s4.a6_1) + '}';
             } else {
               if (_this__u8e3s4 instanceof ComponentNode) {
-                tmp = '{"type":"component","adapter":"' + escapeJson(_this__u8e3s4.b5_1) + '"' + propsField(_this__u8e3s4.c5_1) + slotsField(_this__u8e3s4.d5_1) + '}';
+                tmp = '{"type":"component","adapter":"' + escapeJson(_this__u8e3s4.f5_1) + '"' + propsField(_this__u8e3s4.g5_1) + slotsField(_this__u8e3s4.h5_1) + entriesField(_this__u8e3s4.i5_1) + '}';
               } else {
                 if (_this__u8e3s4 instanceof FragmentNode) {
-                  tmp = '{"type":"fragment","children":[' + joinToString_0(_this__u8e3s4.k5_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + ']}';
+                  tmp = '{"type":"fragment","children":[' + joinToString_0(_this__u8e3s4.r5_1, ',', VOID, VOID, VOID, VOID, toJson$lambda) + ']}';
                 } else {
                   noWhenBranchMatchedException();
                 }
@@ -3375,9 +3496,28 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp;
   }
-  function container(type, modifiers, children) {
-    var tmp = '{"type":"' + type + '"' + modifiersField(modifiers) + ',"children":[';
+  function container(type, modifiers, children, layout) {
+    layout = layout === VOID ? '' : layout;
+    var tmp = '{"type":"' + type + '"' + modifiersField(modifiers) + layout + ',"children":[';
     return tmp + joinToString_0(children, ',', VOID, VOID, VOID, VOID, container$lambda) + ']}';
+  }
+  function alignmentField(name, token) {
+    return token == null ? '' : ',"' + name + '":"' + escapeJson(token) + '"';
+  }
+  function arrangementField(name, arrangement) {
+    if (arrangement == null)
+      return '';
+    var tmp0_safe_receiver = arrangement.f6_1;
+    var tmp;
+    if (tmp0_safe_receiver == null) {
+      tmp = null;
+    } else {
+      // Inline function 'kotlin.let' call
+      tmp = ',"space":' + toJson_1(tmp0_safe_receiver);
+    }
+    var tmp1_elvis_lhs = tmp;
+    var spacing = tmp1_elvis_lhs == null ? '' : tmp1_elvis_lhs;
+    return ',"' + name + '":{"token":"' + escapeJson(arrangement.e6_1) + '"' + spacing + '}';
   }
   function modifiersField(modifiers) {
     var tmp;
@@ -3408,37 +3548,50 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp;
   }
+  function entriesField(entries) {
+    var tmp;
+    if (entries.h()) {
+      tmp = '';
+    } else {
+      var tmp_0 = entries.p();
+      tmp = ',"builders":{' + joinToString_0(tmp_0, ',', VOID, VOID, VOID, VOID, entriesField$lambda) + '}';
+    }
+    return tmp;
+  }
   function toJson_1(_this__u8e3s4) {
+    return !(_this__u8e3s4.t5_1 == null) ? '{"anchor":"' + escapeJson(_this__u8e3s4.t5_1) + '"}' : '' + _this__u8e3s4.s5_1;
+  }
+  function toJson_2(_this__u8e3s4) {
     var tmp;
     if (_this__u8e3s4 instanceof Inherited) {
       tmp = '{"type":"inherited"}';
     } else {
       if (_this__u8e3s4 instanceof Padding) {
-        tmp = '{"type":"padding","start":' + _this__u8e3s4.z5_1 + ',"top":' + _this__u8e3s4.a6_1 + ',' + ('"end":' + _this__u8e3s4.b6_1 + ',"bottom":' + _this__u8e3s4.c6_1 + '}');
+        tmp = '{"type":"padding","start":' + toJson_1(_this__u8e3s4.b5_1) + ',"top":' + toJson_1(_this__u8e3s4.c5_1) + ',' + ('"end":' + toJson_1(_this__u8e3s4.d5_1) + ',"bottom":' + toJson_1(_this__u8e3s4.e5_1) + '}');
       } else {
         if (_this__u8e3s4 instanceof FillMaxWidth) {
-          tmp = '{"type":"fillMaxWidth","fraction":' + _this__u8e3s4.y5_1 + '}';
+          tmp = '{"type":"fillMaxWidth","fraction":' + _this__u8e3s4.o6_1 + '}';
         } else {
           if (_this__u8e3s4 instanceof FillMaxHeight) {
-            tmp = '{"type":"fillMaxHeight","fraction":' + _this__u8e3s4.x5_1 + '}';
+            tmp = '{"type":"fillMaxHeight","fraction":' + _this__u8e3s4.n6_1 + '}';
           } else {
             if (_this__u8e3s4 instanceof FillMaxSize) {
-              tmp = '{"type":"fillMaxSize","fraction":' + _this__u8e3s4.w5_1 + '}';
+              tmp = '{"type":"fillMaxSize","fraction":' + _this__u8e3s4.m6_1 + '}';
             } else {
               if (_this__u8e3s4 instanceof Size) {
-                tmp = '{"type":"size","width":' + _this__u8e3s4.u5_1 + ',"height":' + _this__u8e3s4.v5_1 + '}';
+                tmp = '{"type":"size","width":' + toJson_1(_this__u8e3s4.k6_1) + ',"height":' + toJson_1(_this__u8e3s4.l6_1) + '}';
               } else {
                 if (_this__u8e3s4 instanceof Width) {
-                  tmp = '{"type":"width","value":' + _this__u8e3s4.t5_1 + '}';
+                  tmp = '{"type":"width","value":' + toJson_1(_this__u8e3s4.j6_1) + '}';
                 } else {
                   if (_this__u8e3s4 instanceof Height) {
-                    tmp = '{"type":"height","value":' + _this__u8e3s4.s5_1 + '}';
+                    tmp = '{"type":"height","value":' + toJson_1(_this__u8e3s4.i6_1) + '}';
                   } else {
                     if (_this__u8e3s4 instanceof Weight) {
-                      tmp = '{"type":"weight","value":' + _this__u8e3s4.r5_1 + '}';
+                      tmp = '{"type":"weight","value":' + _this__u8e3s4.h6_1 + '}';
                     } else {
                       if (_this__u8e3s4 instanceof Background) {
-                        tmp = '{"type":"background","color":' + _this__u8e3s4.q5_1.toString() + '}';
+                        tmp = '{"type":"background","color":' + _this__u8e3s4.g6_1.toString() + '}';
                       } else {
                         noWhenBranchMatchedException();
                       }
@@ -3453,63 +3606,67 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp;
   }
-  function toJson_2(_this__u8e3s4) {
+  function toJson_3(_this__u8e3s4) {
     var tmp;
     if (_this__u8e3s4 instanceof NullProp) {
       tmp = '{"k":"null"}';
     } else {
       if (_this__u8e3s4 instanceof BoolProp) {
-        tmp = '{"k":"bool","v":' + _this__u8e3s4.u6_1 + '}';
+        tmp = '{"k":"bool","v":' + _this__u8e3s4.h7_1 + '}';
       } else {
         if (_this__u8e3s4 instanceof IntProp) {
-          tmp = '{"k":"int","v":' + _this__u8e3s4.t6_1 + '}';
+          tmp = '{"k":"int","v":' + _this__u8e3s4.g7_1 + '}';
         } else {
           if (_this__u8e3s4 instanceof LongProp) {
-            tmp = '{"k":"long","v":"' + escapeJson(_this__u8e3s4.s6_1) + '"}';
+            tmp = '{"k":"long","v":"' + escapeJson(_this__u8e3s4.f7_1) + '"}';
           } else {
             if (_this__u8e3s4 instanceof FloatProp) {
-              tmp = '{"k":"float","v":' + _this__u8e3s4.r6_1 + '}';
+              tmp = '{"k":"float","v":' + _this__u8e3s4.e7_1 + '}';
             } else {
               if (_this__u8e3s4 instanceof DoubleProp) {
-                tmp = '{"k":"double","v":' + _this__u8e3s4.q6_1 + '}';
+                tmp = '{"k":"double","v":' + _this__u8e3s4.d7_1 + '}';
               } else {
                 if (_this__u8e3s4 instanceof StringProp) {
-                  tmp = '{"k":"string","v":"' + escapeJson(_this__u8e3s4.p6_1) + '"}';
+                  tmp = '{"k":"string","v":"' + escapeJson(_this__u8e3s4.c7_1) + '"}';
                 } else {
                   if (_this__u8e3s4 instanceof DpProp) {
-                    tmp = '{"k":"dp","v":' + _this__u8e3s4.o6_1 + '}';
+                    tmp = '{"k":"dp","v":' + _this__u8e3s4.b7_1 + '}';
                   } else {
-                    if (_this__u8e3s4 instanceof ColorProp) {
-                      tmp = '{"k":"color","v":' + _this__u8e3s4.n6_1.toString() + '}';
+                    if (_this__u8e3s4 instanceof AnchorProp) {
+                      tmp = '{"k":"anchor","v":"' + escapeJson(_this__u8e3s4.a7_1) + '"}';
                     } else {
-                      if (_this__u8e3s4 instanceof ThemeColorProp) {
-                        tmp = '{"k":"themeColor","token":"' + escapeJson(_this__u8e3s4.m6_1) + '"}';
+                      if (_this__u8e3s4 instanceof ColorProp) {
+                        tmp = '{"k":"color","v":' + _this__u8e3s4.z6_1.toString() + '}';
                       } else {
-                        if (_this__u8e3s4 instanceof ShapeProp) {
-                          tmp = '{"k":"shape","token":"' + escapeJson(_this__u8e3s4.l6_1) + '"}';
+                        if (_this__u8e3s4 instanceof ThemeColorProp) {
+                          tmp = '{"k":"themeColor","token":"' + escapeJson(_this__u8e3s4.y6_1) + '"}';
                         } else {
-                          if (_this__u8e3s4 instanceof PainterResourceProp) {
-                            tmp = '{"k":"painterRes","key":"' + escapeJson(_this__u8e3s4.k6_1) + '"}';
+                          if (_this__u8e3s4 instanceof ShapeProp) {
+                            tmp = '{"k":"shape","token":"' + escapeJson(_this__u8e3s4.x6_1) + '"}';
                           } else {
-                            if (_this__u8e3s4 instanceof StringResourceProp) {
-                              tmp = '{"k":"stringRes","key":"' + escapeJson(_this__u8e3s4.j6_1) + '"}';
+                            if (_this__u8e3s4 instanceof PainterResourceProp) {
+                              tmp = '{"k":"painterRes","key":"' + escapeJson(_this__u8e3s4.w6_1) + '"}';
                             } else {
-                              if (_this__u8e3s4 instanceof ModifierProp) {
-                                tmp = '{"k":"modifier","ops":[' + joinToString_0(_this__u8e3s4.i6_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_0) + ']}';
+                              if (_this__u8e3s4 instanceof StringResourceProp) {
+                                tmp = '{"k":"stringRes","key":"' + escapeJson(_this__u8e3s4.v6_1) + '"}';
                               } else {
-                                if (_this__u8e3s4 instanceof ListProp) {
-                                  tmp = '{"k":"list","items":[' + joinToString_0(_this__u8e3s4.h6_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_1) + ']}';
+                                if (_this__u8e3s4 instanceof ModifierProp) {
+                                  tmp = '{"k":"modifier","ops":[' + joinToString_0(_this__u8e3s4.u6_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_0) + ']}';
                                 } else {
-                                  if (_this__u8e3s4 instanceof HandleProp) {
-                                    tmp = '{"k":"handle","name":"' + escapeJson(_this__u8e3s4.g6_1) + '"}';
+                                  if (_this__u8e3s4 instanceof ListProp) {
+                                    tmp = '{"k":"list","items":[' + joinToString_0(_this__u8e3s4.t6_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_1) + ']}';
                                   } else {
-                                    if (_this__u8e3s4 instanceof StateProp) {
-                                      tmp = '{"k":"state","name":"' + escapeJson(_this__u8e3s4.f6_1) + '"}';
+                                    if (_this__u8e3s4 instanceof HandleProp) {
+                                      tmp = '{"k":"handle","name":"' + escapeJson(_this__u8e3s4.s6_1) + '"}';
                                     } else {
-                                      if (_this__u8e3s4 instanceof CallbackProp) {
-                                        tmp = '{"k":"callback","id":"' + escapeJson(_this__u8e3s4.d6_1) + '","arity":' + _this__u8e3s4.e6_1 + '}';
+                                      if (_this__u8e3s4 instanceof StateProp) {
+                                        tmp = '{"k":"state","name":"' + escapeJson(_this__u8e3s4.r6_1) + '"}';
                                       } else {
-                                        noWhenBranchMatchedException();
+                                        if (_this__u8e3s4 instanceof CallbackProp) {
+                                          tmp = '{"k":"callback","id":"' + escapeJson(_this__u8e3s4.p6_1) + '","arity":' + _this__u8e3s4.q6_1 + '}';
+                                        } else {
+                                          noWhenBranchMatchedException();
+                                        }
                                       }
                                     }
                                   }
@@ -3530,14 +3687,27 @@ if (typeof Math.clz32 === 'undefined') {
     }
     return tmp;
   }
-  function toJson_3(_this__u8e3s4) {
-    var tmp = '{"op":"' + escapeJson(_this__u8e3s4.v6_1) + '"';
+  function toJson_4(_this__u8e3s4) {
+    var tmp;
+    if (_this__u8e3s4 instanceof Item) {
+      tmp = '{"kind":"item","children":[' + joinToString_0(_this__u8e3s4.u5_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_2) + ']}';
+    } else {
+      if (_this__u8e3s4 instanceof Region) {
+        tmp = '{"kind":"region","adapter":"' + escapeJson(_this__u8e3s4.v5_1) + '"}';
+      } else {
+        noWhenBranchMatchedException();
+      }
+    }
+    return tmp;
+  }
+  function toJson_5(_this__u8e3s4) {
+    var tmp = '{"op":"' + escapeJson(_this__u8e3s4.i7_1) + '"';
     var tmp_0;
-    if (_this__u8e3s4.w6_1.h()) {
+    if (_this__u8e3s4.j7_1.h()) {
       tmp_0 = '';
     } else {
-      var tmp_1 = _this__u8e3s4.w6_1.p();
-      tmp_0 = ',"args":{' + joinToString_0(tmp_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_2) + '}';
+      var tmp_1 = _this__u8e3s4.j7_1.p();
+      tmp_0 = ',"args":{' + joinToString_0(tmp_1, ',', VOID, VOID, VOID, VOID, toJson$lambda_3) + '}';
     }
     return tmp + tmp_0 + '}';
   }
@@ -3548,14 +3718,14 @@ if (typeof Math.clz32 === 'undefined') {
     return toJson_0(it);
   }
   function modifiersField$lambda(it) {
-    return toJson_1(it);
+    return toJson_2(it);
   }
   function propsField$lambda(_destruct__k2r9zo) {
     // Inline function 'kotlin.collections.component1' call
     var name = _destruct__k2r9zo.l();
     // Inline function 'kotlin.collections.component2' call
     var value = _destruct__k2r9zo.m();
-    return '"' + escapeJson(name) + '":' + toJson_2(value);
+    return '"' + escapeJson(name) + '":' + toJson_3(value);
   }
   function slotsField$lambda(_destruct__k2r9zo) {
     // Inline function 'kotlin.collections.component1' call
@@ -3568,67 +3738,81 @@ if (typeof Math.clz32 === 'undefined') {
   function slotsField$lambda$lambda(it) {
     return toJson_0(it);
   }
+  function entriesField$lambda(_destruct__k2r9zo) {
+    // Inline function 'kotlin.collections.component1' call
+    var name = _destruct__k2r9zo.l();
+    // Inline function 'kotlin.collections.component2' call
+    var list = _destruct__k2r9zo.m();
+    var tmp = '"' + escapeJson(name) + '":[';
+    return tmp + joinToString_0(list, ',', VOID, VOID, VOID, VOID, entriesField$lambda$lambda) + ']';
+  }
+  function entriesField$lambda$lambda(it) {
+    return toJson_4(it);
+  }
   function toJson$lambda_0(it) {
-    return toJson_3(it);
+    return toJson_5(it);
   }
   function toJson$lambda_1(it) {
-    return toJson_2(it);
+    return toJson_3(it);
   }
-  function toJson$lambda_2(_destruct__k2r9zo) {
+  function toJson$lambda_2(it) {
+    return toJson_0(it);
+  }
+  function toJson$lambda_3(_destruct__k2r9zo) {
     // Inline function 'kotlin.collections.component1' call
     var name = _destruct__k2r9zo.l();
     // Inline function 'kotlin.collections.component2' call
     var value = _destruct__k2r9zo.m();
-    return '"' + escapeJson(name) + '":' + toJson_2(value);
+    return '"' + escapeJson(name) + '":' + toJson_3(value);
   }
   function HandleProp(name) {
-    this.g6_1 = name;
+    this.s6_1 = name;
   }
   protoOf(HandleProp).toString = function () {
-    return 'HandleProp(name=' + this.g6_1 + ')';
+    return 'HandleProp(name=' + this.s6_1 + ')';
   };
   protoOf(HandleProp).hashCode = function () {
-    return getStringHashCode(this.g6_1);
+    return getStringHashCode(this.s6_1);
   };
   protoOf(HandleProp).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof HandleProp))
       return false;
-    if (!(this.g6_1 === other.g6_1))
+    if (!(this.s6_1 === other.s6_1))
       return false;
     return true;
   };
   function ModifierProp(operations) {
     operations = operations === VOID ? emptyList() : operations;
-    this.i6_1 = operations;
+    this.u6_1 = operations;
   }
   protoOf(ModifierProp).toString = function () {
-    return 'ModifierProp(operations=' + toString_1(this.i6_1) + ')';
+    return 'ModifierProp(operations=' + toString_1(this.u6_1) + ')';
   };
   protoOf(ModifierProp).hashCode = function () {
-    return hashCode_0(this.i6_1);
+    return hashCode_0(this.u6_1);
   };
   protoOf(ModifierProp).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof ModifierProp))
       return false;
-    if (!equals(this.i6_1, other.i6_1))
+    if (!equals(this.u6_1, other.u6_1))
       return false;
     return true;
   };
   function ModifierOpNode(op, arguments_0) {
     arguments_0 = arguments_0 === VOID ? emptyMap() : arguments_0;
-    this.v6_1 = op;
-    this.w6_1 = arguments_0;
+    this.i7_1 = op;
+    this.j7_1 = arguments_0;
   }
   protoOf(ModifierOpNode).toString = function () {
-    return 'ModifierOpNode(op=' + this.v6_1 + ', arguments=' + toString_1(this.w6_1) + ')';
+    return 'ModifierOpNode(op=' + this.i7_1 + ', arguments=' + toString_1(this.j7_1) + ')';
   };
   protoOf(ModifierOpNode).hashCode = function () {
-    var result = getStringHashCode(this.v6_1);
-    result = imul(result, 31) + hashCode_0(this.w6_1) | 0;
+    var result = getStringHashCode(this.i7_1);
+    result = imul(result, 31) + hashCode_0(this.j7_1) | 0;
     return result;
   };
   protoOf(ModifierOpNode).equals = function (other) {
@@ -3636,113 +3820,113 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof ModifierOpNode))
       return false;
-    if (!(this.v6_1 === other.v6_1))
+    if (!(this.i7_1 === other.i7_1))
       return false;
-    if (!equals(this.w6_1, other.w6_1))
+    if (!equals(this.j7_1, other.j7_1))
       return false;
     return true;
   };
   function DpProp(value) {
-    this.o6_1 = value;
+    this.b7_1 = value;
   }
   protoOf(DpProp).toString = function () {
-    return 'DpProp(value=' + this.o6_1 + ')';
+    return 'DpProp(value=' + this.b7_1 + ')';
   };
   protoOf(DpProp).hashCode = function () {
-    return getNumberHashCode(this.o6_1);
+    return getNumberHashCode(this.b7_1);
   };
   protoOf(DpProp).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof DpProp))
       return false;
-    if (!equals(this.o6_1, other.o6_1))
+    if (!equals(this.b7_1, other.b7_1))
       return false;
     return true;
   };
   function PainterResourceProp(key) {
-    this.k6_1 = key;
+    this.w6_1 = key;
   }
   protoOf(PainterResourceProp).toString = function () {
-    return 'PainterResourceProp(key=' + this.k6_1 + ')';
+    return 'PainterResourceProp(key=' + this.w6_1 + ')';
   };
   protoOf(PainterResourceProp).hashCode = function () {
-    return getStringHashCode(this.k6_1);
+    return getStringHashCode(this.w6_1);
   };
   protoOf(PainterResourceProp).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof PainterResourceProp))
       return false;
-    if (!(this.k6_1 === other.k6_1))
+    if (!(this.w6_1 === other.w6_1))
       return false;
     return true;
   };
   function StringResourceProp(key) {
-    this.j6_1 = key;
+    this.v6_1 = key;
   }
   protoOf(StringResourceProp).toString = function () {
-    return 'StringResourceProp(key=' + this.j6_1 + ')';
+    return 'StringResourceProp(key=' + this.v6_1 + ')';
   };
   protoOf(StringResourceProp).hashCode = function () {
-    return getStringHashCode(this.j6_1);
+    return getStringHashCode(this.v6_1);
   };
   protoOf(StringResourceProp).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof StringResourceProp))
       return false;
-    if (!(this.j6_1 === other.j6_1))
+    if (!(this.v6_1 === other.v6_1))
       return false;
     return true;
   };
   function ThemeColorProp(token) {
-    this.m6_1 = token;
+    this.y6_1 = token;
   }
   protoOf(ThemeColorProp).toString = function () {
-    return 'ThemeColorProp(token=' + this.m6_1 + ')';
+    return 'ThemeColorProp(token=' + this.y6_1 + ')';
   };
   protoOf(ThemeColorProp).hashCode = function () {
-    return getStringHashCode(this.m6_1);
+    return getStringHashCode(this.y6_1);
   };
   protoOf(ThemeColorProp).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof ThemeColorProp))
       return false;
-    if (!(this.m6_1 === other.m6_1))
+    if (!(this.y6_1 === other.y6_1))
       return false;
     return true;
   };
   function BoolProp(value) {
-    this.u6_1 = value;
+    this.h7_1 = value;
   }
   protoOf(BoolProp).toString = function () {
-    return 'BoolProp(value=' + this.u6_1 + ')';
+    return 'BoolProp(value=' + this.h7_1 + ')';
   };
   protoOf(BoolProp).hashCode = function () {
-    return getBooleanHashCode(this.u6_1);
+    return getBooleanHashCode(this.h7_1);
   };
   protoOf(BoolProp).equals = function (other) {
     if (this === other)
       return true;
     if (!(other instanceof BoolProp))
       return false;
-    if (!(this.u6_1 === other.u6_1))
+    if (!(this.h7_1 === other.h7_1))
       return false;
     return true;
   };
   function CallbackProp(id, arity) {
     arity = arity === VOID ? 0 : arity;
-    this.d6_1 = id;
-    this.e6_1 = arity;
+    this.p6_1 = id;
+    this.q6_1 = arity;
   }
   protoOf(CallbackProp).toString = function () {
-    return 'CallbackProp(id=' + this.d6_1 + ', arity=' + this.e6_1 + ')';
+    return 'CallbackProp(id=' + this.p6_1 + ', arity=' + this.q6_1 + ')';
   };
   protoOf(CallbackProp).hashCode = function () {
-    var result = getStringHashCode(this.d6_1);
-    result = imul(result, 31) + this.e6_1 | 0;
+    var result = getStringHashCode(this.p6_1);
+    result = imul(result, 31) + this.q6_1 | 0;
     return result;
   };
   protoOf(CallbackProp).equals = function (other) {
@@ -3750,9 +3934,27 @@ if (typeof Math.clz32 === 'undefined') {
       return true;
     if (!(other instanceof CallbackProp))
       return false;
-    if (!(this.d6_1 === other.d6_1))
+    if (!(this.p6_1 === other.p6_1))
       return false;
-    if (!(this.e6_1 === other.e6_1))
+    if (!(this.q6_1 === other.q6_1))
+      return false;
+    return true;
+  };
+  function AnchorProp(anchor) {
+    this.a7_1 = anchor;
+  }
+  protoOf(AnchorProp).toString = function () {
+    return 'AnchorProp(anchor=' + this.a7_1 + ')';
+  };
+  protoOf(AnchorProp).hashCode = function () {
+    return getStringHashCode(this.a7_1);
+  };
+  protoOf(AnchorProp).equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof AnchorProp))
+      return false;
+    if (!(this.a7_1 === other.a7_1))
       return false;
     return true;
   };
@@ -3783,7 +3985,7 @@ if (typeof Math.clz32 === 'undefined') {
   var screenStates;
   function screenIds() {
     _init_properties_DootahExports_kt__7euayy();
-    return screenIdsJson(listOf_0(['com.example.jetnews.glance.ui.PostDescription', 'com.example.jetnews.ui.JetNewsLogo', 'com.example.jetnews.ui.home.AuthorAndReadTime', 'com.example.jetnews.ui.home.PostCardTopPreviews', 'com.example.jetnews.ui.home.PostListPopularSection', 'com.example.jetnews.ui.home.PostListTopSection', 'com.example.jetnews.ui.interests.SelectTopicButtonPreviewTemplate', 'com.example.jetnews.ui.post.FunctionalityNotAvailablePopup', 'com.example.jetnews.ui.utils.FavoriteButton', 'com.example.jetnews.ui.utils.ShareButton', 'com.example.jetnews.ui.utils.TextSettingsButton']));
+    return screenIdsJson(listOf_0(['com.example.jetnews.glance.ui.PostDescription', 'com.example.jetnews.ui.JetNewsLogo', 'com.example.jetnews.ui.home.AuthorAndReadTime', 'com.example.jetnews.ui.home.PostCardTopPreviews', 'com.example.jetnews.ui.home.PostListPopularSection', 'com.example.jetnews.ui.home.PostListTopSection', 'com.example.jetnews.ui.interests.SelectTopicButtonPreviewTemplate', 'com.example.jetnews.ui.interests.TopicItem', 'com.example.jetnews.ui.post.FunctionalityNotAvailablePopup', 'com.example.jetnews.ui.post.PostContent', 'com.example.jetnews.ui.utils.FavoriteButton', 'com.example.jetnews.ui.utils.ShareButton', 'com.example.jetnews.ui.utils.TextSettingsButton']));
   }
   function renderScreen(screenId, argumentsJson) {
     _init_properties_DootahExports_kt__7euayy();
@@ -3847,27 +4049,31 @@ if (typeof Math.clz32 === 'undefined') {
     _init_properties_DootahExports_kt__7euayy();
     switch (screenId) {
       case 'com.example.jetnews.glance.ui.PostDescription':
-        return DootahScreen_com_example_jetnews_glance_ui_PostDescription_instance.y6(arguments_0, state);
+        return DootahScreen_com_example_jetnews_glance_ui_PostDescription_instance.l7(arguments_0, state);
       case 'com.example.jetnews.ui.JetNewsLogo':
-        return DootahScreen_com_example_jetnews_ui_JetNewsLogo_instance.y6(arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_JetNewsLogo_instance.l7(arguments_0, state);
       case 'com.example.jetnews.ui.home.AuthorAndReadTime':
-        return DootahScreen_com_example_jetnews_ui_home_AuthorAndReadTime_instance.y6(arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_home_AuthorAndReadTime_instance.l7(arguments_0, state);
       case 'com.example.jetnews.ui.home.PostCardTopPreviews':
-        return DootahScreen_com_example_jetnews_ui_home_PostCardTopPreviews_instance.y6(arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_home_PostCardTopPreviews_instance.l7(arguments_0, state);
       case 'com.example.jetnews.ui.home.PostListPopularSection':
-        return DootahScreen_com_example_jetnews_ui_home_PostListPopularSection_instance.y6(arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_home_PostListPopularSection_instance.l7(arguments_0, state);
       case 'com.example.jetnews.ui.home.PostListTopSection':
-        return DootahScreen_com_example_jetnews_ui_home_PostListTopSection_instance.y6(arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_home_PostListTopSection_instance.l7(arguments_0, state);
       case 'com.example.jetnews.ui.interests.SelectTopicButtonPreviewTemplate':
-        return DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate_instance.y6(arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate_instance.l7(arguments_0, state);
+      case 'com.example.jetnews.ui.interests.TopicItem':
+        return DootahScreen_com_example_jetnews_ui_interests_TopicItem_instance.l7(arguments_0, state);
       case 'com.example.jetnews.ui.post.FunctionalityNotAvailablePopup':
-        return DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup_instance.y6(arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup_instance.l7(arguments_0, state);
+      case 'com.example.jetnews.ui.post.PostContent':
+        return DootahScreen_com_example_jetnews_ui_post_PostContent_instance.l7(arguments_0, state);
       case 'com.example.jetnews.ui.utils.FavoriteButton':
-        return DootahScreen_com_example_jetnews_ui_utils_FavoriteButton_instance.y6(arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_utils_FavoriteButton_instance.l7(arguments_0, state);
       case 'com.example.jetnews.ui.utils.ShareButton':
-        return DootahScreen_com_example_jetnews_ui_utils_ShareButton_instance.y6(arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_utils_ShareButton_instance.l7(arguments_0, state);
       case 'com.example.jetnews.ui.utils.TextSettingsButton':
-        return DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton_instance.y6(arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton_instance.l7(arguments_0, state);
       default:
         return null;
     }
@@ -3876,27 +4082,31 @@ if (typeof Math.clz32 === 'undefined') {
     _init_properties_DootahExports_kt__7euayy();
     switch (screenId) {
       case 'com.example.jetnews.glance.ui.PostDescription':
-        return DootahScreen_com_example_jetnews_glance_ui_PostDescription_instance.j7(action, arguments_0, state);
+        return DootahScreen_com_example_jetnews_glance_ui_PostDescription_instance.y7(action, arguments_0, state);
       case 'com.example.jetnews.ui.JetNewsLogo':
-        return DootahScreen_com_example_jetnews_ui_JetNewsLogo_instance.j7(action, arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_JetNewsLogo_instance.y7(action, arguments_0, state);
       case 'com.example.jetnews.ui.home.AuthorAndReadTime':
-        return DootahScreen_com_example_jetnews_ui_home_AuthorAndReadTime_instance.j7(action, arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_home_AuthorAndReadTime_instance.y7(action, arguments_0, state);
       case 'com.example.jetnews.ui.home.PostCardTopPreviews':
-        return DootahScreen_com_example_jetnews_ui_home_PostCardTopPreviews_instance.j7(action, arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_home_PostCardTopPreviews_instance.y7(action, arguments_0, state);
       case 'com.example.jetnews.ui.home.PostListPopularSection':
-        return DootahScreen_com_example_jetnews_ui_home_PostListPopularSection_instance.j7(action, arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_home_PostListPopularSection_instance.y7(action, arguments_0, state);
       case 'com.example.jetnews.ui.home.PostListTopSection':
-        return DootahScreen_com_example_jetnews_ui_home_PostListTopSection_instance.j7(action, arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_home_PostListTopSection_instance.y7(action, arguments_0, state);
       case 'com.example.jetnews.ui.interests.SelectTopicButtonPreviewTemplate':
-        return DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate_instance.j7(action, arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate_instance.y7(action, arguments_0, state);
+      case 'com.example.jetnews.ui.interests.TopicItem':
+        return DootahScreen_com_example_jetnews_ui_interests_TopicItem_instance.y7(action, arguments_0, state);
       case 'com.example.jetnews.ui.post.FunctionalityNotAvailablePopup':
-        return DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup_instance.j7(action, arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup_instance.y7(action, arguments_0, state);
+      case 'com.example.jetnews.ui.post.PostContent':
+        return DootahScreen_com_example_jetnews_ui_post_PostContent_instance.y7(action, arguments_0, state);
       case 'com.example.jetnews.ui.utils.FavoriteButton':
-        return DootahScreen_com_example_jetnews_ui_utils_FavoriteButton_instance.j7(action, arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_utils_FavoriteButton_instance.y7(action, arguments_0, state);
       case 'com.example.jetnews.ui.utils.ShareButton':
-        return DootahScreen_com_example_jetnews_ui_utils_ShareButton_instance.j7(action, arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_utils_ShareButton_instance.y7(action, arguments_0, state);
       case 'com.example.jetnews.ui.utils.TextSettingsButton':
-        return DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton_instance.j7(action, arguments_0, state);
+        return DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton_instance.y7(action, arguments_0, state);
       default:
         return null;
     }
@@ -3909,9 +4119,9 @@ if (typeof Math.clz32 === 'undefined') {
     }
   }
   function DootahScreen_com_example_jetnews_glance_ui_PostDescription() {
-    this.x6_1 = 'com.example.jetnews.glance.ui.PostDescription';
+    this.k7_1 = 'com.example.jetnews.glance.ui.PostDescription';
   }
-  protoOf(DootahScreen_com_example_jetnews_glance_ui_PostDescription).y6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_glance_ui_PostDescription).l7 = function (arguments_0, state) {
     var title = arguments_0.y4('title');
     var metadata = arguments_0.y4('metadata');
     var tmp = mapOf(to('modifier', new HandleProp('modifier')));
@@ -3925,7 +4135,7 @@ if (typeof Math.clz32 === 'undefined') {
     var tmp$ret$0 = this_0.a2();
     return new ComponentNode('androidx.glance.layout.Column(content|horizontalAlignment|modifier|verticalAlignment)', tmp, mapOf(to('content', tmp$ret$0)));
   };
-  protoOf(DootahScreen_com_example_jetnews_glance_ui_PostDescription).j7 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_glance_ui_PostDescription).y7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     var title = arguments_0.y4('title');
@@ -3937,9 +4147,9 @@ if (typeof Math.clz32 === 'undefined') {
     return DootahScreen_com_example_jetnews_glance_ui_PostDescription_instance;
   }
   function DootahScreen_com_example_jetnews_ui_JetNewsLogo() {
-    this.z6_1 = 'com.example.jetnews.ui.JetNewsLogo';
+    this.m7_1 = 'com.example.jetnews.ui.JetNewsLogo';
   }
-  protoOf(DootahScreen_com_example_jetnews_ui_JetNewsLogo).y6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_JetNewsLogo).l7 = function (arguments_0, state) {
     var tmp = listOf(Inherited_instance);
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
@@ -3949,9 +4159,9 @@ if (typeof Math.clz32 === 'undefined') {
     this_0.f1(new ComponentNode('androidx.compose.foundation.layout.Spacer(modifier)', mapOf(to('modifier', new ModifierProp(listOf(new ModifierOpNode('width', mapOf(to('width', new DpProp(8.0))))))))));
     this_0.f1(new ComponentNode('androidx.compose.material3.Icon(contentDescription|modifier|painter|tint)', mapOf_0([to('painter', new PainterResourceProp('drawable:ic_jetnews_wordmark')), to('contentDescription', new StringResourceProp('string:app_name')), to('tint', new ThemeColorProp('onSurfaceVariant'))])));
     var tmp$ret$0 = this_0.a2();
-    return new RowNode(tmp, tmp$ret$0);
+    return new RowNode(tmp, VOID, VOID, tmp$ret$0);
   };
-  protoOf(DootahScreen_com_example_jetnews_ui_JetNewsLogo).j7 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_JetNewsLogo).y7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     return commands;
@@ -3961,20 +4171,19 @@ if (typeof Math.clz32 === 'undefined') {
     return DootahScreen_com_example_jetnews_ui_JetNewsLogo_instance;
   }
   function DootahScreen_com_example_jetnews_ui_home_AuthorAndReadTime() {
-    this.a7_1 = 'com.example.jetnews.ui.home.AuthorAndReadTime';
+    this.n7_1 = 'com.example.jetnews.ui.home.AuthorAndReadTime';
   }
-  protoOf(DootahScreen_com_example_jetnews_ui_home_AuthorAndReadTime).y6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_home_AuthorAndReadTime).l7 = function (arguments_0, state) {
     var tmp = listOf(Inherited_instance);
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
     var this_0 = ArrayList_init_$Create$();
-    this_0.f1(new TextNode('\u2605 '));
     this_0.f1(new ComponentNode('!androidx.compose.material3.Text@0mjrtva468l0y'));
     var tmp$ret$0 = this_0.a2();
-    return new RowNode(tmp, tmp$ret$0);
+    return new RowNode(tmp, VOID, VOID, tmp$ret$0);
   };
-  protoOf(DootahScreen_com_example_jetnews_ui_home_AuthorAndReadTime).j7 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_home_AuthorAndReadTime).y7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     return commands;
@@ -3984,9 +4193,9 @@ if (typeof Math.clz32 === 'undefined') {
     return DootahScreen_com_example_jetnews_ui_home_AuthorAndReadTime_instance;
   }
   function DootahScreen_com_example_jetnews_ui_home_PostCardTopPreviews() {
-    this.b7_1 = 'com.example.jetnews.ui.home.PostCardTopPreviews';
+    this.o7_1 = 'com.example.jetnews.ui.home.PostCardTopPreviews';
   }
-  protoOf(DootahScreen_com_example_jetnews_ui_home_PostCardTopPreviews).y6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_home_PostCardTopPreviews).l7 = function (arguments_0, state) {
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
@@ -4001,7 +4210,7 @@ if (typeof Math.clz32 === 'undefined') {
     var tmp$ret$0 = this_0.a2();
     return new ComponentNode('com.example.jetnews.ui.theme.JetnewsTheme(content|darkTheme)', VOID, mapOf(to('content', tmp$ret$0)));
   };
-  protoOf(DootahScreen_com_example_jetnews_ui_home_PostCardTopPreviews).j7 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_home_PostCardTopPreviews).y7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     return commands;
@@ -4011,9 +4220,9 @@ if (typeof Math.clz32 === 'undefined') {
     return DootahScreen_com_example_jetnews_ui_home_PostCardTopPreviews_instance;
   }
   function DootahScreen_com_example_jetnews_ui_home_PostListPopularSection() {
-    this.c7_1 = 'com.example.jetnews.ui.home.PostListPopularSection';
+    this.p7_1 = 'com.example.jetnews.ui.home.PostListPopularSection';
   }
-  protoOf(DootahScreen_com_example_jetnews_ui_home_PostListPopularSection).y6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_home_PostListPopularSection).l7 = function (arguments_0, state) {
     var tmp = emptyList();
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
@@ -4021,13 +4230,12 @@ if (typeof Math.clz32 === 'undefined') {
     var this_0 = ArrayList_init_$Create$();
     this_0.f1(new ComponentNode('!androidx.compose.material3.Text@134ukua59ul36'));
     this_0.f1(new ComponentNode('!androidx.compose.foundation.layout.Row@1dkyl9rc9m8nq'));
-    this_0.f1(new TextNode('Updated over the air'));
     this_0.f1(new ComponentNode('androidx.compose.foundation.layout.Spacer(modifier)', mapOf(to('modifier', new ModifierProp(listOf(new ModifierOpNode('height', mapOf(to('height', new DpProp(16.0))))))))));
     this_0.f1(new ComponentNode('com.example.jetnews.ui.home.PostListDivider()'));
     var tmp$ret$0 = this_0.a2();
-    return new ColumnNode(tmp, tmp$ret$0);
+    return new ColumnNode(tmp, VOID, VOID, tmp$ret$0);
   };
-  protoOf(DootahScreen_com_example_jetnews_ui_home_PostListPopularSection).j7 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_home_PostListPopularSection).y7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     return commands;
@@ -4037,9 +4245,9 @@ if (typeof Math.clz32 === 'undefined') {
     return DootahScreen_com_example_jetnews_ui_home_PostListPopularSection_instance;
   }
   function DootahScreen_com_example_jetnews_ui_home_PostListTopSection() {
-    this.d7_1 = 'com.example.jetnews.ui.home.PostListTopSection';
+    this.q7_1 = 'com.example.jetnews.ui.home.PostListTopSection';
   }
-  protoOf(DootahScreen_com_example_jetnews_ui_home_PostListTopSection).y6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_home_PostListTopSection).l7 = function (arguments_0, state) {
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
     // Inline function 'kotlin.apply' call
@@ -4050,7 +4258,7 @@ if (typeof Math.clz32 === 'undefined') {
     var tmp$ret$0 = this_0.a2();
     return new FragmentNode(tmp$ret$0);
   };
-  protoOf(DootahScreen_com_example_jetnews_ui_home_PostListTopSection).j7 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_home_PostListTopSection).y7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     return commands;
@@ -4060,9 +4268,9 @@ if (typeof Math.clz32 === 'undefined') {
     return DootahScreen_com_example_jetnews_ui_home_PostListTopSection_instance;
   }
   function DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate() {
-    this.e7_1 = 'com.example.jetnews.ui.interests.SelectTopicButtonPreviewTemplate';
+    this.r7_1 = 'com.example.jetnews.ui.interests.SelectTopicButtonPreviewTemplate';
   }
-  protoOf(DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate).y6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate).l7 = function (arguments_0, state) {
     var selected = arguments_0.z4('selected');
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
@@ -4078,7 +4286,7 @@ if (typeof Math.clz32 === 'undefined') {
     var tmp$ret$0 = this_0.a2();
     return new ComponentNode('com.example.jetnews.ui.theme.JetnewsTheme(content|darkTheme)', VOID, mapOf(to('content', tmp$ret$0)));
   };
-  protoOf(DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate).j7 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate).y7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     var selected = arguments_0.z4('selected');
@@ -4088,10 +4296,37 @@ if (typeof Math.clz32 === 'undefined') {
   function DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate_getInstance() {
     return DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate_instance;
   }
-  function DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup() {
-    this.f7_1 = 'com.example.jetnews.ui.post.FunctionalityNotAvailablePopup';
+  function DootahScreen_com_example_jetnews_ui_interests_TopicItem() {
+    this.s7_1 = 'com.example.jetnews.ui.interests.TopicItem';
   }
-  protoOf(DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup).y6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_interests_TopicItem).l7 = function (arguments_0, state) {
+    var itemTitle = arguments_0.y4('itemTitle');
+    var selected = arguments_0.z4('selected');
+    var tmp = listOf(new Padding(new DimensionNode(16.0), new DimensionNode(0.0), new DimensionNode(16.0), new DimensionNode(0.0)));
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_0 = ArrayList_init_$Create$();
+    this_0.f1(new ComponentNode('!androidx.compose.foundation.layout.Row@1c43lyda7t4pl'));
+    this_0.f1(new ComponentNode('!androidx.compose.material3.HorizontalDivider@1a45924waj38g'));
+    var tmp$ret$0 = this_0.a2();
+    return new ColumnNode(tmp, VOID, VOID, tmp$ret$0);
+  };
+  protoOf(DootahScreen_com_example_jetnews_ui_interests_TopicItem).y7 = function (action, arguments_0, state) {
+    // Inline function 'kotlin.collections.mutableListOf' call
+    var commands = ArrayList_init_$Create$();
+    var itemTitle = arguments_0.y4('itemTitle');
+    var selected = arguments_0.z4('selected');
+    return commands;
+  };
+  var DootahScreen_com_example_jetnews_ui_interests_TopicItem_instance;
+  function DootahScreen_com_example_jetnews_ui_interests_TopicItem_getInstance() {
+    return DootahScreen_com_example_jetnews_ui_interests_TopicItem_instance;
+  }
+  function DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup() {
+    this.t7_1 = 'com.example.jetnews.ui.post.FunctionalityNotAvailablePopup';
+  }
+  protoOf(DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup).l7 = function (arguments_0, state) {
     var tmp = mapOf(to('onDismissRequest', new CallbackProp('onDismiss()', 0)));
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
@@ -4115,7 +4350,7 @@ if (typeof Math.clz32 === 'undefined') {
     var tmp$ret$4 = this_1.a2();
     return new ComponentNode('androidx.compose.material3.AlertDialog(confirmButton|containerColor|dismissButton|icon|iconContentColor|modifier|onDismissRequest|properties|shape|text|textContentColor|title|titleContentColor|tonalElevation)', tmp, mapOf_0([tmp_0, to('confirmButton', tmp$ret$4)]));
   };
-  protoOf(DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup).j7 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup).y7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     return commands;
@@ -4124,10 +4359,35 @@ if (typeof Math.clz32 === 'undefined') {
   function DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup_getInstance() {
     return DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup_instance;
   }
-  function DootahScreen_com_example_jetnews_ui_utils_FavoriteButton() {
-    this.g7_1 = 'com.example.jetnews.ui.utils.FavoriteButton';
+  function DootahScreen_com_example_jetnews_ui_post_PostContent() {
+    this.u7_1 = 'com.example.jetnews.ui.post.PostContent';
   }
-  protoOf(DootahScreen_com_example_jetnews_ui_utils_FavoriteButton).y6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_post_PostContent).l7 = function (arguments_0, state) {
+    var tmp = to('contentPadding', new HandleProp('contentPadding'));
+    // Inline function 'kotlin.collections.mapOf' call
+    var tmp$ret$0 = emptyMap();
+    var tmp_0 = mapOf_0([tmp, to('modifier', new ModifierProp(listOf_0([new ModifierOpNode('inherited', tmp$ret$0), new ModifierOpNode('padding', mapOf(to('horizontal', new AnchorProp('com.example.jetnews.ui.post.defaultSpacerSize'))))]))), to('state', new HandleProp('state'))]);
+    // Inline function 'kotlin.collections.buildList' call
+    // Inline function 'kotlin.collections.buildListInternal' call
+    // Inline function 'kotlin.apply' call
+    var this_0 = ArrayList_init_$Create$();
+    this_0.f1(new TextNode("\u2605 Editor's pick \u2014 shipped over the air"));
+    var tmp$ret$1 = this_0.a2();
+    return new ComponentNode('androidx.compose.foundation.lazy.LazyColumn(content|contentPadding|flingBehavior|horizontalAlignment|modifier|overscrollEffect|reverseLayout|state|userScrollEnabled|verticalArrangement)', tmp_0, VOID, mapOf(to('content', listOf_0([new Item(tmp$ret$1), new Region('!com.example.jetnews.ui.post.postContentItems@0n28bqwqgrz39')]))));
+  };
+  protoOf(DootahScreen_com_example_jetnews_ui_post_PostContent).y7 = function (action, arguments_0, state) {
+    // Inline function 'kotlin.collections.mutableListOf' call
+    var commands = ArrayList_init_$Create$();
+    return commands;
+  };
+  var DootahScreen_com_example_jetnews_ui_post_PostContent_instance;
+  function DootahScreen_com_example_jetnews_ui_post_PostContent_getInstance() {
+    return DootahScreen_com_example_jetnews_ui_post_PostContent_instance;
+  }
+  function DootahScreen_com_example_jetnews_ui_utils_FavoriteButton() {
+    this.v7_1 = 'com.example.jetnews.ui.utils.FavoriteButton';
+  }
+  protoOf(DootahScreen_com_example_jetnews_ui_utils_FavoriteButton).l7 = function (arguments_0, state) {
     var tmp = mapOf(to('onClick', new CallbackProp('onClick()', 0)));
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
@@ -4137,7 +4397,7 @@ if (typeof Math.clz32 === 'undefined') {
     var tmp$ret$0 = this_0.a2();
     return new ComponentNode('androidx.compose.material3.IconButton(colors|content|enabled|interactionSource|modifier|onClick|shape)', tmp, mapOf(to('content', tmp$ret$0)));
   };
-  protoOf(DootahScreen_com_example_jetnews_ui_utils_FavoriteButton).j7 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_utils_FavoriteButton).y7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     return commands;
@@ -4147,9 +4407,9 @@ if (typeof Math.clz32 === 'undefined') {
     return DootahScreen_com_example_jetnews_ui_utils_FavoriteButton_instance;
   }
   function DootahScreen_com_example_jetnews_ui_utils_ShareButton() {
-    this.h7_1 = 'com.example.jetnews.ui.utils.ShareButton';
+    this.w7_1 = 'com.example.jetnews.ui.utils.ShareButton';
   }
-  protoOf(DootahScreen_com_example_jetnews_ui_utils_ShareButton).y6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_utils_ShareButton).l7 = function (arguments_0, state) {
     var tmp = mapOf(to('onClick', new CallbackProp('onClick()', 0)));
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
@@ -4159,7 +4419,7 @@ if (typeof Math.clz32 === 'undefined') {
     var tmp$ret$0 = this_0.a2();
     return new ComponentNode('androidx.compose.material3.IconButton(colors|content|enabled|interactionSource|modifier|onClick|shape)', tmp, mapOf(to('content', tmp$ret$0)));
   };
-  protoOf(DootahScreen_com_example_jetnews_ui_utils_ShareButton).j7 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_utils_ShareButton).y7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     return commands;
@@ -4169,9 +4429,9 @@ if (typeof Math.clz32 === 'undefined') {
     return DootahScreen_com_example_jetnews_ui_utils_ShareButton_instance;
   }
   function DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton() {
-    this.i7_1 = 'com.example.jetnews.ui.utils.TextSettingsButton';
+    this.x7_1 = 'com.example.jetnews.ui.utils.TextSettingsButton';
   }
-  protoOf(DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton).y6 = function (arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton).l7 = function (arguments_0, state) {
     var tmp = mapOf(to('onClick', new CallbackProp('onClick()', 0)));
     // Inline function 'kotlin.collections.buildList' call
     // Inline function 'kotlin.collections.buildListInternal' call
@@ -4181,7 +4441,7 @@ if (typeof Math.clz32 === 'undefined') {
     var tmp$ret$0 = this_0.a2();
     return new ComponentNode('androidx.compose.material3.IconButton(colors|content|enabled|interactionSource|modifier|onClick|shape)', tmp, mapOf(to('content', tmp$ret$0)));
   };
-  protoOf(DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton).j7 = function (action, arguments_0, state) {
+  protoOf(DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton).y7 = function (action, arguments_0, state) {
     // Inline function 'kotlin.collections.mutableListOf' call
     var commands = ArrayList_init_$Create$();
     return commands;
@@ -4208,7 +4468,9 @@ if (typeof Math.clz32 === 'undefined') {
   DootahScreen_com_example_jetnews_ui_home_PostListPopularSection_instance = new DootahScreen_com_example_jetnews_ui_home_PostListPopularSection();
   DootahScreen_com_example_jetnews_ui_home_PostListTopSection_instance = new DootahScreen_com_example_jetnews_ui_home_PostListTopSection();
   DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate_instance = new DootahScreen_com_example_jetnews_ui_interests_SelectTopicButtonPreviewTemplate();
+  DootahScreen_com_example_jetnews_ui_interests_TopicItem_instance = new DootahScreen_com_example_jetnews_ui_interests_TopicItem();
   DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup_instance = new DootahScreen_com_example_jetnews_ui_post_FunctionalityNotAvailablePopup();
+  DootahScreen_com_example_jetnews_ui_post_PostContent_instance = new DootahScreen_com_example_jetnews_ui_post_PostContent();
   DootahScreen_com_example_jetnews_ui_utils_FavoriteButton_instance = new DootahScreen_com_example_jetnews_ui_utils_FavoriteButton();
   DootahScreen_com_example_jetnews_ui_utils_ShareButton_instance = new DootahScreen_com_example_jetnews_ui_utils_ShareButton();
   DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton_instance = new DootahScreen_com_example_jetnews_ui_utils_TextSettingsButton();
