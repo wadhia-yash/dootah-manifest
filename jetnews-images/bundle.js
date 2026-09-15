@@ -1,4 +1,4 @@
-// dootah-images:8f4ebc52623b389fbc48d4f1b2706cade39dbcb2c7fad0457560ed8a3bcb03f1
+// dootah-images:f135cc13081d6e3708403d700c35f69d44b508b3137fca99361bde8089641d2c
 //region block: polyfills
 (function () {
   if (typeof globalThis === 'object')
@@ -4406,7 +4406,7 @@ if (typeof Math.clz32 === 'undefined') {
     this.x7_1 = 'com.example.jetnews.ui.home.PostImage';
   }
   protoOf(DootahScreen_com_example_jetnews_ui_home_PostImage).p7 = function (arguments_0, state) {
-    var tmp = to('painter', new PainterResourceProp('image:8f4ebc52623b389fbc48d4f1b2706cade39dbcb2c7fad0457560ed8a3bcb03f1'));
+    var tmp = to('painter', new PainterResourceProp('image:f135cc13081d6e3708403d700c35f69d44b508b3137fca99361bde8089641d2c'));
     var tmp_0 = to('contentDescription', new StringProp('Mango photo'));
     // Inline function 'kotlin.collections.mapOf' call
     var tmp$ret$0 = emptyMap();
