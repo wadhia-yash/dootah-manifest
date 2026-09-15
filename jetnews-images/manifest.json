@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "bundleVersion": 11,
+  "runtimeVersion": "8",
+  "enabled": true,
+  "url": "https://wadhia-yash.github.io/dootah-manifest/jetnews-images/bundle.js",
+  "sha256": "cbac789228fe373517b97a7a7053f7c1cad40f259bacda235723c35245547118",
+  "images": [{"id":"f135cc13081d6e3708403d700c35f69d44b508b3137fca99361bde8089641d2c","url":"https://wadhia-yash.github.io/dootah-manifest/jetnews-images/images/f135cc13081d6e3708403d700c35f69d44b508b3137fca99361bde8089641d2c","sha256":"f135cc13081d6e3708403d700c35f69d44b508b3137fca99361bde8089641d2c"}]
+}
