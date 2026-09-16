@@ -1,11 +1,1 @@
-{
-  "schemaVersion": 1,
-  "appId": "com.example.jetnews",
-  "runtimeVersion": "9",
-  "bundleVersion": 33,
-  "enabled": false,
-  "url": "https://wadhia-yash.github.io/dootah-manifest/jetnews-signing/33/bundle.js",
-  "sha256": "18f186043be34d6069eb6372b5d7022832172a0fdb11f547042ec0a84dc70f02",
-  "images": [],
-  "signature": "QWttrA99lmX0TntQ9vk5cJ96F+tSxzhCG+sJndlgqQaUMXHEc7J/NCgdaKdkKy46Gymynw7KUl/nyT/Unh2aCA=="
-}
+{"schemaVersion":1,"appId":"com.example.jetnews","runtimeVersion":"9","bundleVersion":31,"enabled":true,"url":"https://wadhia-yash.github.io/dootah-manifest/jetnews-signing/31/bundle.js","sha256":"b523100ae7b26eb21d52eb5ff8f51dec7db5a1df3cd28d7b1731a7f14158811e","images":[],"signature":"xct90W/RDzHo5PAkq3i81v7nUBtQbUof9d1DR32RyKKQkp57CyixhoxFxARnM2zuieA1JTgrlBgoNvgq759+Bw=="}
